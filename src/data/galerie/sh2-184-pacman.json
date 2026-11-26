@@ -1,0 +1,67 @@
+{
+ "slug": "sh2-184-pacman",
+ "source": "SH2-184_NGC281_Pacman_SHO.txt",
+ "designation": "SH2-184 (NGC 281)",
+ "name": "La nébuleuse Pacman",
+ "constellation": "Cassiopée",
+ "subtitle": "Image simple en bande étroite, palette SHO (Hubble)",
+ "author": "Martin Magnan",
+ "date": "2026-08-29T12:00:00.000Z",
+ "integration": "52,8 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 8 novembre 2025 au 29 août 2026",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C puis à −15 °C, binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "Ha, OIII, SII",
+  "Pose unitaire": "600 s",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Temps d'intégration": "52,8 h (317 poses de 600 s).",
+  "Dimensions": "6216 × 4134 pixels (25,7 mégapixels), après recadrage des bords",
+  "Champ": "environ 3,3° × 2,2°",
+  "Centre du champ": "AR 0 h 53 min, Déc +56° 37' (approximatif)"
+ },
+ "images": [
+  {
+   "file": "SH2-184_NGC281_Pacman_SHO.jpg",
+   "kind": "image",
+   "label": "SHO",
+   "width": 6216,
+   "height": 4134,
+   "thumb": "/galerie/sh2-184-pacman/sh2-184-ngc281-pacman-sho-900.webp",
+   "web": "/galerie/sh2-184-pacman/sh2-184-ngc281-pacman-sho-2200.jpg",
+   "large": "/galerie/sh2-184-pacman/sh2-184-ngc281-pacman-sho-4000.jpg",
+   "largeWidth": 4000
+  },
+  {
+   "file": "SH2-184_detail_coeur.jpg",
+   "kind": "detail",
+   "label": "Détail : cœur",
+   "width": 1000,
+   "height": 1000,
+   "thumb": "/galerie/sh2-184-pacman/sh2-184-detail-coeur-900.webp",
+   "web": "/galerie/sh2-184-pacman/sh2-184-detail-coeur.jpg",
+   "large": "/galerie/sh2-184-pacman/sh2-184-detail-coeur.jpg",
+   "largeWidth": 1000
+  }
+ ],
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de 3,3° sur 2,2°, dans Cassiopée, est centré sur NGC 281, cataloguée aussi Sharpless 2-184 : une région de formation d'étoiles située à environ 9 500 années-lumière, dans le bras de Persée de notre Galaxie. Son surnom de « Pacman » vient de la bande de poussière sombre qui entaille le nuage comme une bouche ouverte.</p>\n<p>Au cœur de la nébuleuse, le jeune amas IC 1590 abrite des étoiles massives et très chaudes dont le rayonnement ionise le gaz et le fait briller. Ce rayonnement creuse aussi le nuage : sur le bord gauche, il sculpte un front doré et des piliers, tandis que de petits nodules de poussière très sombres, des globules de Bok, se découpent devant le fond lumineux. Ce sont des cocons où des étoiles peuvent encore se former.</p>\n<p>Autour, tout le champ est parcouru de voiles d'hydrogène beaucoup plus faibles, dont un long filament vertical en haut à gauche.</p>\n<p>En palette SHO, le soufre (SII) est affecté au rouge, l'hydrogène (Ha) au vert et l'oxygène (OIII) au bleu ; le vert dominant de l'hydrogène est ensuite atténué. Le cœur apparaît bleu parce que l'oxygène ionisé y domine, près des étoiles chaudes ; les bords dorés sont ceux où l'hydrogène et le soufre l'emportent. Les couleurs ne sont donc pas celles que verrait l'œil.</p>\n<p>Cette image a été acquise en collaboration avec Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 8 novembre 2025 au 29 août 2026</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C puis à −15 °C, binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>Ha, OIII, SII</dd></div><div><dt>Pose unitaire</dt><dd>600 s</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Poses retenues (toutes les brutes ont été alignées et empilées) :</p>\n<div class=\"tableau\"><table><thead><tr><th>Filtre</th><th>Poses</th><th>Pose unitaire</th><th>Total</th><th>Période</th></tr></thead><tbody><tr><td>Ha</td><td>109</td><td>600 s</td><td>18,2 h</td><td>8 novembre 2025 au 1er janvier 2026</td></tr><tr><td>OIII</td><td>110</td><td>600 s</td><td>18,3 h</td><td>19 décembre 2025 au 31 janvier 2026</td></tr><tr><td>SII</td><td>98</td><td>600 s</td><td>16,3 h</td><td>31 janvier au 29 août 2026</td></tr></tbody></table></div>\n<dl><div><dt>Temps d'intégration</dt><dd>52,8 h (317 poses de 600 s).</dd></div></dl>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6216 × 4134 pixels (25,7 mégapixels), après recadrage des bords</dd></div><div><dt>Champ</dt><dd>environ 3,3° × 2,2°</dd></div><div><dt>Centre du champ</dt><dd>AR 0 h 53 min, Déc +56° 37' (approximatif)</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par filtre)</h4><ul><li>Calibration : master darks 600 s à 0 °C et à −15 °C selon la température de chaque pose ; master flats Ha à 0 °C et à −15 °C ; master flats OIII et SII à −15 °C.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Préparation</h4><ul><li>Combinaison SHO (R = SII, V = Ha, B = OIII).</li><li>Recadrage commun des bords.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses).</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Étirement canal par canal, niveau de fond visé 0,14 (plus bas que le réglage habituel de 0,20, pour ne pas brûler le cœur).</li><li>Compression du cœur : HDRMultiscaleTransform (6 couches, appliqué à 80 %), avec masque de luminosité.</li><li>Atténuation du vert (SCNR 0,7), courbes de contraste et de saturation.</li><li>DarkStructureEnhance, deux passes.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>Deuxième version du rendu : dans la première, le cœur de la nébuleuse était brûlé.</li><li>Aucune pose RGB n'a été prise pour cette cible : la couleur des étoiles vient des filtres à bande étroite et n'est pas leur couleur réelle.</li><li>Les 74 poses SII prises à 0 °C ont été calibrées avec un flat à −15 °C, faute de flat SII à 0 °C.</li></ul>"
+  }
+ ]
+}

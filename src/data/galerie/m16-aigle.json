@@ -1,0 +1,55 @@
+{
+ "slug": "m16-aigle",
+ "source": "M16_SHO.txt",
+ "designation": "M16",
+ "name": "La nébuleuse de l'Aigle",
+ "constellation": "Serpent",
+ "subtitle": "Image simple en bande étroite, palette SHO (Hubble)",
+ "author": "Martin Magnan",
+ "date": "2026-07-04T12:00:00.000Z",
+ "integration": "50,8 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 9 septembre 2025 au 4 juillet 2026",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C (−15 °C pour une partie de l'OIII), binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "Ha, OIII, SII",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Temps d'intégration": "50,8 h (305 poses).",
+  "Dimensions": "6156 × 4002 pixels (24,6 mégapixels), après recadrage des bords",
+  "Champ": "environ 3,2° × 2,1°",
+  "Centre du champ": "AR 18 h 19 min, Déc −13° 49'"
+ },
+ "images": [
+  {
+   "file": "M16_SHO.jpg",
+   "kind": "image",
+   "label": "SHO",
+   "width": 6156,
+   "height": 4002,
+   "thumb": "/galerie/m16-aigle/m16-sho-900.webp",
+   "web": "/galerie/m16-aigle/m16-sho-2200.jpg",
+   "large": "/galerie/m16-aigle/m16-sho-4000.jpg",
+   "largeWidth": 4000
+  }
+ ],
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de 3,2° sur 2,1°, dans la Voie lactée d'été, est centré sur M16, la nébuleuse de l'Aigle, à environ 5700 années-lumière. C'est une vaste région de formation d'étoiles : le jeune amas NGC 6611, né de ce nuage, en ionise le gaz et y creuse une cavité, visible ici en bleu au centre.</p>\n<p>Dans cette cavité se dressent de longues colonnes de gaz et de poussière froide, sculptées par le rayonnement des étoiles : les « Piliers de la Création », rendus célèbres par le télescope spatial Hubble. Ils apparaissent comme de petites silhouettes sombres au cœur de la zone brillante.</p>\n<p>Autour, le champ est rempli de nuages d'hydrogène et de soufre aux tons dorés et de nombreuses nébuleuses obscures.</p>\n<p>Cette image a été acquise en collaboration avec Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 9 septembre 2025 au 4 juillet 2026</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C (−15 °C pour une partie de l'OIII), binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>Ha, OIII, SII</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Poses retenues (toutes les brutes disponibles ont été empilées) :</p>\n<div class=\"tableau\"><table><thead><tr><th>Filtre</th><th>Poses</th><th>Pose unitaire</th><th>Total</th><th>Période</th></tr></thead><tbody><tr><td>Ha</td><td>105</td><td>600 s</td><td>17,5 h</td><td>9 septembre au 3 novembre 2025</td></tr><tr><td>OIII</td><td>100</td><td>600 s</td><td>16,7 h</td><td>29 mars au 18 juin 2026</td></tr><tr><td>SII</td><td>100</td><td>600 s</td><td>16,7 h</td><td>18 juin au 4 juillet 2026</td></tr></tbody></table></div>\n<dl><div><dt>Temps d'intégration</dt><dd>50,8 h (305 poses).</dd></div></dl>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6156 × 4002 pixels (24,6 mégapixels), après recadrage des bords</dd></div><div><dt>Champ</dt><dd>environ 3,2° × 2,1°</dd></div><div><dt>Centre du champ</dt><dd>AR 18 h 19 min, Déc −13° 49'</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par filtre)</h4><ul><li>Calibration : master dark 600 s à 0 °C et à −15 °C selon la pose ; master flat Ha d'octobre 2025 ; master flats OIII et SII à −15 °C de décembre 2025.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Préparation</h4><ul><li>Combinaison SHO (R = SII, V = Ha, B = OIII) pour les nébuleuses.</li><li>Recadrage commun des bords.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses).</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Étirement canal par canal, niveau de fond visé 0,20.</li><li>Atténuation du vert (SCNR 0,7), courbes de contraste et de saturation.</li><li>DarkStructureEnhance, deux passes, pour renforcer les nébuleuses obscures.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>Aucune pose RGB n'a été prise pour cette cible : la couleur des étoiles vient des filtres à bande étroite et n'est pas leur couleur réelle.</li></ul>"
+  }
+ ]
+}

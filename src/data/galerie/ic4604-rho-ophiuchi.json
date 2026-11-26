@@ -1,0 +1,55 @@
+{
+ "slug": "ic4604-rho-ophiuchi",
+ "source": "IC4604_Rho_Ophiuchi_LRGB.txt",
+ "designation": "IC 4604",
+ "name": "Le nuage de Rho Ophiuchi",
+ "constellation": "Ophiuchus",
+ "subtitle": "Image simple en large bande, LRGB",
+ "author": "Martin Magnan",
+ "date": "2026-07-08T12:00:00.000Z",
+ "integration": "19,6 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 26 mars au 8 juillet 2026",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à −15 °C puis à 0 °C, binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "L, R, G, B",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Temps d'intégration": "19,6 h (392 poses).",
+  "Dimensions": "6108 × 3978 pixels (24,3 mégapixels), après recadrage des bords",
+  "Champ": "environ 3,2° × 2,1°",
+  "Centre du champ": "AR 16 h 29 min, Déc −23° 56'"
+ },
+ "images": [
+  {
+   "file": "IC4604_Rho_Ophiuchi_LRGB.jpg",
+   "kind": "image",
+   "label": "LRGB",
+   "width": 6108,
+   "height": 3978,
+   "thumb": "/galerie/ic4604-rho-ophiuchi/ic4604-rho-ophiuchi-lrgb-900.webp",
+   "web": "/galerie/ic4604-rho-ophiuchi/ic4604-rho-ophiuchi-lrgb-2200.jpg",
+   "large": "/galerie/ic4604-rho-ophiuchi/ic4604-rho-ophiuchi-lrgb-4000.jpg",
+   "largeWidth": 4000
+  }
+ ],
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de 3,2° sur 2,1° montre une partie du complexe de Rho Ophiuchi, l'une des régions de formation d'étoiles les plus proches de nous, à environ 450 années-lumière, et l'une des plus colorées du ciel.</p>\n<p>La grande nébuleuse bleue est IC 4604 : de la poussière qui réfléchit la lumière du système d'étoiles Rho Ophiuchi, visible en son centre. Elle est entourée de nuages de poussière plus froids, aux teintes brun-orangé, et traversée par de longues nébuleuses obscures, si denses qu'elles cachent totalement les étoiles situées derrière.</p>\n<p>Les couleurs sont proches des couleurs réelles : elles ont été calibrées sur les étoiles du champ.</p>\n<p>Cette image a été acquise en collaboration avec Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 26 mars au 8 juillet 2026</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à −15 °C puis à 0 °C, binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>L, R, G, B</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Poses retenues (toutes les brutes disponibles ont été empilées) :</p>\n<div class=\"tableau\"><table><thead><tr><th>Filtre</th><th>Poses</th><th>Pose unitaire</th><th>Total</th><th>Période</th></tr></thead><tbody><tr><td>L</td><td>100</td><td>180 s</td><td>5,0 h</td><td>26 mars au 27 mars 2026</td></tr><tr><td>R</td><td>100</td><td>180 s</td><td>5,0 h</td><td>27 mars au 22 juin 2026</td></tr><tr><td>G</td><td>100</td><td>180 s</td><td>5,0 h</td><td>22 juin au 4 juillet 2026</td></tr><tr><td>B</td><td>92</td><td>180 s</td><td>4,6 h</td><td>4 juillet au 8 juillet 2026</td></tr></tbody></table></div>\n<dl><div><dt>Temps d'intégration</dt><dd>19,6 h (392 poses).</dd></div></dl>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6108 × 3978 pixels (24,3 mégapixels), après recadrage des bords</dd></div><div><dt>Champ</dt><dd>environ 3,2° × 2,1°</dd></div><div><dt>Centre du champ</dt><dd>AR 16 h 29 min, Déc −23° 56'</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par filtre)</h4><ul><li>Calibration : master darks 180 s à −15 °C et à 0 °C selon la pose ; master flats L, R, G, B à −15 °C de décembre 2025.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Préparation</h4><ul><li>Combinaison RGB et calibration des couleurs sur les étoiles du champ (SpectrophotometricColorCalibration, catalogue Gaia).</li><li>Recadrage commun des bords.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>Correction de gradient légère (AutomaticBackgroundExtractor, polynôme de degré 1).</li><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses).</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Neutralisation du fond puis étirement lié des trois couleurs, niveau de fond visé 0,20.</li><li>Combinaison de la luminance avec la couleur (LRGB).</li><li>Atténuation du vert (SCNR 0,7), courbes de contraste et de saturation.</li><li>DarkStructureEnhance, deux passes, pour renforcer les nébuleuses obscures.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>À la latitude du site, ce champ ne monte qu'à environ 35° au-dessus de l'horizon sud.</li><li>Une partie des poses a été prise à 0 °C et calibrée avec des flats à −15 °C, faute de flat plus proche en date.</li></ul>"
+  }
+ ]
+}

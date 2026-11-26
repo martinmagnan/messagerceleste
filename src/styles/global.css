@@ -110,7 +110,7 @@ h4 { font-size: 1.02rem; font-family: var(--sans); font-weight: 600; color: var(
 .faits dt { font: 600 0.72rem/1.3 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--discret); }
 .faits dd { margin: 0.25rem 0 0; font-size: 0.98rem; }
 
-.details { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.5rem; margin: 0 0 2.5rem; }
+.details { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 34rem)); gap: 1.5rem; margin: 0 0 2.5rem; }
 .details .vue { margin: 0; }
 
 .prose { max-width: var(--texte-max); }

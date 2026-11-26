@@ -140,7 +140,7 @@ function parse(text, base) {
 function label(file, base) {
   const stem = file.replace(/\.[^.]+$/, '');
   const d = stem.match(/_detail_(.+)$/i);
-  if (d) return { kind: 'detail', label: 'Détail : ' + d[1].replace(/_/g, ' ') };
+  if (d) return { kind: 'detail', label: 'Détail : ' + d[1].replace(/_/g, ' ').replace(/\bcoeur\b/g, 'cœur') };
   const p = stem.match(/(SHO|HOO|HaLRGB|HaRGB|LRGB|RGB)(?:_(v\d+))?$/i);
   return { kind: 'image', label: p ? p[1] + (p[2] ? ' ' + p[2] : '') : stem.replace(/_/g, ' ') };
 }

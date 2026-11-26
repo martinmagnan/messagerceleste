@@ -44,5 +44,35 @@
     "designation": "WR 134",
     "nom": "La nébuleuse de l'étoile Wolf-Rayet 134",
     "constellation": "Cygne"
+  },
+  "M16_SHO": {
+    "slug": "m16-aigle",
+    "designation": "M16",
+    "nom": "La nébuleuse de l'Aigle",
+    "constellation": "Serpent"
+  },
+  "IC4604_Rho_Ophiuchi_LRGB": {
+    "slug": "ic4604-rho-ophiuchi",
+    "designation": "IC 4604",
+    "nom": "Le nuage de Rho Ophiuchi",
+    "constellation": "Ophiuchus"
+  },
+  "NGC1333_HaLRGB": {
+    "slug": "ngc1333",
+    "designation": "NGC 1333",
+    "nom": "Nébuleuse par réflexion et nuage moléculaire de Persée",
+    "constellation": "Persée"
+  },
+  "SH2-132_SHO": {
+    "slug": "sh2-132-lion",
+    "designation": "SH2-132",
+    "nom": "La nébuleuse du Lion",
+    "constellation": "Céphée"
+  },
+  "SH2-184_NGC281_Pacman_SHO": {
+    "slug": "sh2-184-pacman",
+    "designation": "SH2-184 (NGC 281)",
+    "nom": "La nébuleuse Pacman",
+    "constellation": "Cassiopée"
   }
 }

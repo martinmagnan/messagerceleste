@@ -1,0 +1,55 @@
+{
+ "slug": "ngc1333",
+ "source": "NGC1333_HaLRGB.txt",
+ "designation": "NGC 1333",
+ "name": "Nébuleuse par réflexion et nuage moléculaire de Persée",
+ "constellation": "Persée",
+ "subtitle": "Image simple en large bande avec hydrogène, HaLRGB",
+ "author": "Martin Magnan",
+ "date": "2025-11-25T12:00:00.000Z",
+ "integration": "28,3 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 11 novembre au 25 novembre 2025",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "L, R, G, B, Ha",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Temps d'intégration": "28,3 h (449 poses).",
+  "Dimensions": "6210 × 4152 pixels (25,8 mégapixels), après recadrage des bords",
+  "Champ": "environ 3,3° × 2,2°",
+  "Centre du champ": "AR 3 h 29 min, Déc +30° 43'"
+ },
+ "images": [
+  {
+   "file": "NGC1333_HaLRGB.jpg",
+   "kind": "image",
+   "label": "HaLRGB",
+   "width": 6210,
+   "height": 4152,
+   "thumb": "/galerie/ngc1333/ngc1333-halrgb-900.webp",
+   "web": "/galerie/ngc1333/ngc1333-halrgb-2200.jpg",
+   "large": "/galerie/ngc1333/ngc1333-halrgb-4000.jpg",
+   "largeWidth": 4000
+  }
+ ],
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de 3,3° sur 2,2° couvre une partie du nuage moléculaire de Persée, à environ 1000 années-lumière : une immense étendue de poussière froide, brune, où naissent des étoiles.</p>\n<p>NGC 1333 est la nébuleuse bleutée et brillante en bas, au centre : de la poussière éclairée par de jeunes étoiles. Juste à côté, de petites taches rouges trahissent des jets de gaz éjectés par des étoiles en formation (objets de Herbig-Haro), que le filtre Ha fait ressortir. D'autres petites nébuleuses par réflexion bleues parsèment le champ, et de nombreux nuages sombres se découpent sur le fond.</p>\n<p>Les couleurs sont proches des couleurs réelles : elles ont été calibrées sur les étoiles du champ, et l'hydrogène renforce seulement le rouge.</p>\n<p>Cette image a été acquise en collaboration avec Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 11 novembre au 25 novembre 2025</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>L, R, G, B, Ha</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Poses retenues (toutes les brutes disponibles ont été empilées) :</p>\n<div class=\"tableau\"><table><thead><tr><th>Filtre</th><th>Poses</th><th>Pose unitaire</th><th>Total</th><th>Période</th></tr></thead><tbody><tr><td>L</td><td>99</td><td>180 s</td><td>5,0 h</td><td>11 novembre au 15 novembre 2025</td></tr><tr><td>R</td><td>100</td><td>180 s</td><td>5,0 h</td><td>11 novembre au 15 novembre 2025</td></tr><tr><td>G</td><td>100</td><td>180 s</td><td>5,0 h</td><td>13 novembre au 24 novembre 2025</td></tr><tr><td>B</td><td>100</td><td>180 s</td><td>5,0 h</td><td>13 novembre au 24 novembre 2025</td></tr><tr><td>Ha</td><td>50</td><td>600 s</td><td>8,3 h</td><td>14 novembre au 25 novembre 2025</td></tr></tbody></table></div>\n<dl><div><dt>Temps d'intégration</dt><dd>28,3 h (449 poses).</dd></div></dl>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6210 × 4152 pixels (25,8 mégapixels), après recadrage des bords</dd></div><div><dt>Champ</dt><dd>environ 3,3° × 2,2°</dd></div><div><dt>Centre du champ</dt><dd>AR 3 h 29 min, Déc +30° 43'</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par filtre)</h4><ul><li>Calibration : master darks 180 s et 600 s à 0 °C ; master flats L, R, G d'octobre 2025 ; master flats B et Ha à −15 °C de décembre 2025.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Préparation</h4><ul><li>Combinaison RGB et calibration des couleurs sur les étoiles du champ (SpectrophotometricColorCalibration, catalogue Gaia).</li><li>Recadrage commun des bords.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>Correction de gradient légère (AutomaticBackgroundExtractor, polynôme de degré 1).</li><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses).</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Neutralisation du fond puis étirement lié des trois couleurs, niveau de fond visé 0,20.</li><li>Injection du Ha dans le rouge et dans la luminance.</li><li>Combinaison de la luminance avec la couleur (LRGB).</li><li>Atténuation du vert (SCNR 0,7), courbes de contraste et de saturation.</li><li>DarkStructureEnhance, deux passes, pour renforcer les nébuleuses obscures.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>"
+  }
+ ]
+}
