@@ -33,6 +33,39 @@
    "web": "/galerie/m45-pleiades/m45-mosaique-lrgb-2200.jpg",
    "large": "/galerie/m45-pleiades/m45-mosaique-lrgb-4000.jpg",
    "largeWidth": 4000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : cœur de l'amas",
+   "width": 2400,
+   "height": 1800,
+   "thumb": "/galerie/m45-pleiades/detail-c-ur-de-l-amas-6935-3635-2400x1800-900.webp",
+   "web": "/galerie/m45-pleiades/detail-c-ur-de-l-amas-6935-3635-2400x1800.jpg",
+   "large": "/galerie/m45-pleiades/detail-c-ur-de-l-amas-6935-3635-2400x1800.jpg",
+   "largeWidth": 2400
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nébuleuse de Mérope (NGC 1435)",
+   "width": 1500,
+   "height": 1125,
+   "thumb": "/galerie/m45-pleiades/detail-nebuleuse-de-merope-ngc-1435-7595-4448-1500x1125-900.webp",
+   "web": "/galerie/m45-pleiades/detail-nebuleuse-de-merope-ngc-1435-7595-4448-1500x1125.jpg",
+   "large": "/galerie/m45-pleiades/detail-nebuleuse-de-merope-ngc-1435-7595-4448-1500x1125.jpg",
+   "largeWidth": 1500
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nébuleuse de Maïa (NGC 1432)",
+   "width": 1500,
+   "height": 1125,
+   "thumb": "/galerie/m45-pleiades/detail-nebuleuse-de-maia-ngc-1432-7792-3460-1500x1125-900.webp",
+   "web": "/galerie/m45-pleiades/detail-nebuleuse-de-maia-ngc-1432-7792-3460-1500x1125.jpg",
+   "large": "/galerie/m45-pleiades/detail-nebuleuse-de-maia-ngc-1432-7792-3460-1500x1125.jpg",
+   "largeWidth": 1500
   }
  ],
  "sections": [

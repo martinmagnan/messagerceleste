@@ -32,6 +32,39 @@
    "web": "/galerie/ic4604-rho-ophiuchi/ic4604-rho-ophiuchi-lrgb-2200.jpg",
    "large": "/galerie/ic4604-rho-ophiuchi/ic4604-rho-ophiuchi-lrgb-4000.jpg",
    "largeWidth": 4000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : Rho Ophiuchi",
+   "width": 1600,
+   "height": 1200,
+   "thumb": "/galerie/ic4604-rho-ophiuchi/detail-rho-ophiuchi-910-2264-1600x1200-900.webp",
+   "web": "/galerie/ic4604-rho-ophiuchi/detail-rho-ophiuchi-910-2264-1600x1200.jpg",
+   "large": "/galerie/ic4604-rho-ophiuchi/detail-rho-ophiuchi-910-2264-1600x1200.jpg",
+   "largeWidth": 1600
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : seconde nébuleuse par réflexion",
+   "width": 1500,
+   "height": 1125,
+   "thumb": "/galerie/ic4604-rho-ophiuchi/detail-seconde-nebuleuse-par-reflexion-899-432-1500x1125-900.webp",
+   "web": "/galerie/ic4604-rho-ophiuchi/detail-seconde-nebuleuse-par-reflexion-899-432-1500x1125.jpg",
+   "large": "/galerie/ic4604-rho-ophiuchi/detail-seconde-nebuleuse-par-reflexion-899-432-1500x1125.jpg",
+   "largeWidth": 1500
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nébuleuses obscures",
+   "width": 1500,
+   "height": 1125,
+   "thumb": "/galerie/ic4604-rho-ophiuchi/detail-nebuleuses-obscures-2304-790-1500x1125-900.webp",
+   "web": "/galerie/ic4604-rho-ophiuchi/detail-nebuleuses-obscures-2304-790-1500x1125.jpg",
+   "large": "/galerie/ic4604-rho-ophiuchi/detail-nebuleuses-obscures-2304-790-1500x1125.jpg",
+   "largeWidth": 1500
   }
  ],
  "sections": [

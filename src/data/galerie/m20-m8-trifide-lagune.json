@@ -43,6 +43,28 @@
    "web": "/galerie/m20-m8-trifide-lagune/ngc6514-detail-trifide.jpg",
    "large": "/galerie/m20-m8-trifide-lagune/ngc6514-detail-trifide.jpg",
    "largeWidth": 1000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : Lagune",
+   "width": 2000,
+   "height": 1500,
+   "thumb": "/galerie/m20-m8-trifide-lagune/detail-lagune-2723-2112-2000x1500-900.webp",
+   "web": "/galerie/m20-m8-trifide-lagune/detail-lagune-2723-2112-2000x1500.jpg",
+   "large": "/galerie/m20-m8-trifide-lagune/detail-lagune-2723-2112-2000x1500.jpg",
+   "largeWidth": 2000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nébuleuses à gauche de la Lagune",
+   "width": 1600,
+   "height": 2000,
+   "thumb": "/galerie/m20-m8-trifide-lagune/detail-nebuleuses-a-gauche-de-la-lagune-382-1059-1600x2000-900.webp",
+   "web": "/galerie/m20-m8-trifide-lagune/detail-nebuleuses-a-gauche-de-la-lagune-382-1059-1600x2000.jpg",
+   "large": "/galerie/m20-m8-trifide-lagune/detail-nebuleuses-a-gauche-de-la-lagune-382-1059-1600x2000.jpg",
+   "largeWidth": 1600
   }
  ],
  "sections": [

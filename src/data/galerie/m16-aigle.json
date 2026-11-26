@@ -32,6 +32,28 @@
    "web": "/galerie/m16-aigle/m16-sho-2200.jpg",
    "large": "/galerie/m16-aigle/m16-sho-4000.jpg",
    "largeWidth": 4000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : Piliers de la Création",
+   "width": 1200,
+   "height": 900,
+   "thumb": "/galerie/m16-aigle/detail-piliers-de-la-creation-2343-1551-1200x900-900.webp",
+   "web": "/galerie/m16-aigle/detail-piliers-de-la-creation-2343-1551-1200x900.jpg",
+   "large": "/galerie/m16-aigle/detail-piliers-de-la-creation-2343-1551-1200x900.jpg",
+   "largeWidth": 1200
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : la nébuleuse de l'Aigle",
+   "width": 2400,
+   "height": 1800,
+   "thumb": "/galerie/m16-aigle/detail-la-nebuleuse-de-l-aigle-1878-1341-2400x1800-900.webp",
+   "web": "/galerie/m16-aigle/detail-la-nebuleuse-de-l-aigle-1878-1341-2400x1800.jpg",
+   "large": "/galerie/m16-aigle/detail-la-nebuleuse-de-l-aigle-1878-1341-2400x1800.jpg",
+   "largeWidth": 2400
   }
  ],
  "sections": [

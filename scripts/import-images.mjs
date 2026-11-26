@@ -18,6 +18,7 @@ const SRC = path.resolve(process.argv[2] || path.join(ROOT, '..', 'images_finale
 const OUT = path.join(ROOT, 'src/data/galerie');
 const PUB = path.join(ROOT, 'public/galerie');
 const TITRES = JSON.parse(await readFile(path.join(ROOT, 'src/data/galerie-titres.json'), 'utf8'));
+const DETAILS = JSON.parse(await readFile(path.join(ROOT, 'src/data/galerie-details.json'), 'utf8'));
 const MENTIONS = JSON.parse(await readFile(path.join(ROOT, 'src/data/galerie-mentions.json'), 'utf8'));
 
 const THUMB = 900, WEB = 2200, LARGE = 4000;
@@ -139,8 +140,8 @@ function parse(text, base) {
 
 function label(file, base) {
   const stem = file.replace(/\.[^.]+$/, '');
-  const d = stem.match(/_detail_(.+)$/i);
-  if (d) return { kind: 'detail', label: 'Détail : ' + d[1].replace(/_/g, ' ').replace(/\bcoeur\b/g, 'cœur') };
+  const d = stem.match(/_detail(?:_(.+))?$/i);
+  if (d) return { kind: 'detail', label: d[1] ? 'Détail : ' + d[1].replace(/_/g, ' ').replace(/\bcoeur\b/g, 'cœur') : 'Détail' };
   const p = stem.match(/(SHO|HOO|HaLRGB|HaRGB|LRGB|RGB)(?:_(v\d+))?$/i);
   return { kind: 'image', label: p ? p[1] + (p[2] ? ' ' + p[2] : '') : stem.replace(/_/g, ' ') };
 }
@@ -178,6 +179,27 @@ if (!fiches.length) {
   process.exit(1);
 }
 
+// Agrandi à pleine résolution d'une zone de l'image (galerie-details.json).
+async function extrait(srcFile, dir, urlBase, d) {
+  const src = await info(srcFile);
+  const img = () => sharp(srcFile, { limitInputPixels: false });
+  const { width: W, height: H } = await img().metadata();
+  const width = Math.min(d.largeur, W), height = Math.min(d.hauteur, H);
+  const left = Math.max(0, Math.min(W - width, Math.round(d.cx * W - width / 2)));
+  const top = Math.max(0, Math.min(H - height, Math.round(d.cy * H - height / 2)));
+  const name = `detail-${slugify(d.nom)}-${left}-${top}-${width}x${height}`;
+  const zone = () => img().extract({ left, top, width, height });
+  const make = async (file, build) => {
+    const dst = path.join(dir, file);
+    const st = await info(dst);
+    if (!st || st.mtimeMs < src.mtimeMs) await build(dst);
+    return `${urlBase}/${file}`;
+  };
+  const web = await make(`${name}.jpg`, (dst) => zone().jpeg({ quality: 88, mozjpeg: true }).toFile(dst));
+  const thumb = await make(`${name}-${THUMB}.webp`, (dst) => zone().resize({ width: Math.min(THUMB, width) }).webp({ quality: 80 }).toFile(dst));
+  return { file: null, kind: 'detail', label: 'Détail : ' + d.nom, width, height, thumb, web, large: web, largeWidth: width };
+}
+
 await mkdir(OUT, { recursive: true });
 for (const f of await readdir(OUT)) if (f.endsWith('.json')) await rm(path.join(OUT, f));
 const kept = new Set();
@@ -200,6 +222,11 @@ for (const fiche of fiches) {
     images.push({ file, ...label(file, base), ...(await derive(srcFile, dir, `/galerie/${meta.slug}`)) });
   }
   if (!images.length) { console.warn(`${fiche} : aucune image, fiche ignorée`); continue; }
+  for (const d of DETAILS[base] || []) {
+    const source = d.image || images.find((i) => i.kind === 'image')?.file;
+    if (!source || !(await info(path.join(SRC, source)))) { console.warn(`  ${fiche} : image introuvable pour le détail « ${d.nom} »`); continue; }
+    images.push(await extrait(path.join(SRC, source), dir, `/galerie/${meta.slug}`, d));
+  }
 
   const facts = {};
   const sections = meta.sections.map((s) => {

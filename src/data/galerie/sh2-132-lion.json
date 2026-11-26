@@ -32,6 +32,39 @@
    "web": "/galerie/sh2-132-lion/sh2-132-sho-2200.jpg",
    "large": "/galerie/sh2-132-lion/sh2-132-sho-4000.jpg",
    "largeWidth": 4000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : cœur de la nébuleuse",
+   "width": 2000,
+   "height": 1500,
+   "thumb": "/galerie/sh2-132-lion/detail-c-ur-de-la-nebuleuse-2471-805-2000x1500-900.webp",
+   "web": "/galerie/sh2-132-lion/detail-c-ur-de-la-nebuleuse-2471-805-2000x1500.jpg",
+   "large": "/galerie/sh2-132-lion/detail-c-ur-de-la-nebuleuse-2471-805-2000x1500.jpg",
+   "largeWidth": 2000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : partie violette",
+   "width": 2000,
+   "height": 1500,
+   "thumb": "/galerie/sh2-132-lion/detail-partie-violette-3091-2033-2000x1500-900.webp",
+   "web": "/galerie/sh2-132-lion/detail-partie-violette-3091-2033-2000x1500.jpg",
+   "large": "/galerie/sh2-132-lion/detail-partie-violette-3091-2033-2000x1500.jpg",
+   "largeWidth": 2000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : petite nébuleuse en bas du champ",
+   "width": 800,
+   "height": 600,
+   "thumb": "/galerie/sh2-132-lion/detail-petite-nebuleuse-en-bas-du-champ-1150-3492-800x600-900.webp",
+   "web": "/galerie/sh2-132-lion/detail-petite-nebuleuse-en-bas-du-champ-1150-3492-800x600.jpg",
+   "large": "/galerie/sh2-132-lion/detail-petite-nebuleuse-en-bas-du-champ-1150-3492-800x600.jpg",
+   "largeWidth": 800
   }
  ],
  "sections": [

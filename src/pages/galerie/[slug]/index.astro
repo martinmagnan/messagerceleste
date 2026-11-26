@@ -59,8 +59,8 @@ const description = `${item.subtitle}. ${[item.constellation, item.integration &
       <div class="details">
         {details.map((d) => (
           <figure class="vue">
-            <a href={u(d.large)}><img src={u(d.web)} alt={`${titre} (${d.label})`} width={d.width} height={d.height} loading="lazy" /></a>
-            <figcaption><span><strong>{d.label}</strong> · pleine résolution</span></figcaption>
+            <a href={u(d.large)} title="Ouvrir à pleine résolution"><img src={u(d.thumb)} alt={`${titre} (${d.label})`} width={d.width} height={d.height} loading="lazy" /></a>
+            <figcaption><span><strong>{d.label}</strong></span><a href={u(d.large)}>Pleine résolution ({d.width} × {d.height} px) →</a></figcaption>
           </figure>
         ))}
       </div>

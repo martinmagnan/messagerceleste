@@ -44,6 +44,50 @@
    "web": "/galerie/coeur-et-ame/heartandsoul-mosaique-hoo-v2-2200.jpg",
    "large": "/galerie/coeur-et-ame/heartandsoul-mosaique-hoo-v2-4000.jpg",
    "largeWidth": 4000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : Melotte 15, au centre du Cœur",
+   "width": 2000,
+   "height": 1500,
+   "thumb": "/galerie/coeur-et-ame/detail-melotte-15-au-centre-du-c-ur-2609-1920-2000x1500-900.webp",
+   "web": "/galerie/coeur-et-ame/detail-melotte-15-au-centre-du-c-ur-2609-1920-2000x1500.jpg",
+   "large": "/galerie/coeur-et-ame/detail-melotte-15-au-centre-du-c-ur-2609-1920-2000x1500.jpg",
+   "largeWidth": 2000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : IC 1795 et NGC 896, la Tête de Poisson",
+   "width": 2000,
+   "height": 1500,
+   "thumb": "/galerie/coeur-et-ame/detail-ic-1795-et-ngc-896-la-tete-de-poisson-944-3162-2000x1500-900.webp",
+   "web": "/galerie/coeur-et-ame/detail-ic-1795-et-ngc-896-la-tete-de-poisson-944-3162-2000x1500.jpg",
+   "large": "/galerie/coeur-et-ame/detail-ic-1795-et-ngc-896-la-tete-de-poisson-944-3162-2000x1500.jpg",
+   "largeWidth": 2000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : piliers de l'Âme",
+   "width": 2200,
+   "height": 1650,
+   "thumb": "/galerie/coeur-et-ame/detail-piliers-de-l-ame-7785-852-2200x1650-900.webp",
+   "web": "/galerie/coeur-et-ame/detail-piliers-de-l-ame-7785-852-2200x1650.jpg",
+   "large": "/galerie/coeur-et-ame/detail-piliers-de-l-ame-7785-852-2200x1650.jpg",
+   "largeWidth": 2200
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : bord supérieur de l'Âme",
+   "width": 1800,
+   "height": 1350,
+   "thumb": "/galerie/coeur-et-ame/detail-bord-superieur-de-l-ame-6985-0-1800x1350-900.webp",
+   "web": "/galerie/coeur-et-ame/detail-bord-superieur-de-l-ame-6985-0-1800x1350.jpg",
+   "large": "/galerie/coeur-et-ame/detail-bord-superieur-de-l-ame-6985-0-1800x1350.jpg",
+   "largeWidth": 1800
   }
  ],
  "sections": [

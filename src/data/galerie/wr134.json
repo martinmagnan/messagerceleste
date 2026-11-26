@@ -32,6 +32,28 @@
    "web": "/galerie/wr134/wr134-sho-2200.jpg",
    "large": "/galerie/wr134/wr134-sho-4000.jpg",
    "largeWidth": 4000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : arc de WR 134",
+   "width": 1400,
+   "height": 1050,
+   "thumb": "/galerie/wr134/detail-arc-de-wr-134-2378-1387-1400x1050-900.webp",
+   "web": "/galerie/wr134/detail-arc-de-wr-134-2378-1387-1400x1050.jpg",
+   "large": "/galerie/wr134/detail-arc-de-wr-134-2378-1387-1400x1050.jpg",
+   "largeWidth": 1400
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nébuleuses obscures",
+   "width": 1800,
+   "height": 1350,
+   "thumb": "/galerie/wr134/detail-nebuleuses-obscures-3163-2718-1800x1350-900.webp",
+   "web": "/galerie/wr134/detail-nebuleuses-obscures-3163-2718-1800x1350.jpg",
+   "large": "/galerie/wr134/detail-nebuleuses-obscures-3163-2718-1800x1350.jpg",
+   "largeWidth": 1800
   }
  ],
  "sections": [

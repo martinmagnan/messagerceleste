@@ -32,6 +32,50 @@
    "web": "/galerie/ngc1333/ngc1333-halrgb-2200.jpg",
    "large": "/galerie/ngc1333/ngc1333-halrgb-4000.jpg",
    "largeWidth": 4000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : NGC 1333",
+   "width": 1500,
+   "height": 1125,
+   "thumb": "/galerie/ngc1333/detail-ngc-1333-2293-2614-1500x1125-900.webp",
+   "web": "/galerie/ngc1333/detail-ngc-1333-2293-2614-1500x1125.jpg",
+   "large": "/galerie/ngc1333/detail-ngc-1333-2293-2614-1500x1125.jpg",
+   "largeWidth": 1500
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nébuleuse bleue en haut du champ",
+   "width": 1300,
+   "height": 975,
+   "thumb": "/galerie/ngc1333/detail-nebuleuse-bleue-en-haut-du-champ-2082-0-1300x975-900.webp",
+   "web": "/galerie/ngc1333/detail-nebuleuse-bleue-en-haut-du-champ-2082-0-1300x975.jpg",
+   "large": "/galerie/ngc1333/detail-nebuleuse-bleue-en-haut-du-champ-2082-0-1300x975.jpg",
+   "largeWidth": 1300
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nébuleuse bleue et nuage sombre",
+   "width": 1500,
+   "height": 1125,
+   "thumb": "/galerie/ngc1333/detail-nebuleuse-bleue-et-nuage-sombre-865-1763-1500x1125-900.webp",
+   "web": "/galerie/ngc1333/detail-nebuleuse-bleue-et-nuage-sombre-865-1763-1500x1125.jpg",
+   "large": "/galerie/ngc1333/detail-nebuleuse-bleue-et-nuage-sombre-865-1763-1500x1125.jpg",
+   "largeWidth": 1500
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nébuleuse jaune en bas du champ",
+   "width": 1100,
+   "height": 825,
+   "thumb": "/galerie/ngc1333/detail-nebuleuse-jaune-en-bas-du-champ-971-3327-1100x825-900.webp",
+   "web": "/galerie/ngc1333/detail-nebuleuse-jaune-en-bas-du-champ-971-3327-1100x825.jpg",
+   "large": "/galerie/ngc1333/detail-nebuleuse-jaune-en-bas-du-champ-971-3327-1100x825.jpg",
+   "largeWidth": 1100
   }
  ],
  "sections": [

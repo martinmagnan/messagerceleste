@@ -33,6 +33,50 @@
    "web": "/galerie/ngc1909-tete-de-sorciere/ngc1909-tete-de-sorciere-lrgb-2200.jpg",
    "large": "/galerie/ngc1909-tete-de-sorciere/ngc1909-tete-de-sorciere-lrgb-4000.jpg",
    "largeWidth": 4000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : le visage",
+   "width": 2400,
+   "height": 2400,
+   "thumb": "/galerie/ngc1909-tete-de-sorciere/detail-le-visage-3457-7088-2400x2400-900.webp",
+   "web": "/galerie/ngc1909-tete-de-sorciere/detail-le-visage-3457-7088-2400x2400.jpg",
+   "large": "/galerie/ngc1909-tete-de-sorciere/detail-le-visage-3457-7088-2400x2400.jpg",
+   "largeWidth": 2400
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nuage supérieur",
+   "width": 1600,
+   "height": 1600,
+   "thumb": "/galerie/ngc1909-tete-de-sorciere/detail-nuage-superieur-1740-3291-1600x1600-900.webp",
+   "web": "/galerie/ngc1909-tete-de-sorciere/detail-nuage-superieur-1740-3291-1600x1600.jpg",
+   "large": "/galerie/ngc1909-tete-de-sorciere/detail-nuage-superieur-1740-3291-1600x1600.jpg",
+   "largeWidth": 1600
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nuage détaché",
+   "width": 1200,
+   "height": 1200,
+   "thumb": "/galerie/ngc1909-tete-de-sorciere/detail-nuage-detache-3271-4766-1200x1200-900.webp",
+   "web": "/galerie/ngc1909-tete-de-sorciere/detail-nuage-detache-3271-4766-1200x1200.jpg",
+   "large": "/galerie/ngc1909-tete-de-sorciere/detail-nuage-detache-3271-4766-1200x1200.jpg",
+   "largeWidth": 1200
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : galaxies lointaines",
+   "width": 900,
+   "height": 900,
+   "thumb": "/galerie/ngc1909-tete-de-sorciere/detail-galaxies-lointaines-1002-0-900x900-900.webp",
+   "web": "/galerie/ngc1909-tete-de-sorciere/detail-galaxies-lointaines-1002-0-900x900.jpg",
+   "large": "/galerie/ngc1909-tete-de-sorciere/detail-galaxies-lointaines-1002-0-900x900.jpg",
+   "largeWidth": 900
   }
  ],
  "sections": [

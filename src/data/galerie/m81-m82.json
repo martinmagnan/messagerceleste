@@ -54,6 +54,17 @@
    "web": "/galerie/m81-m82/m81-m82-detail-m82.jpg",
    "large": "/galerie/m81-m82/m81-m82-detail-m82.jpg",
    "largeWidth": 1000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : NGC 3077",
+   "width": 800,
+   "height": 800,
+   "thumb": "/galerie/m81-m82/detail-ngc-3077-0-2818-800x800-900.webp",
+   "web": "/galerie/m81-m82/detail-ngc-3077-0-2818-800x800.jpg",
+   "large": "/galerie/m81-m82/detail-ngc-3077-0-2818-800x800.jpg",
+   "largeWidth": 800
   }
  ],
  "sections": [
@@ -71,7 +82,7 @@
   },
   {
    "title": "Traitement",
-   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par filtre)</h4><ul><li>Calibration : master darks 300 s à −15 °C (LRGB) et 600 s à 0 °C (Ha) ; master flats L, R, G, B à −15 °C de décembre 2025 ; master flat Ha d'octobre 2025.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Préparation</h4><ul><li>Combinaison RGB et calibration des couleurs sur les étoiles du champ (SpectrophotometricColorCalibration, catalogue Gaia).</li><li>Recadrage commun des bords.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>Correction de gradient légère (AutomaticBackgroundExtractor, polynôme de degré 1, pour ne pas effacer les poussières faibles du champ).</li><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses), sur la couleur, la luminance et le Ha.</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Neutralisation du fond puis étirement lié des trois couleurs, niveau de fond visé 0,20.</li><li>Injection du Ha dans le rouge et dans la luminance.</li><li>Combinaison de la luminance avec la couleur (LRGB), saturation renforcée.</li><li>Compression des cœurs de galaxies : HDRMultiscaleTransform en deux passes (6 couches puis 4 couches), avec masque de luminosité, pour faire apparaître la spirale jusqu'au noyau de M81 et les bandes de poussière au centre de M82.</li><li>Saturation remontée dans les zones brillantes, à travers un masque de luminosité, pour rendre leur couleur aux galaxies.</li><li>Atténuation du vert (SCNR 0,7), courbes de contraste et de saturation.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>DarkStructureEnhance n'a pas été appliqué : sur un premier rendu, il creusait un halo sombre artificiel autour de M81.</li><li>Les nébuleuses de flux intégré sont très étirées ; leur teinte dépend fortement de la neutralisation du fond.</li></ul>"
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par filtre)</h4><ul><li>Calibration : master darks 300 s à −15 °C (LRGB) et 600 s à 0 °C (Ha) ; master flats L, R, G, B à −15 °C de décembre 2025 ; master flat Ha d'octobre 2025.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Préparation</h4><ul><li>Combinaison RGB et calibration des couleurs sur les étoiles du champ (SpectrophotometricColorCalibration, catalogue Gaia).</li><li>Recadrage commun des bords.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>Correction de gradient légère (AutomaticBackgroundExtractor, polynôme de degré 1, pour ne pas effacer les poussières faibles du champ).</li><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses), sur la couleur, la luminance et le Ha.</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Neutralisation du fond puis étirement lié des trois couleurs, niveau de fond visé 0,20.</li><li>Injection du Ha dans le rouge (40 %) et dans la luminance.</li><li>Saturation de la couleur renforcée dans les galaxies seulement (masque de luminosité), avant la combinaison avec la luminance, qui sinon la délave.</li><li>Combinaison de la luminance avec la couleur (LRGB).</li><li>Compression des cœurs de galaxies : HDRMultiscaleTransform en deux passes (6 couches puis 4 couches), avec masque de luminosité, pour faire apparaître la spirale jusqu'au noyau de M81 et les bandes de poussière au centre de M82.</li><li>Saturation remontée une seconde fois dans les zones brillantes.</li><li>Atténuation du vert (SCNR 0,7), courbes de contraste et de saturation.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>Dixième version du rendu : les précédentes montraient des galaxies grises. Les bras de M81 gardent une teinte saumon, plus rose que le bleu attendu ; les poussières du fond sont inchangées.</li><li>DarkStructureEnhance n'a pas été appliqué : sur un premier rendu, il creusait un halo sombre artificiel autour de M81.</li><li>Les nébuleuses de flux intégré sont très étirées ; leur teinte dépend fortement de la neutralisation du fond.</li></ul>"
   }
  ]
 }

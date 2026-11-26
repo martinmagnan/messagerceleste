@@ -16,6 +16,10 @@ Site statique de [messagerceleste.com](https://www.messagerceleste.com) : une ga
 
    Le script crée les versions allégées (vignette, 2200 px, 4000 px) dans `public/galerie/` et la fiche dans `src/data/galerie/`. Les originaux ne sont jamais copiés dans le dépôt.
 
+### Ajouter des agrandis à une image
+
+Chaque fiche peut montrer de 1 à 4 agrandis à pleine résolution. Ils sont décrits dans `src/data/galerie-details.json` : pour chaque fiche, une liste de zones avec un nom, le centre de la zone en fraction de l'image (`cx`, `cy`, de 0 à 1) et sa taille en pixels (`largeur`, `hauteur`). `npm run import:images` découpe ces zones dans l'image d'origine ; si l'image est retraitée avec le même cadrage, les agrandis se refont tout seuls. Les extraits listés dans la fiche `.txt` elle-même (`NOM_detail_xxx.jpg`) sont repris aussi.
+
 ### Écrire un nouveau carnet
 
 Créer un fichier Markdown dans `src/content/carnets/`, par exemple `premiere-lumiere-texas.md` :
