@@ -41,7 +41,7 @@ const anciens = Object.entries(import.meta.glob('../data/carnets/*.json', { eage
     ...p,
     date: new Date(p.date),
     url: p.path,
-    ancien: true,
+    ancien: p.ancien !== false,
     fichier: file.split('/').pop().replace(/\.json$/, ''),
   }));
 

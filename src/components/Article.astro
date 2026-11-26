@@ -7,7 +7,7 @@ const { post } = Astro.props;
 const i = carnets.findIndex((p) => p.url === post.url);
 const plusRecent = carnets[i - 1];
 const plusAncien = carnets[i + 1];
-const html = rebase(post.ancien ? post.html : await post.compiled());
+const html = rebase(post.html ?? (await post.compiled()));
 ---
 <Base title={post.title} description={post.excerpt || undefined} image={post.cover}>
   <div class="page etroit">
