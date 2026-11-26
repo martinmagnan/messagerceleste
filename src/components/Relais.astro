@@ -1,0 +1,19 @@
+---
+// Page-relais : redirige une ancienne adresse Blogger vers sa nouvelle page.
+import { u } from '../lib/site.js';
+const { vers, titre } = Astro.props;
+const cible = u(vers);
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>{titre} · Messager Céleste</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={new URL(cible, Astro.site)} />
+    <meta http-equiv="refresh" content={`0; url=${cible}`} />
+  </head>
+  <body>
+    <p><a href={cible}>{titre}</a></p>
+  </body>
+</html>

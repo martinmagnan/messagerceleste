@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import Carte from '../../components/Carte.astro';
+import { galerie } from '../../lib/site.js';
+---
+<Base title="Galerie" description="Images du ciel profond : nébuleuses, galaxies et mosaïques, avec leurs fiches d'acquisition et de traitement." image={galerie[0]?.cover.web}>
+  <div class="page">
+    <header class="fiche-titre">
+      <p class="surtitre">Galerie</p>
+      <h1>Images du ciel profond</h1>
+      <p class="sous-titre">{galerie.length} images, de la plus récente à la plus ancienne. Chaque fiche détaille l'acquisition et le traitement.</p>
+    </header>
+    <div class="grille">
+      {galerie.map((item, i) => <Carte item={item} eager={i < 3} />)}
+    </div>
+  </div>
+</Base>

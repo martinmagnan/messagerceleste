@@ -1,0 +1,56 @@
+{
+ "slug": "ngc1909-tete-de-sorciere",
+ "source": "NGC1909_Tete_de_Sorciere_LRGB.txt",
+ "designation": "NGC 1909 (IC 2118)",
+ "name": "La nébuleuse de la Tête de Sorcière",
+ "constellation": "Éridan",
+ "subtitle": "Mosaïque de 3 panneaux en large bande, LRGB",
+ "author": "Martin Magnan",
+ "date": "2025-12-26T12:00:00.000Z",
+ "integration": "71,2 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 14 octobre au 26 décembre 2025",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C puis à −15 °C, binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "L, R, G, B",
+  "Pose unitaire": "180 s",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Temps d'intégration": "L 19,7 h + R 17,9 h + G 16,5 h + B 17,2 h = 71,2 h (1423 poses de 180 s).",
+  "Dimensions": "6048 × 10626 pixels (64,3 mégapixels)",
+  "Champ": "environ 3,2° × 5,6°",
+  "Centre du champ": "AR 5 h 03 min, Déc −8,3° (approximatif) Panneau unitaire: 6252 × 4176 pixels, soit 3,3° × 2,2°"
+ },
+ "images": [
+  {
+   "file": "NGC1909_Tete_de_Sorciere_LRGB.jpg",
+   "kind": "image",
+   "label": "LRGB",
+   "width": 6048,
+   "height": 10626,
+   "thumb": "/galerie/ngc1909-tete-de-sorciere/ngc1909-tete-de-sorciere-lrgb-900.webp",
+   "web": "/galerie/ngc1909-tete-de-sorciere/ngc1909-tete-de-sorciere-lrgb-2200.jpg",
+   "large": "/galerie/ngc1909-tete-de-sorciere/ngc1909-tete-de-sorciere-lrgb-4000.jpg",
+   "largeWidth": 4000
+  }
+ ],
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ vertical de 3,2° sur 5,6° montre la Tête de Sorcière, une longue nébuleuse par réflexion située dans l'Éridan, tout près de la frontière d'Orion, à environ 900 années-lumière.</p>\n<p>Son profil, visible dans la moitié basse de l'image, évoque un visage au nez crochu et au menton pointu, tourné vers la droite. La nébuleuse ne brille pas par elle-même : c'est un nuage de poussière éclairé par Rigel, l'étoile la plus brillante d'Orion, située juste hors du champ sur la droite. Sa lueur déborde d'ailleurs sur le bord droit de l'image. La teinte bleutée vient de la poussière, qui diffuse mieux la lumière bleue, et de la couleur de Rigel elle-même. Vers le haut, la nébuleuse se prolonge en un long filament plus faible.</p>\n<p>Autour d'elle, le fond est parcouru de nuages rougeâtres : c'est l'hydrogène diffus de la grande bulle d'Orion-Éridan, capté par le filtre rouge. Plusieurs petites galaxies lointaines sont visibles à travers le champ.</p>\n<p>Les couleurs sont proches des couleurs réelles : elles ont été calibrées sur les étoiles du champ.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 14 octobre au 26 décembre 2025</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C puis à −15 °C, binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>L, R, G, B</dd></div><div><dt>Pose unitaire</dt><dd>180 s</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Poses retenues par panneau (toutes les brutes disponibles ont été empilées) :</p>\n<pre>  Panneau      L      R      G      B    Période\n  1 (haut)   118    105    100    107    14 octobre au 21 décembre 2025\n  2 (milieu) 132    152    129    137    13 novembre au 22 décembre 2025\n  3 (bas)    143    100    100    100    11 au 26 décembre 2025\n  Total      393    357    329    344</pre>\n<dl><div><dt>Temps d'intégration</dt><dd>L 19,7 h + R 17,9 h + G 16,5 h + B 17,2 h = 71,2 h (1423 poses de 180 s).</dd></div></dl>\n<p>Le programme d'acquisition n'était pas terminé pour les panneaux 2 et 3 : l'image utilise les poses présentes sur le disque.</p>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6048 × 10626 pixels (64,3 mégapixels)</dd></div><div><dt>Champ</dt><dd>environ 3,2° × 5,6°</dd></div><div><dt>Centre du champ</dt><dd>AR 5 h 03 min, Déc −8,3° (approximatif) Panneau unitaire: 6252 × 4176 pixels, soit 3,3° × 2,2°</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par panneau et par filtre)</h4><ul><li>Calibration : master darks 180 s à 0 °C et à −15 °C selon la température de chaque pose ; master flats L, R, G, B d'octobre 2025 (0 °C) et de décembre 2025 (−15 °C).</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Assemblage</h4><ul><li>Combinaison RGB de chaque panneau et calibration des couleurs sur les étoiles (SpectrophotometricColorCalibration, catalogue Gaia).</li><li>Mosaïques RGB et luminance par AstrometricRegistration, dans la même géométrie : normalisation photométrique, égalisation des fonds de ciel dans les recouvrements, fusion multi-échelle.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>Correction de gradient (AutomaticBackgroundExtractor, polynôme de degré 2) sur la couleur et la luminance.</li><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses).</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Neutralisation du fond puis étirement lié des trois couleurs, niveau de fond visé 0,20.</li><li>Combinaison de la luminance avec la couleur (LRGB).</li><li>Atténuation du vert (SCNR 0,7), courbes de contraste et de saturation.</li><li>DarkStructureEnhance, deux passes.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>Un premier rendu sans correction de gradient avait un fond de ciel verdâtre ; la correction de gradient et l'atténuation du vert l'ont supprimé.</li><li>Dans le panneau 2, une partie des poses L, R et G prises à 0 °C a été calibrée avec des flats à −15 °C, faute de flat plus proche en date.</li><li>Défauts visibles : la lueur de Rigel sur le bord droit, une zone légèrement bleu-vert en bas à droite (reste de gradient) et un petit reflet en éventail dans le coin inférieur gauche.</li><li>Les nuages rouges du fond sont très étirés ; aucune pose Ha n'a été prise pour confirmer leur détail.</li></ul>"
+  }
+ ]
+}

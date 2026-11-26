@@ -1,0 +1,78 @@
+{
+ "slug": "coeur-et-ame",
+ "source": "HeartAndSoul_mosaique.txt",
+ "designation": "IC 1805 et IC 1848",
+ "name": "Les nébuleuses du Cœur et de l'Âme",
+ "constellation": "Cassiopée",
+ "subtitle": "Mosaïque de 4 panneaux en bande étroite, palettes SHO et HOO",
+ "author": "Martin Magnan",
+ "date": "2026-11-23T12:00:00.000Z",
+ "integration": "200 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 30 août au 23 novembre 2026",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "Ha, OIII, SII",
+  "Pose unitaire": "600 s",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Temps d'intégration": "Ha 66,7 h + OIII 66,7 h + SII 66,7 h = 200 h (1200 poses de 600 s), soit 50 h par panneau. La palette HOO n'utilise que le Ha et l'OIII, soit 133,3 h.",
+  "Dimensions": "11106 × 6210 pixels (69,0 mégapixels)",
+  "Champ": "environ 5,9° × 3,3°",
+  "Centre du champ": "AR 2 h 42 min, Déc +61,5° (approximatif) Panneau unitaire: 6252 × 4176 pixels, soit 3,3° × 2,2°"
+ },
+ "images": [
+  {
+   "file": "HeartAndSoul_mosaique_SHO.jpg",
+   "kind": "image",
+   "label": "SHO",
+   "width": 11106,
+   "height": 6210,
+   "thumb": "/galerie/coeur-et-ame/heartandsoul-mosaique-sho-900.webp",
+   "web": "/galerie/coeur-et-ame/heartandsoul-mosaique-sho-2200.jpg",
+   "large": "/galerie/coeur-et-ame/heartandsoul-mosaique-sho-4000.jpg",
+   "largeWidth": 4000
+  },
+  {
+   "file": "HeartAndSoul_mosaique_HOO.jpg",
+   "kind": "image",
+   "label": "HOO",
+   "width": 11106,
+   "height": 6210,
+   "thumb": "/galerie/coeur-et-ame/heartandsoul-mosaique-hoo-900.webp",
+   "web": "/galerie/coeur-et-ame/heartandsoul-mosaique-hoo-2200.jpg",
+   "large": "/galerie/coeur-et-ame/heartandsoul-mosaique-hoo-4000.jpg",
+   "largeWidth": 4000
+  },
+  {
+   "file": "HeartAndSoul_mosaique_HOO_v2.jpg",
+   "kind": "image",
+   "label": "HOO v2",
+   "width": 11106,
+   "height": 6210,
+   "thumb": "/galerie/coeur-et-ame/heartandsoul-mosaique-hoo-v2-900.webp",
+   "web": "/galerie/coeur-et-ame/heartandsoul-mosaique-hoo-v2-2200.jpg",
+   "large": "/galerie/coeur-et-ame/heartandsoul-mosaique-hoo-v2-4000.jpg",
+   "largeWidth": 4000
+  }
+ ],
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de près de 6° sur 3,3° réunit deux grandes nébuleuses en émission de Cassiopée, situées à environ 6000 années-lumière dans le bras de Persée.</p>\n<p>À gauche, IC 1805, la nébuleuse du Cœur : une vaste cavité creusée par le rayonnement et les vents de l'amas d'étoiles jeunes Melotte 15, visible en son centre, entouré de colonnes de poussière sombres. Le nœud très brillant en bas à gauche du Cœur est IC 1795 avec NGC 896, la « Tête de Poisson ».</p>\n<p>En haut à droite, IC 1848, la nébuleuse de l'Âme, formée de deux lobes bordés de fronts d'ionisation et de globules sombres où naissent de nouvelles étoiles. Entre les deux nébuleuses, des voiles d'hydrogène plus faibles relient l'ensemble.</p>\n<p>Deux palettes ont été produites à partir des mêmes données :</p>\n<ul><li>SHO (palette Hubble) : soufre (SII) en rouge, hydrogène (Ha) en vert, oxygène (OIII) en bleu, avec atténuation du vert. Les bords des nébuleuses ressortent en or et les cavités en bleu.</li><li>HOO : hydrogène en rouge, oxygène en vert et en bleu. Le rendu est plus proche des couleurs naturelles : bords rouges, cœurs bleu-vert.</li></ul>\n<p>Dans les deux cas, les couleurs montrent la répartition des gaz et non ce que verrait l'œil.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 30 août au 23 novembre 2026</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>Ha, OIII, SII</dd></div><div><dt>Pose unitaire</dt><dd>600 s</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Poses retenues par panneau (toutes les brutes disponibles ont été empilées) :</p>\n<pre>  Panneau     Ha    OIII    SII    Période\n  1          100    100     100    12 au 23 novembre 2026\n  2          100    100     100    14 septembre au 22 octobre 2026\n  3          100    100     100    30 août au 13 septembre 2026\n  4          100    100     100    19 octobre au 12 novembre 2026\n  Total      400    400     400</pre>\n<dl><div><dt>Temps d'intégration</dt><dd>Ha 66,7 h + OIII 66,7 h + SII 66,7 h = 200 h (1200 poses de 600 s), soit 50 h par panneau. La palette HOO n'utilise que le Ha et l'OIII, soit 133,3 h.</dd></div></dl>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>11106 × 6210 pixels (69,0 mégapixels)</dd></div><div><dt>Champ</dt><dd>environ 5,9° × 3,3°</dd></div><div><dt>Centre du champ</dt><dd>AR 2 h 42 min, Déc +61,5° (approximatif) Panneau unitaire: 6252 × 4176 pixels, soit 3,3° × 2,2°</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par panneau et par filtre)</h4><ul><li>Calibration : master dark 600 s à 0 °C ; master flat Ha du 28 juillet 2026 ; master flats OIII et SII à −15 °C de décembre 2025.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Assemblage</h4><ul><li>Combinaison couleur de chaque panneau : SHO (R = SII, V = Ha, B = OIII) ou HOO (R = Ha, V = OIII, B = OIII).</li><li>Mosaïque par AstrometricRegistration : normalisation photométrique, égalisation des fonds de ciel dans les recouvrements, fusion multi-échelle.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses).</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Étirement canal par canal, courbes de contraste et de saturation, réintégration des étoiles, moins étirées que les nébuleuses.</li><li>Version SHO : niveau de fond visé 0,17, atténuation du vert (SCNR 0,7).</li><li>Version HOO : niveau de fond visé 0,17.</li><li>Version HOO v2 : niveau de fond visé 0,20 (ciel plus clair), contraste renforcé et deux passes de DarkStructureEnhance pour faire ressortir les nébuleuses obscures.</li></ul>\n<h4>Remarques</h4><ul><li>Aucune pose RGB n'a été prise pour cette cible : la couleur des étoiles vient des filtres à bande étroite et n'est pas leur couleur réelle (étoiles rouges ou cyan en HOO).</li><li>La version SHO a été produite avant l'ajout du rebouchage des pixels nuls dans la mosaïque ; elle n'a pas été contrôlée sur ce point.</li></ul>"
+  }
+ ]
+}

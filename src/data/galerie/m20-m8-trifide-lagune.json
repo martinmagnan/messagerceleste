@@ -1,0 +1,66 @@
+{
+ "slug": "m20-m8-trifide-lagune",
+ "source": "NGC6514_M20_M8_HaLRGB.txt",
+ "designation": "NGC 6514 (M20) et M8",
+ "name": "La Trifide et la Lagune",
+ "constellation": "Sagittaire",
+ "subtitle": "Image simple en large bande avec hydrogène, HaLRGB",
+ "author": "Martin Magnan",
+ "date": "2026-08-15T12:00:00.000Z",
+ "integration": "36,9 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 18 juillet au 15 août 2026",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "L, R, G, B et Ha",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Temps d'intégration": "20,3 h en LRGB + 16,7 h en Ha = 36,9 h (505 poses).",
+  "Dimensions": "5910 × 3612 pixels (21,3 mégapixels), après recadrage des bords",
+  "Champ": "environ 3,1° × 1,9°",
+  "Centre du champ": "AR 18 h 06 min, Déc −23° 45'"
+ },
+ "images": [
+  {
+   "file": "NGC6514_M20_M8_HaLRGB.jpg",
+   "kind": "image",
+   "label": "HaLRGB",
+   "width": 5910,
+   "height": 3612,
+   "thumb": "/galerie/m20-m8-trifide-lagune/ngc6514-m20-m8-halrgb-900.webp",
+   "web": "/galerie/m20-m8-trifide-lagune/ngc6514-m20-m8-halrgb-2200.jpg",
+   "large": "/galerie/m20-m8-trifide-lagune/ngc6514-m20-m8-halrgb-4000.jpg",
+   "largeWidth": 4000
+  },
+  {
+   "file": "NGC6514_detail_Trifide.jpg",
+   "kind": "detail",
+   "label": "Détail : Trifide",
+   "width": 1000,
+   "height": 900,
+   "thumb": "/galerie/m20-m8-trifide-lagune/ngc6514-detail-trifide-900.webp",
+   "web": "/galerie/m20-m8-trifide-lagune/ngc6514-detail-trifide.jpg",
+   "large": "/galerie/m20-m8-trifide-lagune/ngc6514-detail-trifide.jpg",
+   "largeWidth": 1000
+  }
+ ],
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de 3,1° sur 1,9° réunit deux des nébuleuses les plus célèbres du ciel d'été, dans la Voie lactée du Sagittaire, en direction du centre galactique.</p>\n<p>M20 (NGC 6514), la nébuleuse Trifide, doit son nom aux trois bandes de poussière sombre qui découpent sa partie rouge. Elle associe deux types de nébuleuses : une région rouge, où l'hydrogène est ionisé par une étoile jeune et chaude, et une région bleue voisine, où la poussière réfléchit simplement la lumière des étoiles.</p>\n<p>M8, la nébuleuse de la Lagune, est beaucoup plus étendue et plus brillante : c'est une grande région de formation d'étoiles, traversée par une bande sombre (la « lagune ») et abritant le jeune amas NGC 6530. Son cœur très lumineux contient la petite nébuleuse du Sablier.</p>\n<p>Entre et autour des deux objets, le champ est rempli des étoiles très denses de la Voie lactée et de nuages d'hydrogène plus faibles, que l'ajout du filtre Ha fait ressortir.</p>\n<p>Les couleurs sont proches des couleurs réelles : elles ont été calibrées sur les étoiles du champ, et l'hydrogène renforce seulement le rouge et le détail des nébuleuses.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 18 juillet au 15 août 2026</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>L, R, G, B et Ha</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Poses brutes disponibles :</p>\n<div class=\"tableau\"><table><thead><tr><th>Filtre</th><th>Poses</th><th>Pose unitaire</th><th>Total</th><th>Période</th></tr></thead><tbody><tr><td>L</td><td>100</td><td>180 s</td><td>5,0 h</td><td>18 juillet au 3 août 2026</td></tr><tr><td>R</td><td>100</td><td>180 s</td><td>5,0 h</td><td>29 juillet au 3 août 2026</td></tr><tr><td>G</td><td>101</td><td>180 s</td><td>5,1 h</td><td>2 au 8 août 2026</td></tr><tr><td>B</td><td>104</td><td>180 s</td><td>5,2 h</td><td>7 au 9 août 2026</td></tr><tr><td>Ha</td><td>100</td><td>600 s</td><td>16,7 h</td><td>9 au 15 août 2026</td></tr></tbody></table></div>\n<dl><div><dt>Temps d'intégration</dt><dd>20,3 h en LRGB + 16,7 h en Ha = 36,9 h (505 poses).</dd></div></dl>\n<p>Ce total est celui des brutes présentes sur le disque. L'empilement a été fait avec WeightedBatchPreprocessing le 19 août 2026 ; le nombre de poses réellement retenues par WBPP n'a pas été relu et peut être un peu inférieur.</p>\n<p>À la latitude du site, ce champ ne monte qu'à environ 35° au-dessus de l'horizon sud : il est observé à travers une épaisse couche d'atmosphère.</p>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>5910 × 3612 pixels (21,3 mégapixels), après recadrage des bords</dd></div><div><dt>Champ</dt><dd>environ 3,1° × 1,9°</dd></div><div><dt>Centre du champ</dt><dd>AR 18 h 06 min, Déc −23° 45'</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Réalisé dans PixInsight 1.9.6. C'est la première image produite avec cette chaîne de traitement, avant qu'elle ne devienne le skill utilisé pour les suivantes.</p>\n<h4>Prétraitement</h4><ul><li>Calibration, alignement et empilement par WeightedBatchPreprocessing (masters L, R, G, B, Ha).</li></ul>\n<h4>Préparation</h4><ul><li>Combinaison RGB et calibration des couleurs sur les étoiles du champ (SpectrophotometricColorCalibration, catalogue Gaia).</li><li>Recadrage commun des bords.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses), sur la couleur, la luminance et le Ha.</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Étirement de la couleur, de la luminance et du Ha.</li><li>Injection du Ha dans le rouge et dans la luminance.</li><li>Combinaison de la luminance avec la couleur (LRGB).</li><li>Courbes de contraste et de saturation.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>Troisième version du rendu (v3), retenue après deux essais.</li><li>Cette image a été produite avant l'ajout de la finition DarkStructureEnhance et du réglage de fond plus clair.</li></ul>"
+  }
+ ]
+}

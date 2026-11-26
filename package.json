@@ -1,0 +1,22 @@
+{
+  "name": "messagerceleste",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "import:blog": "node scripts/import-blogger.mjs",
+    "import:images": "node scripts/import-images.mjs",
+    "check": "node scripts/check-dist.mjs"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "astro": "^7.4.13",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

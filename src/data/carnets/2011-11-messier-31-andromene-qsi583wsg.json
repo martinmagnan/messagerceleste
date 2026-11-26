@@ -1,0 +1,28 @@
+{
+ "title": "Messier 31 - Andromède - QSI583wsg",
+ "date": "2011-11-03T22:47:00.000-04:00",
+ "updated": "2011-11-04T12:06:40.509-04:00",
+ "year": "2011",
+ "month": "11",
+ "slug": "messier-31-andromene-qsi583wsg",
+ "path": "/2011/11/messier-31-andromene-qsi583wsg.html",
+ "labels": [
+  "astrodon LRGB Gen 2",
+  "astrophotographie",
+  "AT8RC",
+  "Deep Sky",
+  "M31",
+  "QSI583wsg",
+  "Takahashi EM-200 Temma II"
+ ],
+ "excerpt": "Voici une image de la partie centrale de la galaxie d'Andromède en RGB (Rouge, vert et bleu). Cette galaxie, visible à l'oeil nu, est voisine de la Voie Lactée et s'en approche à la vitesse de 120 km/s. La collision…",
+ "cover": "/archives/img/651802c7-m31_v2.1600.jpg",
+ "comments": [
+  {
+   "author": "Anonymous",
+   "date": "2013-05-16T13:06:37.554-04:00",
+   "html": "Very beautiful details on the galaxy's core !"
+  }
+ ],
+ "html": "<div>\nVoici une image de la partie centrale de la galaxie d'Andromède en RGB (Rouge, vert et bleu). Cette galaxie, visible à l'oeil nu, est voisine de la Voie Lactée et s'en approche à la vitesse de 120 km/s. La collision devrait avoir lieu dans environ 4<strike> millions</strike>&nbsp;milliards d'années.</div>\n<div>\n<br></div>\n<div class=\"centre\">\n<a href=\"/archives/img/651802c7-m31_v2.png\"><img src=\"/archives/img/651802c7-m31_v2.1600.jpg\" width=\"1600\" height=\"1204\" loading=\"lazy\" alt=\"\"></a></div>\n<br>\nLes détails techniques<br>Date:  2011/10/31<br>Train optique = AT8RC @ F8 - filtres astrodon LRGB gen2 - QSI583wsg @ -25c<br>Monture: Takahashi EM-200 Temma II dirigée avec le logiciel Carte du Ciel<br>\n<div>\nGuidage: Phd, QHY5 sur le port de guidage de la QSIwsg<br>Acquisition avec Nebulosity<br>Site: À la maison<br>R:G:B 6X(600:600:600:600)<br>Bias,dark et flats appliqués<br>Prétraitement et traitement dans PixInsight<br>\n<div>\n<br><a href=\"/2008/10/messier-31-avec-la-zenithstar-80-ed-apo.html\">Ma première image de cette galaxie</a></div>\n</div>"
+}

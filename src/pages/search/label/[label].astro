@@ -1,0 +1,11 @@
+---
+// Relais pour les anciennes adresses Blogger /search/label/<étiquette>.
+import Relais from '../../../components/Relais.astro';
+import { etiquettes } from '../../../lib/site.js';
+
+export function getStaticPaths() {
+  return etiquettes.flatMap((t) => t.names.map((name) => ({ params: { label: name }, props: { url: t.url, name } })));
+}
+const { url, name } = Astro.props;
+---
+<Relais vers={url} titre={`Articles portant l'étiquette « ${name} »`} />

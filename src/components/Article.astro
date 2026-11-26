@@ -1,0 +1,51 @@
+---
+// Page d'un carnet, ancien (HTML repris de Blogger) ou nouveau (Markdown).
+import Base from '../layouts/Base.astro';
+import { u, rebase, formatDate, carnets, etiquetteUrl } from '../lib/site.js';
+
+const { post } = Astro.props;
+const i = carnets.findIndex((p) => p.url === post.url);
+const plusRecent = carnets[i - 1];
+const plusAncien = carnets[i + 1];
+const html = rebase(post.ancien ? post.html : await post.compiled());
+---
+<Base title={post.title} description={post.excerpt || undefined} image={post.cover}>
+  <div class="page etroit">
+    <header class="article-entete">
+      <p class="surtitre"><a href={u('/carnets/')} style="color:inherit;text-decoration:none">Carnets</a></p>
+      <h1>{post.title}</h1>
+      <time class="discret" datetime={post.date.toISOString()}>{formatDate(post.date)}</time>
+    </header>
+
+    {post.ancien && (
+      <p class="bandeau-archive">Article repris tel quel de l'ancien blog (2007–2011). Certains liens externes peuvent ne plus fonctionner.</p>
+    )}
+
+    <article class="article">
+      <Fragment set:html={html} />
+    </article>
+
+    {post.labels.length > 0 && (
+      <ul class="etiquettes" style="margin-top:2.5rem">
+        {post.labels.map((l) => <li><a href={u(etiquetteUrl(l))}>{l}</a></li>)}
+      </ul>
+    )}
+
+    {post.comments.length > 0 && (
+      <section class="commentaires">
+        <h2>{post.comments.length === 1 ? 'Un commentaire' : `${post.comments.length} commentaires`}</h2>
+        {post.comments.map((c) => (
+          <article>
+            <header><strong>{c.author}</strong> · {formatDate(new Date(c.date))}</header>
+            <div set:html={rebase(c.html)} />
+          </article>
+        ))}
+      </section>
+    )}
+
+    <nav class="voisins" aria-label="Articles voisins">
+      {plusAncien && <a href={u(plusAncien.url)}><small>← Plus ancien</small>{plusAncien.title}</a>}
+      {plusRecent && <a class="suivant" href={u(plusRecent.url)}><small>Plus récent →</small>{plusRecent.title}</a>}
+    </nav>
+  </div>
+</Base>

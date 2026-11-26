@@ -1,0 +1,13 @@
+---
+// Articles de l'ancien blog, servis à leur adresse d'origine : /AAAA/MM/slug.html
+import Article from '../../../components/Article.astro';
+import { carnets } from '../../../lib/site.js';
+
+export function getStaticPaths() {
+  return carnets
+    .filter((p) => p.ancien)
+    .map((post) => ({ params: { year: post.year, month: post.month, slug: post.slug }, props: { url: post.url } }));
+}
+const post = carnets.find((p) => p.url === Astro.props.url);
+---
+<Article post={post} />

@@ -1,0 +1,77 @@
+{
+ "slug": "m81-m82",
+ "source": "M81-M82_HaLRGB.txt",
+ "designation": "M81 et M82",
+ "name": "La galaxie de Bode, la galaxie du Cigare et les nébuleuses de flux intégré",
+ "constellation": "Grande Ourse",
+ "subtitle": "Image simple en large bande avec hydrogène, HaLRGB",
+ "author": "Martin Magnan",
+ "date": "2026-03-14T12:00:00.000Z",
+ "integration": "48,3 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 10 octobre 2025 au 14 mars 2026",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à −15 °C (0 °C pour le Ha), binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "L, R, G, B et Ha",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Temps d'intégration": "32,2 h en LRGB + 16,2 h en Ha = 48,3 h (483 poses). Deux des 99 poses Ha n'ont pas pu être alignées et ont été écartées.",
+  "Dimensions": "6186 × 4074 pixels (25,2 mégapixels), après recadrage des bords",
+  "Champ": "environ 3,3° × 2,2°",
+  "Centre du champ": "AR 9 h 47 min, Déc +69° 24'"
+ },
+ "images": [
+  {
+   "file": "M81-M82_HaLRGB.jpg",
+   "kind": "image",
+   "label": "HaLRGB",
+   "width": 6186,
+   "height": 4074,
+   "thumb": "/galerie/m81-m82/m81-m82-halrgb-900.webp",
+   "web": "/galerie/m81-m82/m81-m82-halrgb-2200.jpg",
+   "large": "/galerie/m81-m82/m81-m82-halrgb-4000.jpg",
+   "largeWidth": 4000
+  },
+  {
+   "file": "M81-M82_detail_M81.jpg",
+   "kind": "detail",
+   "label": "Détail : M81",
+   "width": 1000,
+   "height": 1000,
+   "thumb": "/galerie/m81-m82/m81-m82-detail-m81-900.webp",
+   "web": "/galerie/m81-m82/m81-m82-detail-m81.jpg",
+   "large": "/galerie/m81-m82/m81-m82-detail-m81.jpg",
+   "largeWidth": 1000
+  },
+  {
+   "file": "M81-M82_detail_M82.jpg",
+   "kind": "detail",
+   "label": "Détail : M82",
+   "width": 1000,
+   "height": 1000,
+   "thumb": "/galerie/m81-m82/m81-m82-detail-m82-900.webp",
+   "web": "/galerie/m81-m82/m81-m82-detail-m82.jpg",
+   "large": "/galerie/m81-m82/m81-m82-detail-m82.jpg",
+   "largeWidth": 1000
+  }
+ ],
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de 3,3° sur 2,2°, dans la Grande Ourse, montre le couple de galaxies le plus célèbre du ciel boréal, à environ 12 millions d'années-lumière.</p>\n<p>M81, la galaxie de Bode, est la grande spirale vue de trois quarts à gauche du centre : un noyau jaune d'étoiles anciennes, entouré de bras bleutés où se forment des étoiles jeunes. Au-dessus d'elle, M82, la galaxie du Cigare, est vue par la tranche. Une rencontre rapprochée avec M81 y a déclenché une flambée de formation d'étoiles, dont le vent expulse de grands jets d'hydrogène rouge de part et d'autre du disque ; ce sont eux que le filtre Ha fait ressortir. En bas à gauche, la petite galaxie NGC 3077 appartient au même groupe.</p>\n<p>Tout le champ est traversé de voiles gris-brun très faibles : ce sont les nébuleuses de flux intégré, des poussières de notre propre Galaxie situées bien au-dessus de son plan et éclairées seulement par la lumière d'ensemble de la Voie lactée. Elles se trouvent au premier plan, des milliers de fois plus près que les galaxies. Leur visibilité demande un ciel très sombre et un long temps de pose.</p>\n<p>Les couleurs sont proches des couleurs réelles : elles ont été calibrées sur les étoiles du champ, et l'hydrogène renforce seulement le rouge.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 10 octobre 2025 au 14 mars 2026</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à −15 °C (0 °C pour le Ha), binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>L, R, G, B et Ha</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Poses retenues :</p>\n<div class=\"tableau\"><table><thead><tr><th>Filtre</th><th>Poses</th><th>Pose unitaire</th><th>Total</th><th>Période</th></tr></thead><tbody><tr><td>L</td><td>98</td><td>300 s</td><td>8,2 h</td><td>27 décembre 2025 au 22 février 2026</td></tr><tr><td>R</td><td>88</td><td>300 s</td><td>7,3 h</td><td>14 janvier au 12 mars 2026</td></tr><tr><td>G</td><td>100</td><td>300 s</td><td>8,3 h</td><td>16 février au 13 mars 2026</td></tr><tr><td>B</td><td>100</td><td>300 s</td><td>8,3 h</td><td>20 février au 14 mars 2026</td></tr><tr><td>Ha</td><td>97</td><td>600 s</td><td>16,2 h</td><td>10 octobre au 12 novembre 2025</td></tr></tbody></table></div>\n<dl><div><dt>Temps d'intégration</dt><dd>32,2 h en LRGB + 16,2 h en Ha = 48,3 h (483 poses). Deux des 99 poses Ha n'ont pas pu être alignées et ont été écartées.</dd></div></dl>\n<p>La cible dispose aussi de 89 poses OIII de 600 s, non utilisées dans ce rendu.</p>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6186 × 4074 pixels (25,2 mégapixels), après recadrage des bords</dd></div><div><dt>Champ</dt><dd>environ 3,3° × 2,2°</dd></div><div><dt>Centre du champ</dt><dd>AR 9 h 47 min, Déc +69° 24'</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par filtre)</h4><ul><li>Calibration : master darks 300 s à −15 °C (LRGB) et 600 s à 0 °C (Ha) ; master flats L, R, G, B à −15 °C de décembre 2025 ; master flat Ha d'octobre 2025.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Préparation</h4><ul><li>Combinaison RGB et calibration des couleurs sur les étoiles du champ (SpectrophotometricColorCalibration, catalogue Gaia).</li><li>Recadrage commun des bords.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>Correction de gradient légère (AutomaticBackgroundExtractor, polynôme de degré 1, pour ne pas effacer les poussières faibles du champ).</li><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses), sur la couleur, la luminance et le Ha.</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Neutralisation du fond puis étirement lié des trois couleurs, niveau de fond visé 0,20.</li><li>Injection du Ha dans le rouge et dans la luminance.</li><li>Combinaison de la luminance avec la couleur (LRGB), saturation renforcée.</li><li>Compression des cœurs de galaxies : HDRMultiscaleTransform en deux passes (6 couches puis 4 couches), avec masque de luminosité, pour faire apparaître la spirale jusqu'au noyau de M81 et les bandes de poussière au centre de M82.</li><li>Saturation remontée dans les zones brillantes, à travers un masque de luminosité, pour rendre leur couleur aux galaxies.</li><li>Atténuation du vert (SCNR 0,7), courbes de contraste et de saturation.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>DarkStructureEnhance n'a pas été appliqué : sur un premier rendu, il creusait un halo sombre artificiel autour de M81.</li><li>Les nébuleuses de flux intégré sont très étirées ; leur teinte dépend fortement de la neutralisation du fond.</li></ul>"
+  }
+ ]
+}

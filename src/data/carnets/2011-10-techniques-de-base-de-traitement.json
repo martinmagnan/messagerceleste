@@ -1,0 +1,18 @@
+{
+ "title": "Techniques de base de traitement d'images astronomiques avec photoshop",
+ "date": "2011-10-13T23:52:00.001-04:00",
+ "updated": "2011-10-13T23:52:44.778-04:00",
+ "year": "2011",
+ "month": "10",
+ "slug": "techniques-de-base-de-traitement",
+ "path": "/2011/10/techniques-de-base-de-traitement.html",
+ "labels": [
+  "astrophotographie",
+  "Photoshop",
+  "Technique"
+ ],
+ "excerpt": "Voici une vidéo faite par moi il y a quelques temps, qui illustre quelques techniques de base du traitement d'images astronomiques avec photoshop. L'image de Messier 51 a été calibrée (Flat et Bias) et intégrée (moyenne…",
+ "cover": null,
+ "comments": [],
+ "html": "Voici une vidéo faite par moi il y a quelques temps, qui illustre quelques techniques de base&nbsp;du traitement d'images astronomiques avec photoshop. L'image de Messier 51 a été calibrée (Flat et Bias) &nbsp;et intégrée (moyenne avec réjection sigma) au préalable dans PixInsight. Le résultat final est disponible sur une entrée précédente.<br>\n<br>\n<div class=\"centre\">\n<iframe allowfullscreen=\"allowfullscreen\" webkitallowfullscreen=\"webkitallowfullscreen\" mozallowfullscreen=\"mozallowfullscreen\" width=\"480\" height=\"400\" src=\"https://www.youtube.com/embed/A6xV6x-cotY?feature=player_embedded\" frameborder=\"0\" loading=\"lazy\"></iframe></div>\n<br>"
+}

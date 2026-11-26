@@ -1,0 +1,56 @@
+{
+ "slug": "m45-pleiades",
+ "source": "M45_mosaique_LRGB.txt",
+ "designation": "M45",
+ "name": "Les Pléiades et leurs nébulosités",
+ "constellation": "Taureau",
+ "subtitle": "Mosaïque de 4 panneaux en large bande, LRGB",
+ "author": "Martin Magnan",
+ "date": "2026-02-11T12:00:00.000Z",
+ "integration": "95,7 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 9 décembre 2025 au 11 février 2026",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à −15 °C (quelques poses à 0 °C), binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "L, R, G, B",
+  "Pose unitaire": "180 s",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Temps d'intégration": "L 24,3 h + R 21,2 h + G 23,7 h + B 26,6 h = 95,7 h (1913 poses de 180 s).",
+  "Dimensions": "11622 × 7314 pixels (85,0 mégapixels)",
+  "Champ": "environ 6,1° × 3,9°",
+  "Position": "les Pléiades sont à AR 3 h 47 min, Déc +24° 07' Panneau unitaire: 6252 × 4176 pixels, soit 3,3° × 2,2°"
+ },
+ "images": [
+  {
+   "file": "M45_mosaique_LRGB.jpg",
+   "kind": "image",
+   "label": "LRGB",
+   "width": 11622,
+   "height": 7314,
+   "thumb": "/galerie/m45-pleiades/m45-mosaique-lrgb-900.webp",
+   "web": "/galerie/m45-pleiades/m45-mosaique-lrgb-2200.jpg",
+   "large": "/galerie/m45-pleiades/m45-mosaique-lrgb-4000.jpg",
+   "largeWidth": 4000
+  }
+ ],
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de 6,1° sur 3,9° montre l'amas des Pléiades (M45) et, surtout, le vaste nuage de poussière interstellaire dans lequel il baigne.</p>\n<p>L'amas occupe la partie droite de l'image, sous le centre. Ses étoiles bleues, jeunes et chaudes, à environ 440 années-lumière, éclairent la poussière qu'elles traversent : ce sont des nébuleuses par réflexion, bleues parce que la poussière diffuse mieux la lumière bleue. Les plus connues sont celle de Mérope (NGC 1435) et celle de Maïa (NGC 1432), aux fines stries caractéristiques.</p>\n<p>Le reste du champ est rempli de poussières beaucoup plus faibles, éclairées seulement par la lumière d'ensemble de la Voie lactée : de longs voiles gris-brun qui s'étirent sur toute la largeur de la mosaïque. Ce sont ces nébulosités diffuses, bien au-delà de l'amas lui-même, que le grand champ et le long temps de pose permettent de montrer.</p>\n<p>Contrairement aux images en bande étroite, les couleurs sont ici proches des couleurs réelles : elles ont été calibrées sur les étoiles du champ.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 9 décembre 2025 au 11 février 2026</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à −15 °C (quelques poses à 0 °C), binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>L, R, G, B</dd></div><div><dt>Pose unitaire</dt><dd>180 s</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Poses brutes disponibles par panneau :</p>\n<pre>  Panneau      L      R      G      B    Période\n  1          119    100    153    141    18 janvier au 11 février 2026\n  2          103    100    100    190    20 décembre 2025 au 10 janvier 2026\n  3          100    103    100    100    15 au 18 janvier 2026\n  4          163    120    121    100    9 décembre 2025 au 6 février 2026\n  Total      485    423    474    531</pre>\n<dl><div><dt>Temps d'intégration</dt><dd>L 24,3 h + R 21,2 h + G 23,7 h + B 26,6 h = 95,7 h (1913 poses de 180 s).</dd></div></dl>\n<p>Ce total est celui des brutes présentes sur le disque. L'empilement a été fait avec WeightedBatchPreprocessing le 14 février 2026 ; le nombre de poses réellement retenues par WBPP n'a pas été relu et peut être un peu inférieur.</p>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>11622 × 7314 pixels (85,0 mégapixels)</dd></div><div><dt>Champ</dt><dd>environ 6,1° × 3,9°</dd></div><div><dt>Position</dt><dd>les Pléiades sont à AR 3 h 47 min, Déc +24° 07' Panneau unitaire: 6252 × 4176 pixels, soit 3,3° × 2,2°</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Réalisé dans PixInsight 1.9.6.</p>\n<h4>Prétraitement</h4><ul><li>Calibration, alignement et empilement par WeightedBatchPreprocessing (masters L, R, G, B de chaque panneau).</li></ul>\n<h4>Assemblage</h4><ul><li>Combinaison RGB de chaque panneau et calibration des couleurs sur les étoiles (SpectrophotometricColorCalibration, catalogue Gaia).</li><li>Mosaïques RGB et luminance par AstrometricRegistration, dans la même géométrie : normalisation photométrique, égalisation des fonds de ciel dans les recouvrements, fusion multi-échelle.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses).</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Neutralisation du fond puis étirement lié des trois couleurs, niveau de fond visé 0,16.</li><li>Combinaison de la luminance avec la couleur (LRGB).</li><li>Courbes de contraste et de saturation, atténuation du vert (SCNR 0,7).</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>Cette image a été produite avant l'ajout de la finition DarkStructureEnhance et du réglage de fond plus clair.</li><li>Défauts connus : une petite traînée colorée à gauche des Pléiades et un léger dégradé de couleur à grande échelle (aucune correction de gradient n'a été appliquée).</li></ul>"
+  }
+ ]
+}

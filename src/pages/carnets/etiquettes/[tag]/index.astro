@@ -1,0 +1,20 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import ListeCarnets from '../../../../components/ListeCarnets.astro';
+import { u, etiquettes } from '../../../../lib/site.js';
+
+export function getStaticPaths() {
+  return etiquettes.map((t) => ({ params: { tag: t.slug }, props: { t } }));
+}
+const { t } = Astro.props;
+---
+<Base title={`Étiquette : ${t.name}`} description={`Les articles des carnets portant l'étiquette « ${t.name} ».`}>
+  <div class="page etroit">
+    <header class="article-entete">
+      <p class="surtitre"><a href={u('/carnets/etiquettes/')} style="color:inherit;text-decoration:none">Étiquettes</a></p>
+      <h1>{t.name}</h1>
+      <p class="discret">{t.posts.length === 1 ? 'Un article' : `${t.posts.length} articles`}</p>
+    </header>
+    <ListeCarnets posts={t.posts} />
+  </div>
+</Base>

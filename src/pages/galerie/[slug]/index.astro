@@ -1,0 +1,84 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { u, galerie } from '../../../lib/site.js';
+
+export function getStaticPaths() {
+  return galerie.map((item) => ({ params: { slug: item.slug }, props: { item } }));
+}
+
+const { item } = Astro.props;
+const vues = item.images.filter((i) => i.kind === 'image');
+const details = item.images.filter((i) => i.kind === 'detail');
+const f = item.facts;
+const court = (s) => (s ? s.split(/[,(]/)[0].trim() : null);
+const faits = [
+  ['Intégration', item.integration],
+  ['Constellation', item.constellation],
+  ['Optique', court(f['Optique'])?.replace(/^lunette /, '')],
+  ['Caméra', court(f['Caméra'])],
+  ['Champ', f['Champ']?.replace(/^environ /, '')],
+  ['Période', f['Période']?.replace(/^du /, '')],
+].filter(([, v]) => v);
+const i = galerie.findIndex((g) => g.slug === item.slug);
+const titre = `${item.designation} — ${item.name}`;
+const description = `${item.subtitle}. ${[item.constellation, item.integration && item.integration + ' de pose'].filter(Boolean).join(', ')}.`;
+---
+<Base title={titre} description={description} image={item.cover.web}>
+  <div class="page">
+    <header class="fiche-titre">
+      <p class="surtitre"><a href={u('/galerie/')} style="color:inherit;text-decoration:none">Galerie</a> · {item.designation}</p>
+      <h1>{item.name}</h1>
+      <p class="sous-titre">{item.subtitle}</p>
+    </header>
+
+    {vues.map((v, n) => (
+      <figure class="vue">
+        <a href={u(v.large)} title="Ouvrir en grande taille">
+          <img
+            src={u(v.web)}
+            srcset={`${u(v.thumb)} 900w, ${u(v.web)} ${Math.min(v.width, 2200)}w`}
+            sizes="(min-width: 74rem) 70rem, 100vw"
+            alt={`${titre} (${v.label})`}
+            width={v.width}
+            height={v.height}
+            loading={n === 0 ? 'eager' : 'lazy'}
+          />
+        </a>
+        <figcaption>
+          <span><strong>{v.label}</strong></span>
+          <a href={u(v.large)}>Grande taille ({v.largeWidth} px) →</a>
+        </figcaption>
+      </figure>
+    ))}
+
+    <dl class="faits">
+      {faits.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+    </dl>
+
+    {details.length > 0 && (
+      <div class="details">
+        {details.map((d) => (
+          <figure class="vue">
+            <a href={u(d.large)}><img src={u(d.web)} alt={`${titre} (${d.label})`} width={d.width} height={d.height} loading="lazy" /></a>
+            <figcaption><span><strong>{d.label}</strong> · pleine résolution</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
+
+    <div class="prose">
+      {item.sections.map((s) => (
+        <section>
+          <h2>{s.title}</h2>
+          <Fragment set:html={s.html} />
+        </section>
+      ))}
+      <p class="discret" style="margin-top:2.5rem">Image : {item.author}.</p>
+    </div>
+
+    <nav class="voisins" aria-label="Images voisines" style="max-width:none">
+      {galerie[i + 1] && <a href={u(galerie[i + 1].url)}><small>← Image précédente</small>{galerie[i + 1].designation} — {galerie[i + 1].name}</a>}
+      {galerie[i - 1] && <a class="suivant" href={u(galerie[i - 1].url)}><small>Image suivante →</small>{galerie[i - 1].designation} — {galerie[i - 1].name}</a>}
+    </nav>
+  </div>
+</Base>

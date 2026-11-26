@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import { u } from '../lib/site.js';
+---
+<Base title="Page introuvable" noindex>
+  <div class="page etroit">
+    <header class="article-entete">
+      <p class="surtitre">Erreur 404</p>
+      <h1>Cette page s'est perdue dans le ciel</h1>
+      <p class="discret">L'adresse demandée n'existe pas ou n'existe plus.</p>
+    </header>
+    <p><a href={u('/galerie/')}>Voir la galerie</a> · <a href={u('/carnets/')}>Parcourir les carnets</a></p>
+  </div>
+</Base>

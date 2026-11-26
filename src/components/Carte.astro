@@ -1,0 +1,13 @@
+---
+import { u } from '../lib/site.js';
+const { item, eager = false } = Astro.props;
+const meta = [item.constellation, item.integration && `${item.integration} de pose`].filter(Boolean).join(' · ');
+---
+<a class="carte" href={u(item.url)}>
+  <img src={u(item.cover.thumb)} alt={`${item.designation} — ${item.name}`} width="900" height="600" loading={eager ? 'eager' : 'lazy'} />
+  <div class="corps">
+    <p class="surtitre">{item.designation}</p>
+    <h3>{item.name}</h3>
+    <p class="meta">{meta}</p>
+  </div>
+</a>

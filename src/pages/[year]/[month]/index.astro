@@ -1,0 +1,12 @@
+---
+// Relais pour les anciennes archives mensuelles Blogger : /AAAA/MM/
+import Relais from '../../../components/Relais.astro';
+import { carnets } from '../../../lib/site.js';
+
+export function getStaticPaths() {
+  const mois = new Set(carnets.filter((p) => p.ancien).map((p) => `${p.year}/${p.month}`));
+  return [...mois].map((m) => ({ params: { year: m.slice(0, 4), month: m.slice(5) } }));
+}
+const { year } = Astro.params;
+---
+<Relais vers={`/carnets/#${year}`} titre={`Carnets de ${year}`} />

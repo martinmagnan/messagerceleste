@@ -1,0 +1,45 @@
+{
+  "//": "Titres soignés et adresses des images de la galerie, par nom de fiche .txt (sans extension). Une fiche absente d'ici reçoit un titre et une adresse automatiques.",
+  "HeartAndSoul_mosaique": {
+    "slug": "coeur-et-ame",
+    "designation": "IC 1805 et IC 1848",
+    "nom": "Les nébuleuses du Cœur et de l'Âme",
+    "constellation": "Cassiopée"
+  },
+  "M45_mosaique_LRGB": {
+    "slug": "m45-pleiades",
+    "designation": "M45",
+    "nom": "Les Pléiades et leurs nébulosités",
+    "constellation": "Taureau"
+  },
+  "M81-M82_HaLRGB": {
+    "slug": "m81-m82",
+    "designation": "M81 et M82",
+    "nom": "La galaxie de Bode, la galaxie du Cigare et les nébuleuses de flux intégré",
+    "constellation": "Grande Ourse"
+  },
+  "NGC1909_Tete_de_Sorciere_LRGB": {
+    "slug": "ngc1909-tete-de-sorciere",
+    "designation": "NGC 1909 (IC 2118)",
+    "nom": "La nébuleuse de la Tête de Sorcière",
+    "constellation": "Éridan"
+  },
+  "NGC6514_M20_M8_HaLRGB": {
+    "slug": "m20-m8-trifide-lagune",
+    "designation": "NGC 6514 (M20) et M8",
+    "nom": "La Trifide et la Lagune",
+    "constellation": "Sagittaire"
+  },
+  "NGC6888_mosaique_SHO_v3": {
+    "slug": "ngc6888-croissant",
+    "designation": "NGC 6888",
+    "nom": "La nébuleuse du Croissant et la région de Sadr",
+    "constellation": "Cygne"
+  },
+  "WR134_SHO": {
+    "slug": "wr134",
+    "designation": "WR 134",
+    "nom": "La nébuleuse de l'étoile Wolf-Rayet 134",
+    "constellation": "Cygne"
+  }
+}

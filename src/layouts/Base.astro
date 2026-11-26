@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import { SITE, u } from '../lib/site.js';
+
+const { title, description = SITE.description, image, noindex = false } = Astro.props;
+const fullTitle = title ? `${title} · ${SITE.title}` : `${SITE.title} · ${SITE.tagline}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = image ? new URL(u(image), Astro.site) : null;
+const path = Astro.url.pathname;
+const section = (p) => path.startsWith(u(p)) || (p === '/carnets/' && /\/\d{4}\/\d{2}\//.test(path));
+const nav = [
+  ['/galerie/', 'Galerie'],
+  ['/carnets/', 'Carnets'],
+  ['/a-propos/', 'À propos'],
+];
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.title} href={u('/rss.xml')} />
+    <meta name="theme-color" content="#090b10" />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:title" content={title || SITE.title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="fr_CA" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+  </head>
+  <body>
+    <header class="entete">
+      <div class="page">
+        <a class="marque" href={u('/')}>Messager <span>Céleste</span></a>
+        <nav aria-label="Navigation principale">
+          {nav.map(([href, label]) => <a href={u(href)} aria-current={section(href) ? 'page' : undefined}>{label}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="pied">
+      <div class="page">
+        <span>© 2007–{new Date().getFullYear()} {SITE.author}. Images et textes : tous droits réservés.</span>
+        <a href={u('/rss.xml')}>Flux RSS</a>
+      </div>
+    </footer>
+  </body>
+</html>

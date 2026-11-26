@@ -1,0 +1,56 @@
+{
+ "slug": "ngc6888-croissant",
+ "source": "NGC6888_mosaique_SHO_v3.txt",
+ "designation": "NGC 6888",
+ "name": "La nébuleuse du Croissant et la région de Sadr",
+ "constellation": "Cygne",
+ "subtitle": "Mosaïque de 4 panneaux en bande étroite, palette SHO (Hubble)",
+ "author": "Martin Magnan",
+ "date": "2026-08-29T12:00:00.000Z",
+ "integration": "193,3 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 29 juin au 29 août 2026",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "Ha, OIII, SII",
+  "Pose unitaire": "600 s",
+  "Logiciel": "Voyager 2.3.14f (RoboTarget)",
+  "Temps d'intégration": "Ha 65,8 h + OIII 61,5 h + SII 66,0 h = 193,3 h (1160 poses de 600 s), soit environ 48 h par panneau.",
+  "Dimensions": "11400 × 6804 pixels (77,6 mégapixels)",
+  "Champ": "environ 6,0° × 3,6°",
+  "Centre du champ": "AR 20 h 15 min, Déc +39,4° (approximatif) Panneau unitaire: 6252 × 4176 pixels, soit 3,3° × 2,2°"
+ },
+ "images": [
+  {
+   "file": "NGC6888_mosaique_SHO_v3.jpg",
+   "kind": "image",
+   "label": "SHO v3",
+   "width": 11400,
+   "height": 6804,
+   "thumb": "/galerie/ngc6888-croissant/ngc6888-mosaique-sho-v3-900.webp",
+   "web": "/galerie/ngc6888-croissant/ngc6888-mosaique-sho-v3-2200.jpg",
+   "large": "/galerie/ngc6888-croissant/ngc6888-mosaique-sho-v3-4000.jpg",
+   "largeWidth": 4000
+  }
+ ],
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de 6° sur 3,6° couvre le cœur de la constellation du Cygne, en pleine Voie lactée. En bas, légèrement à droite du centre, NGC 6888, la nébuleuse du Croissant, apparaît comme une petite coquille bleue : c'est une bulle de gaz soufflée par le vent de l'étoile Wolf-Rayet WR 136, dont le bleu trahit une forte émission d'oxygène ionisé (OIII).</p>\n<p>En haut à gauche, les grands nuages lumineux coupés par une bande sombre sont ceux d'IC 1318, la nébuleuse du Papillon, autour de l'étoile Sadr (Gamma Cygni). Entre les deux, tout le champ est rempli de voiles d'hydrogène et de soufre (tons dorés et orangés), de zones riches en oxygène (tons bleus) et de nombreuses nébuleuses obscures qui se découpent en silhouettes devant le fond lumineux.</p>\n<p>En palette SHO, le soufre (SII) est affecté au rouge, l'hydrogène (Ha) au vert et l'oxygène (OIII) au bleu ; le vert dominant de l'hydrogène est ensuite atténué, ce qui donne les teintes or et bleu de l'image. Les couleurs ne sont donc pas celles que verrait l'œil : elles montrent la répartition des gaz.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 29 juin au 29 août 2026</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>Ha, OIII, SII</dd></div><div><dt>Pose unitaire</dt><dd>600 s</dd></div><div><dt>Logiciel</dt><dd>Voyager 2.3.14f (RoboTarget)</dd></div></dl>\n<p>Poses retenues par panneau (toutes les brutes disponibles ont été empilées) :</p>\n<pre>  Panneau     Ha    OIII    SII    Période\n  1           96     96      98    15 au 29 août 2026\n  2           99     76      98    29 juin au 25 juillet 2026\n  3          100     97     100    27 juillet au 15 août 2026\n  4          100    100     100    30 juin au 8 août 2026\n  Total      395    369     396</pre>\n<dl><div><dt>Temps d'intégration</dt><dd>Ha 65,8 h + OIII 61,5 h + SII 66,0 h = 193,3 h (1160 poses de 600 s), soit environ 48 h par panneau.</dd></div></dl>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>11400 × 6804 pixels (77,6 mégapixels)</dd></div><div><dt>Champ</dt><dd>environ 6,0° × 3,6°</dd></div><div><dt>Centre du champ</dt><dd>AR 20 h 15 min, Déc +39,4° (approximatif) Panneau unitaire: 6252 × 4176 pixels, soit 3,3° × 2,2°</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par panneau et par filtre)</h4><ul><li>Calibration : master dark 600 s à 0 °C ; master flat Ha du 28 juillet 2026 ; master flats OIII et SII à −15 °C de décembre 2025.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Assemblage</h4><ul><li>Combinaison SHO de chaque panneau (R = SII, V = Ha, B = OIII).</li><li>Mosaïque par AstrometricRegistration : normalisation photométrique, égalisation des fonds de ciel dans les recouvrements, fusion multi-échelle.</li><li>Rebouchage d'un trou de quelques pixels à la jonction des panneaux.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses).</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Étirement canal par canal, niveau de fond visé 0,20.</li><li>Atténuation du vert (SCNR 0,7) et courbes de contraste et de saturation.</li><li>DarkStructureEnhance, deux passes, pour renforcer les nébuleuses obscures.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>Aucune pose RGB n'a été prise pour cette cible : la couleur des étoiles vient des filtres à bande étroite et n'est pas leur couleur réelle.</li><li>Le panneau 2 a moins de poses OIII que les autres (76 contre une centaine).</li></ul>"
+  }
+ ]
+}
