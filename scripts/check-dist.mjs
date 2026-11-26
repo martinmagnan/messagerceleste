@@ -36,10 +36,12 @@ const fail = (msg) => { errors++; console.log('✗ ' + msg); };
 
 const carnetsDir = path.join(ROOT, 'src/data/carnets');
 const posts = (await readdir(carnetsDir)).filter((f) => f.endsWith('.json'));
-let okPosts = 0;
+let okPosts = 0, masques = 0;
 for (const f of posts) {
   const p = JSON.parse(await readFile(path.join(carnetsDir, f), 'utf8'));
-  (await isFile(path.join(DIST, p.path))) ? okPosts++ : fail(`article absent : ${p.path}`);
+  const present = await isFile(path.join(DIST, p.path));
+  if (p.hidden) { masques++; if (present) fail(`article masqué mais publié : ${p.path}`); }
+  else present ? okPosts++ : fail(`article absent : ${p.path}`);
 }
 
 const pages = (await walk(DIST)).filter((f) => f.endsWith('.html'));
@@ -63,7 +65,7 @@ for (const file of pages) {
   for (const m of html.matchAll(/\b(?:src|srcset)="http:\/\/[^"]+"/g)) fail(`${rel} : ressource non sécurisée ${m[0]}`);
 }
 
-console.log(`${okPosts}/${posts.length} anciens articles à leur adresse d'origine`);
+console.log(`${okPosts}/${posts.length - masques} anciens articles à leur adresse d'origine` + (masques ? ` (${masques} masqué(s), non publié(s))` : ''));
 console.log(`${pages.length} pages, ${links} liens internes vérifiés (${seen.size} cibles distinctes)`);
 console.log(`${remote} image(s) encore servie(s) par Blogger/Flickr`);
 console.log(errors ? `\n${errors} problème(s)` : '\nTout est en ordre.');

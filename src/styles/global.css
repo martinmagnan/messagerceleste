@@ -181,3 +181,6 @@ h4 { font-size: 1.02rem; font-family: var(--sans); font-weight: 600; color: var(
 .voisins a { text-decoration: none; }
 .voisins small { display: block; color: var(--discret); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
 .voisins .suivant { text-align: right; grid-column: 2; }
+
+.lien-edition { margin-left: 1rem; font-size: 0.86rem; color: var(--accent); }
+.lien-edition[hidden] { display: none; }

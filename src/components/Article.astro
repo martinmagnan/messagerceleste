@@ -15,6 +15,7 @@ const html = rebase(post.ancien ? post.html : await post.compiled());
       <p class="surtitre"><a href={u('/carnets/')} style="color:inherit;text-decoration:none">Carnets</a></p>
       <h1>{post.title}</h1>
       <time class="discret" datetime={post.date.toISOString()}>{formatDate(post.date)}</time>
+      {post.fichier && <a class="lien-edition" data-edition hidden href={`${u('/edition/')}#${post.fichier}`}>Modifier ce billet</a>}
     </header>
 
     {post.ancien && (

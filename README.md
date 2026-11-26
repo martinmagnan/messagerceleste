@@ -34,6 +34,20 @@ Le texte de l'article, en Markdown.
 
 L'article paraît à l'adresse `/carnets/premiere-lumiere-texas/`. Ajouter `draft: true` pour le garder hors ligne.
 
+### Modifier ou masquer un billet depuis le site
+
+Le site a un mode édition à l'adresse `/edition/` (lien « Édition » en pied de page). Il permet de modifier le titre, la date, les étiquettes et le texte d'un billet, d'y ajouter une image, et de le masquer ou de le rendre visible. Une fois connecté, un lien « Modifier ce billet » apparaît aussi sur chaque billet.
+
+Chaque enregistrement est un commit dans ce dépôt ; le site se met à jour tout seul en une minute environ. Avant de reprendre le travail en local, faire `git pull`.
+
+La connexion se fait avec un jeton d'accès GitHub, à créer une fois :
+
+1. GitHub → Settings → Developer settings → Fine-grained tokens → Generate new token.
+2. Repository access : « Only select repositories », choisir `messagerceleste`.
+3. Repository permissions → Contents : « Read and write ».
+
+Le jeton reste dans le navigateur de l'appareil et n'est envoyé qu'à GitHub. Un billet masqué (`"hidden": true` dans son fichier) n'est plus publié sur le site, mais son texte reste lisible dans ce dépôt, qui est public.
+
 ### Voir et publier
 
 ```bash

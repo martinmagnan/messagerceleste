@@ -49,8 +49,15 @@ const nav = [
     <footer class="pied">
       <div class="page">
         <span>© 2007–{new Date().getFullYear()} {SITE.author}. Images et textes : tous droits réservés.</span>
-        <a href={u('/rss.xml')}>Flux RSS</a>
+        <span><a href={u('/rss.xml')}>Flux RSS</a> · <a href={u('/edition/')} rel="nofollow">Édition</a></span>
       </div>
     </footer>
+    <script is:inline>
+      // Affiche les liens « Modifier » quand l'auteur est connecté au mode édition sur cet appareil.
+      try {
+        if (localStorage.getItem('messagerceleste.jeton') || sessionStorage.getItem('messagerceleste.jeton'))
+          document.querySelectorAll('[data-edition]').forEach((el) => (el.hidden = false));
+      } catch {}
+    </script>
   </body>
 </html>

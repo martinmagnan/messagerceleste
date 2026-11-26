@@ -1,0 +1,66 @@
+---
+// Mode édition des billets (réservé à l'auteur : il faut un jeton GitHub).
+import Base from '../../layouts/Base.astro';
+import { REPO, BASE } from '../../lib/site.js';
+---
+<Base title="Mode édition" noindex>
+  <div class="page etroit">
+    <header class="article-entete">
+      <p class="surtitre">Carnets</p>
+      <h1>Mode édition</h1>
+      <p class="discret">Modifier un billet, le masquer ou le rendre visible.</p>
+    </header>
+    <div id="edition" data-repo={REPO} data-base={BASE}>
+      <noscript>Le mode édition a besoin de JavaScript.</noscript>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import '../../scripts/edition.js';
+</script>
+
+<style is:global>
+  #edition button, #edition input, #edition textarea { font: inherit; color: inherit; }
+  #edition label { display: block; font-size: 0.86rem; color: var(--discret); margin: 1rem 0 0.3rem; }
+  #edition input[type='text'], #edition input[type='password'], #edition input[type='search'], #edition input[type='date'], #edition textarea {
+    width: 100%; background: var(--surface); border: 1px solid var(--trait); border-radius: 5px; padding: 0.5rem 0.7rem;
+  }
+  #edition input:focus-visible, #edition textarea:focus-visible, #edition .ed-zone:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  #edition button { background: var(--surface-2); border: 1px solid var(--trait); border-radius: 5px; padding: 0.4rem 0.85rem; cursor: pointer; font-size: 0.92rem; }
+  #edition button:hover:not(:disabled) { border-color: var(--accent); }
+  #edition button:disabled { opacity: 0.5; cursor: default; }
+  #edition button.ed-primaire { background: var(--accent); border-color: var(--accent); color: #17130a; font-weight: 600; }
+  #edition .ed-case { display: flex; align-items: center; gap: 0.5rem; color: var(--texte); font-size: 0.95rem; }
+  #edition .ed-case input { width: 1rem; height: 1rem; accent-color: var(--accent); }
+
+  .ed-connexion details { margin-top: 2rem; font-size: 0.95rem; }
+  .ed-connexion summary { cursor: pointer; color: var(--lien); }
+  .ed-connexion button[type='submit'] { margin-top: 1.2rem; }
+
+  .ed-message { border-left: 2px solid var(--discret); padding: 0.3rem 0 0.3rem 0.8rem; margin: 1rem 0; font-size: 0.95rem; }
+  .ed-message.ok { border-color: #7fc48a; }
+  .ed-message.erreur { border-color: #e2776b; color: #f0b3ab; }
+
+  .ed-barre { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 0 0 1rem; }
+  .ed-barre input[type='search'] { flex: 1 1 14rem; width: auto !important; }
+  .ed-onglets { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+  #edition .ed-onglets button.actif { border-color: var(--accent); color: var(--accent); }
+
+  .ed-liste { list-style: none; margin: 0; padding: 0; }
+  .ed-liste li { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.75rem 0; border-bottom: 1px solid var(--trait); }
+  .ed-liste li > div:first-child { display: flex; flex-direction: column; min-width: 0; flex: 1 1 16rem; }
+  .ed-liste li span { font-size: 0.86rem; }
+  .ed-liste li.masque strong { color: var(--discret); }
+  .ed-badge { font-style: normal; color: var(--accent); }
+  .ed-actions { display: flex; gap: 0.4rem; }
+
+  .ed-champs { display: grid; grid-template-columns: 11rem 1fr; gap: 0 1rem; }
+  @media (max-width: 34rem) { .ed-champs { grid-template-columns: 1fr; } }
+  .ed-editeur .ed-case { margin: 1.1rem 0; }
+  .ed-outils { display: flex; flex-wrap: wrap; gap: 0.3rem; position: sticky; top: 3.4rem; z-index: 5; background: var(--fond); padding: 0.5rem 0; }
+  #edition .ed-outils button { font-size: 0.85rem; padding: 0.3rem 0.65rem; }
+  .ed-zone { min-height: 16rem; background: var(--surface); border: 1px solid var(--trait); border-radius: 5px; padding: 1rem 1.1rem; max-width: none; }
+  .ed-source { display: block; font: 0.85rem/1.5 var(--mono) !important; min-height: 16rem; resize: vertical; }
+  .ed-zone[hidden], .ed-source[hidden] { display: none; }
+</style>

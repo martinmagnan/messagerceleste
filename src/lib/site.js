@@ -7,7 +7,10 @@ export const SITE = {
   author: 'Martin Magnan',
 };
 
-const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+// Dépôt GitHub du site (« compte/nom »), utilisé par le mode édition.
+export const REPO = import.meta.env.PUBLIC_REPO || 'martinmagnan/messagerceleste';
+
+export const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 /** Adresse interne, préfixée par la base du site. */
 export const u = (p = '/') => (/^([a-z]+:|\/\/|#)/i.test(p) ? p : BASE + (p.startsWith('/') ? p : '/' + p));
@@ -31,12 +34,16 @@ export const galerie = Object.values(import.meta.glob('../data/galerie/*.json', 
 // ── Carnets ────────────────────────────────────────────────────────────────
 // Archives Blogger (JSON, adresse d'origine conservée) + nouveaux articles en
 // Markdown dans src/content/carnets/.
-const anciens = Object.values(import.meta.glob('../data/carnets/*.json', { eager: true, import: 'default' })).map((p) => ({
-  ...p,
-  date: new Date(p.date),
-  url: p.path,
-  ancien: true,
-}));
+// Un billet marqué « hidden » (mode édition) n'est pas publié : ni page, ni liste, ni flux.
+const anciens = Object.entries(import.meta.glob('../data/carnets/*.json', { eager: true, import: 'default' }))
+  .filter(([, p]) => !p.hidden)
+  .map(([file, p]) => ({
+    ...p,
+    date: new Date(p.date),
+    url: p.path,
+    ancien: true,
+    fichier: file.split('/').pop().replace(/\.json$/, ''),
+  }));
 
 const nouveaux = Object.entries(import.meta.glob('../content/carnets/*.md', { eager: true }))
   .filter(([, m]) => !m.frontmatter.draft)
