@@ -66,6 +66,17 @@
    "web": "/galerie/ngc6888-croissant/detail-filaments-5270-1836-2000x1500.jpg",
    "large": "/galerie/ngc6888-croissant/detail-filaments-5270-1836-2000x1500.jpg",
    "largeWidth": 2000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : Bulle de savon (PN G75.5+1.7)",
+   "width": 800,
+   "height": 600,
+   "thumb": "/galerie/ngc6888-croissant/detail-bulle-de-savon-pn-g75-5-1-7-5006-5733-800x600-900.webp",
+   "web": "/galerie/ngc6888-croissant/detail-bulle-de-savon-pn-g75-5-1-7-5006-5733-800x600.jpg",
+   "large": "/galerie/ngc6888-croissant/detail-bulle-de-savon-pn-g75-5-1-7-5006-5733-800x600.jpg",
+   "largeWidth": 800
   }
  ],
  "sections": [

@@ -42,7 +42,8 @@
   "NGC6888_mosaique_SHO_v3": [
     { "nom": "NGC 6888, le Croissant", "cx": 0.583, "cy": 0.823, "largeur": 1400, "hauteur": 1400 },
     { "nom": "IC 1318, le Papillon", "cx": 0.17, "cy": 0.22, "largeur": 2400, "hauteur": 1800 },
-    { "nom": "filaments", "cx": 0.55, "cy": 0.38, "largeur": 2000, "hauteur": 1500 }
+    { "nom": "filaments", "cx": 0.55, "cy": 0.38, "largeur": 2000, "hauteur": 1500 },
+    { "nom": "Bulle de savon (PN G75.5+1.7)", "cx": 0.4742, "cy": 0.8867, "largeur": 800, "hauteur": 600 }
   ],
   "SH2-132_SHO": [
     { "nom": "cœur de la nébuleuse", "cx": 0.56, "cy": 0.38, "largeur": 2000, "hauteur": 1500 },
