@@ -41,7 +41,8 @@ const t = traducteur(lang);
     };
 
     if (choix === 'oui') charger();
-    else if (choix !== 'non') boite.hidden = false;
+    else if (choix === 'non') effacer();
+    else boite.hidden = false;
 
     boite.addEventListener('click', (e) => {
       const b = e.target.closest('[data-choix]');
@@ -51,7 +52,12 @@ const t = traducteur(lang);
       try { localStorage.setItem(CLE, choix); } catch {}
       boite.hidden = true;
       if (choix === 'oui') charger();
-      else if (avant === 'oui') { effacer(); location.reload(); }
+      else if (avant === 'oui') {
+        // Analytics tourne encore sur cette page : on le coupe avant d'effacer, sinon il réécrit ses témoins.
+        window['ga-disable-' + GA_ID] = true;
+        effacer();
+        location.reload();
+      }
     });
 
     document.querySelectorAll('[data-stats]').forEach((a) => a.addEventListener('click', (e) => {
