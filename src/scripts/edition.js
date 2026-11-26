@@ -243,7 +243,7 @@ function ecranListe(info) {
       h('button', { type: 'button', onclick: deconnecter }, 'Se déconnecter'),
     ),
     h('p', { id: 'ed-message', class: 'ed-message', hidden: true }),
-    BRANCHE !== 'main' && h('p', { class: 'ed-message info' }, `Branche d'essai « ${BRANCHE} » : rien n'est publié sur le site.`),
+    BRANCHE !== 'main' ? h('p', { class: 'ed-message info' }, `Branche d'essai « ${BRANCHE} » : rien n'est publié sur le site.`) : '',
     liste,
   );
   dessiner();
