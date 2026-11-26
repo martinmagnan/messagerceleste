@@ -89,13 +89,31 @@ const explique = (e) =>
   : `GitHub a répondu : ${e.message}`;
 
 // ── Connexion ──────────────────────────────────────────────────────────────
+const NOM_DEPOT = REPO.split('/')[1];
+// Formulaire de création de jeton GitHub prérempli : nom, durée d'un an, permission Contents en écriture.
+// Le choix du dépôt ne peut pas être prérempli : il faut cocher « Only select repositories » → le dépôt.
+const NOUVEAU_JETON = 'https://github.com/settings/personal-access-tokens/new?' + new URLSearchParams({
+  name: 'Messager Céleste – édition', description: `Mode édition du site (dépôt ${NOM_DEPOT})`, expires_in: '366', contents: 'write',
+});
+const MES_JETONS = 'https://github.com/settings/personal-access-tokens';
+
+const echec = (raison) => Object.assign(new Error(raison), { raison });
+
 async function connecter(garder) {
-  const [utilisateur, depot] = await Promise.all([api('GET', '/user'), api('GET', `/repos/${REPO}`)]);
-  if (!depot.permissions?.push) {
-    const e = new Error('lecture seule');
-    e.status = 403;
-    throw e;
+  let utilisateur, depot;
+  try {
+    utilisateur = await api('GET', '/user');
+  } catch (e) {
+    throw e.status === 401 ? echec('inconnu') : e;
   }
+  try {
+    depot = await api('GET', `/repos/${REPO}`);
+  } catch (e) {
+    throw e.status === 403 || e.status === 404 ? echec('depot') : e;
+  }
+  // Pour un jeton « fine-grained », permissions reflète l'accès du jeton à ce dépôt. S'il est absent,
+  // on laisse passer : un vrai manque de droits sera signalé au premier enregistrement.
+  if (depot.permissions && !depot.permissions.push) throw echec('lecture');
   // Adresse « noreply » de GitHub : le courriel personnel n'apparaît pas dans l'historique public.
   moi = { name: utilisateur.name || utilisateur.login, email: `${utilisateur.id}+${utilisateur.login}@users.noreply.github.com` };
   sessionStorage.setItem(CLE, jeton);
@@ -125,7 +143,9 @@ function ecranConnexion(erreur) {
         } catch (e) {
           jeton = '';
           sessionStorage.removeItem(CLE);
-          message(explique(e), 'erreur');
+          if (e.raison) aide(e.raison);
+          // Une erreur pendant le chargement a déjà remplacé le formulaire : on le réaffiche avec le message.
+          else ecranConnexion(e.status ? explique(e) : `Impossible de charger les billets : ${e.message}`);
         }
       },
     },
@@ -134,20 +154,42 @@ function ecranConnexion(erreur) {
       champ,
       h('label', { class: 'ed-case' }, garder, ' Rester connecté sur cet appareil'),
       h('button', { type: 'submit', class: 'ed-primaire' }, 'Ouvrir le mode édition'),
-      h('p', { id: 'ed-message', class: 'ed-message', hidden: true }),
+      h('div', { id: 'ed-message', class: 'ed-message', hidden: true }),
       h('details', {},
         h('summary', {}, 'Comment créer le jeton'),
         h('ol', {},
-          h('li', {}, 'Ouvrir ', h('a', { href: 'https://github.com/settings/personal-access-tokens/new', target: '_blank', rel: 'noopener' }, 'GitHub → Fine-grained tokens → Generate new token'), '.'),
-          h('li', {}, 'Repository access : « Only select repositories », puis choisir ', h('code', {}, REPO.split('/')[1]), '.'),
-          h('li', {}, 'Permissions → Repository permissions → Contents : « Read and write ».'),
-          h('li', {}, 'Générer, copier le jeton et le coller ici.'),
+          h('li', {}, 'Ouvrir ', lien(NOUVEAU_JETON, 'le formulaire de jeton GitHub'), ' : le nom, la durée (un an) et la permission « Contents : Read and write » sont déjà remplis.'),
+          h('li', {}, 'Repository access : choisir « Only select repositories », puis le dépôt ', h('code', {}, NOM_DEPOT), '. ', h('strong', {}, "C'est l'étape qu'on oublie : par défaut, GitHub ne donne accès qu'en lecture aux dépôts publics.")),
+          h('li', {}, 'Vérifier sous Permissions que « Contents » est en « Read and write ».'),
+          h('li', {}, '« Generate token », copier le jeton (il commence par github_pat_) et le coller ici.'),
         ),
         h('p', { class: 'discret' }, "Le jeton reste dans ce navigateur et n'est envoyé qu'à GitHub. « Se déconnecter » l'efface."),
       ),
     ),
   );
   if (erreur) message(erreur, 'erreur');
+}
+
+function lien(href, texte) {
+  return h('a', { href, target: '_blank', rel: 'noopener' }, texte);
+}
+
+// Explique pourquoi un jeton est refusé, et comment le corriger sans forcément en créer un autre.
+function aide(raison) {
+  const zone = document.getElementById('ed-message');
+  if (!zone) return;
+  const corriger = h('p', {}, "Inutile d'en créer un nouveau : ouvre ", lien(MES_JETONS, 'tes jetons sur GitHub'),
+    ', clique sur celui-ci, puis « Edit ». Sous Repository access, choisis « Only select repositories » et le dépôt ', h('code', {}, NOM_DEPOT),
+    ' ; sous Permissions, mets « Contents » en « Read and write ». Enregistre (« Update »), reviens ici et clique de nouveau sur « Ouvrir le mode édition » : le jeton déjà collé suffit.');
+  const textes = {
+    inconnu: [h('p', {}, h('strong', {}, "GitHub ne reconnaît pas ce jeton.")),
+      h('p', {}, "Il a peut-être été copié en partie (il commence par github_pat_ et fait environ 90 caractères), ou il a expiré, ou il a été supprimé. Dans ce cas, il faut en créer un nouveau avec ", lien(NOUVEAU_JETON, 'le formulaire prérempli'), '.')],
+    depot: [h('p', {}, h('strong', {}, `Ce jeton est valide, mais il ne donne pas accès au dépôt ${NOM_DEPOT}.`)), corriger],
+    lecture: [h('p', {}, h('strong', {}, `Ce jeton est valide, mais il ne permet que de lire le dépôt ${NOM_DEPOT}, pas d'y écrire.`)), corriger],
+  };
+  zone.replaceChildren(...textes[raison]);
+  zone.className = 'ed-message erreur';
+  zone.hidden = false;
 }
 
 // ── Chargement des billets ─────────────────────────────────────────────────
@@ -622,6 +664,12 @@ if (!jeton) ecranConnexion();
 else {
   racine.replaceChildren(h('p', { class: 'discret' }, 'Connexion…'));
   connecter(!!localStorage.getItem(CLE)).then(ouvrir).catch((e) => {
+    if (e.raison) {
+      localStorage.removeItem(CLE); sessionStorage.removeItem(CLE); jeton = '';
+      ecranConnexion();
+      aide(e.raison);
+      return;
+    }
     if (e.status === 401) { localStorage.removeItem(CLE); sessionStorage.removeItem(CLE); jeton = ''; }
     ecranConnexion(e.status ? explique(e) : `Impossible de charger les billets : ${e.message}`);
   });
