@@ -93,7 +93,7 @@ const NOM_DEPOT = REPO.split('/')[1];
 // Formulaire de création de jeton GitHub prérempli : nom, durée d'un an, permission Contents en écriture.
 // Le choix du dépôt ne peut pas être prérempli : il faut cocher « Only select repositories » → le dépôt.
 const NOUVEAU_JETON = 'https://github.com/settings/personal-access-tokens/new?' + new URLSearchParams({
-  name: 'Messager Céleste – édition', description: `Mode édition du site (dépôt ${NOM_DEPOT})`, expires_in: '366', contents: 'write',
+  name: 'Messager Céleste – édition', description: `Mode édition du site (dépôt ${NOM_DEPOT})`, expires_in: '365', contents: 'write',
 });
 const MES_JETONS = 'https://github.com/settings/personal-access-tokens';
 
