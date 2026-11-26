@@ -8,6 +8,5 @@ export function getStaticPaths() {
     .filter((p) => p.fichier)
     .map((post) => ({ params: { year: post.year, month: post.month, slug: post.slug }, props: { url: post.url } }));
 }
-const post = carnets.find((p) => p.url === Astro.props.url);
 ---
-<Article post={post} />
+<Article url={Astro.props.url} lang="fr" />

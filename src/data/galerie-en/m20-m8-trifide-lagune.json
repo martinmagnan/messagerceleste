@@ -1,0 +1,37 @@
+{
+ "name": "The Trifid and the Lagoon",
+ "designation": "NGC 6514 (M20) and M8",
+ "constellation": "Sagittarius",
+ "subtitle": "Single-image broadband with hydrogen, HaLRGB",
+ "integration": "36.9 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning",
+  "Champ": "about 3.1° × 1.9°",
+  "Période": "18 July to 15 August 2026"
+ },
+ "details": {
+  "Détail : Trifide": "Detail: Trifid",
+  "Détail : Lagune": "Detail: Lagoon",
+  "Détail : NGC 6559, IC 1274 et IC 4685": "Detail: NGC 6559, IC 1274 and IC 4685"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This 3.1° by 1.9° field brings together two of the most famous nebulae of the summer sky, in the Sagittarius Milky Way, in the direction of the galactic centre.</p>\n<p>M20 (NGC 6514), the Trifid Nebula, owes its name to the three bands of dark dust that cut across its red part. It combines two types of nebula: a red region, where hydrogen is ionized by a young, hot star, and a neighbouring blue region, where dust simply reflects starlight.</p>\n<p>M8, the Lagoon Nebula, is much larger and brighter: a big star-forming region, crossed by a dark lane (the \"lagoon\") and home to the young cluster NGC 6530. Its very bright core contains the small Hourglass Nebula.</p>\n<p>Between and around the two objects, the field is filled with the very dense stars of the Milky Way and fainter clouds of hydrogen, which the added Ha filter brings out.</p>\n<p>The colours are close to the real ones: they were calibrated on the stars in the field, and the hydrogen only strengthens the red and the detail of the nebulae.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>18 July to 15 August 2026</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>L, R, G, B and Ha</dd></div><div><dt>Software</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Raw frames available:</p>\n<div class=\"tableau\"><table><thead><tr><th>Filter</th><th>Frames</th><th>Sub-exposure</th><th>Total</th><th>Period</th></tr></thead><tbody><tr><td>L</td><td>100</td><td>180 s</td><td>5.0 h</td><td>18 July to 3 August 2026</td></tr><tr><td>R</td><td>100</td><td>180 s</td><td>5.0 h</td><td>29 July to 3 August 2026</td></tr><tr><td>G</td><td>101</td><td>180 s</td><td>5.1 h</td><td>2 to 8 August 2026</td></tr><tr><td>B</td><td>104</td><td>180 s</td><td>5.2 h</td><td>7 to 9 August 2026</td></tr><tr><td>Ha</td><td>100</td><td>600 s</td><td>16.7 h</td><td>9 to 15 August 2026</td></tr></tbody></table></div>\n<dl><div><dt>Integration time</dt><dd>20.3 h in LRGB + 16.7 h in Ha = 36.9 h (505 frames).</dd></div></dl>\n<p>This total is that of the raw frames present on the disk. Stacking was done with WeightedBatchPreprocessing on 19 August 2026; the number of frames actually kept by WBPP was not re-checked and may be slightly lower.</p>\n<p>At the latitude of the site, this field only rises to about 35° above the southern horizon: it is observed through a thick layer of atmosphere.</p>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>5910 × 3612 pixels (21.3 megapixels), after cropping the edges</dd></div><div><dt>Field</dt><dd>about 3.1° × 1.9°</dd></div><div><dt>Field centre</dt><dd>RA 18h 06m, Dec −23° 45'</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done in PixInsight 1.9.6. This is the first image produced with this processing chain, before it became the skill used for the following ones.</p>\n<h4>Preprocessing</h4><ul><li>Calibration, alignment and stacking with WeightedBatchPreprocessing (L, R, G, B, Ha masters).</li></ul>\n<h4>Preparation</h4><ul><li>RGB combination and colour calibration on the stars in the field (SpectrophotometricColorCalibration, Gaia catalogue).</li><li>Common cropping of the edges.</li></ul>\n<h4>Linear processing</h4><ul><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction), StarXTerminator (separation of stars and nebulae), on the colour, the luminance and the Ha.</li></ul>\n<h4>Non-linear processing</h4><ul><li>Stretch of the colour, the luminance and the Ha.</li><li>Injection of the Ha into the red and into the luminance.</li><li>Combination of the luminance with the colour (LRGB).</li><li>Contrast and saturation curves.</li><li>Reintegration of the stars, stretched less than the nebulae.</li></ul>\n<h4>Notes</h4><ul><li>Third version of the rendering (v3), chosen after two trials.</li><li>This image was produced before the DarkStructureEnhance finish and the lighter background setting were added.</li></ul>"
+  }
+ ],
+ "source": "2cb8eb92572e"
+}

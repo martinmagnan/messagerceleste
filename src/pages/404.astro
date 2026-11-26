@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { u } from '../lib/site.js';
 ---
-<Base title="Page introuvable" noindex>
+<Base title="Page introuvable" noindex autreLangue={false}>
   <div class="page etroit">
     <header class="article-entete">
       <p class="surtitre">Erreur 404</p>
@@ -10,5 +10,6 @@ import { u } from '../lib/site.js';
       <p class="discret">L'adresse demandée n'existe pas ou n'existe plus.</p>
     </header>
     <p><a href={u('/galerie/')}>Voir la galerie</a> · <a href={u('/carnets/')}>Parcourir les carnets</a></p>
+    <p lang="en" class="discret" style="margin-top:2rem">This page does not exist, or no longer exists. <a href={u('/galerie/', 'en')}>See the gallery</a> · <a href={u('/carnets/', 'en')}>Browse the journal</a></p>
   </div>
 </Base>

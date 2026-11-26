@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import ListeCarnets from '../components/ListeCarnets.astro';
+import { u, etiquettesPour, nomEtiquette, traducteur } from '../lib/site.js';
+
+const { tag, lang = 'fr' } = Astro.props;
+const t = traducteur(lang);
+const e = etiquettesPour(lang).find((x) => x.slug === tag);
+const nom = nomEtiquette(e.name, lang);
+---
+<Base title={t('etiquette.titre', { x: nom })} description={t('etiquette.meta', { x: nom })} lang={lang}>
+  <div class="page etroit">
+    <header class="article-entete">
+      <p class="surtitre"><a href={u('/carnets/etiquettes/', lang)} style="color:inherit;text-decoration:none">{t('etiquettes.titre')}</a></p>
+      <h1>{nom}</h1>
+      <p class="discret">{e.posts.length === 1 ? t('articles.un') : t('articles.n', { n: e.posts.length })}</p>
+    </header>
+    <ListeCarnets posts={e.posts} lang={lang} />
+  </div>
+</Base>

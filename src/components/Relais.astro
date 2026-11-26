@@ -1,11 +1,11 @@
 ---
 // Page-relais : redirige une ancienne adresse Blogger vers sa nouvelle page.
 import { u } from '../lib/site.js';
-const { vers, titre } = Astro.props;
-const cible = u(vers);
+const { vers, titre, lang = 'fr' } = Astro.props;
+const cible = u(vers, lang);
 ---
 <!doctype html>
-<html lang="fr">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <title>{titre} · Messager Céleste</title>

@@ -1,0 +1,11 @@
+---
+// Relais anglais pour les anciennes adresses Blogger /search/label/<étiquette> citées dans les billets.
+import Relais from '../../../../components/Relais.astro';
+import { etiquettes, nomEtiquette } from '../../../../lib/site.js';
+
+export function getStaticPaths() {
+  return etiquettes.flatMap((t) => t.names.map((name) => ({ params: { label: name }, props: { url: t.url, name } })));
+}
+const { url, name } = Astro.props;
+---
+<Relais vers={url} titre={`Posts tagged “${nomEtiquette(name, 'en')}”`} lang="en" />

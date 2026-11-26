@@ -61,6 +61,15 @@ La connexion se fait avec un jeton d'accès GitHub, à créer une fois :
 
 Le jeton reste dans le navigateur de l'appareil et n'est envoyé qu'à GitHub. Un billet masqué (`"hidden": true` dans son fichier) n'est plus publié sur le site, mais son texte reste lisible dans ce dépôt, qui est public.
 
+### Le site en deux langues
+
+Le français est la langue d'origine et garde les adresses habituelles. L'anglais vit sous `/en/` (mêmes adresses, précédées de `/en`), et un bouton dans l'en-tête passe d'une langue à l'autre sur la même page.
+
+- Les textes d'interface sont dans `src/lib/i18n.js`, les étiquettes dans `src/data/etiquettes-en.json`.
+- Les traductions du contenu sont dans `src/data/carnets-en/` (titre, extrait, texte) et `src/data/galerie-en/` (nom, sous-titre, sections, agrandis), un fichier par billet ou par image, du même nom que le fichier français.
+- Chaque traduction porte l'empreinte du texte français dont elle est tirée. Si le français change (mode édition, fiche retraitée), la page anglaise signale que la traduction est en retard ; un billet ou une image sans traduction s'affiche en français.
+- Après avoir ajouté ou corrigé des traductions : `node scripts/verifier-traductions.mjs carnets` (ou `galerie`) vérifie que la mise en forme est identique au français, puis `node scripts/sceller-traductions.mjs` inscrit les empreintes (`--tout` pour tout resceller après relecture).
+
 ### Voir et publier
 
 ```bash

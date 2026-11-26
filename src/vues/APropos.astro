@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, u, galerie, carnets, traducteur } from '../lib/site.js';
+
+const { lang = 'fr' } = Astro.props;
+const t = traducteur(lang);
+const anciens = carnets.filter((p) => p.ancien);
+const annees = anciens.map((p) => p.date.getFullYear());
+const debut = Math.min(...annees), fin = Math.max(...annees);
+---
+{lang === 'en' ? (
+<Base title={t('nav.apropos')} description={`About ${SITE.title}, the astrophotography journal of ${SITE.author}.`} lang={lang}>
+  <div class="page etroit">
+    <header class="article-entete">
+      <p class="surtitre">{t('nav.apropos')}</p>
+      <h1>{SITE.title}</h1>
+    </header>
+    <div class="prose">
+      <p class="intro">“{t('site.description')}”</p>
+      <p>
+        That is how this journal introduced itself when it began, in December 2007. {SITE.title} (“Celestial
+        Messenger”) is the astrophotography site of {SITE.author}. It is written in French; this English
+        version is a translation.
+      </p>
+
+      <h2>The gallery</h2>
+      <p>
+        The <a href={u('/galerie/', lang)}>gallery</a> brings together {galerie.length} recent deep-sky images. They
+        are acquired remotely, from an observing site in Texas, in collaboration with Renaud Venne-Landry, with a
+        SharpStar 94EDPH refractor and a QHY268M monochrome camera, then processed in PixInsight. Each image comes
+        with its own page: a description of the object, the exposure details and the processing steps.
+      </p>
+
+      <h2>The journal</h2>
+      <p>
+        The <a href={u('/carnets/', lang)}>journal</a> includes the {anciens.length} posts published
+        from {debut} to {fin} on the old blog: session reports, equipment tests, processing techniques. They are
+        kept as they were, at their original addresses, alongside more recent posts.
+      </p>
+
+      <h2>Using the images</h2>
+      <p>The images and text on this site belong to their author. Please ask before reusing them.</p>
+    </div>
+  </div>
+</Base>
+) : (
+<Base title={t('nav.apropos')} description={`À propos de ${SITE.title}, le carnet d'astrophotographie de ${SITE.author}.`} lang={lang}>
+  <div class="page etroit">
+    <header class="article-entete">
+      <p class="surtitre">{t('nav.apropos')}</p>
+      <h1>{SITE.title}</h1>
+    </header>
+    <div class="prose">
+      <p class="intro">« {t('site.description')} »</p>
+      <p>
+        C'est ainsi que ce carnet se présentait à ses débuts, en décembre 2007. {SITE.title} est le site
+        d'astrophotographie de {SITE.author}.
+      </p>
+
+      <h2>La galerie</h2>
+      <p>
+        La <a href={u('/galerie/')}>galerie</a> réunit {galerie.length} images récentes du ciel profond. Elles sont
+        acquises à distance, depuis un site d'observation au Texas, en collaboration avec Renaud Venne-Landry, avec
+        une lunette SharpStar 94EDPH et une caméra monochrome QHY268M, puis traitées dans PixInsight. Chaque image
+        est accompagnée de sa fiche : description de l'objet, détail des poses, étapes du traitement.
+      </p>
+
+      <h2>Les carnets</h2>
+      <p>
+        Les <a href={u('/carnets/')}>carnets</a> reprennent les {anciens.length} articles publiés
+        de {debut} à {fin} sur l'ancien blog : comptes rendus de séances, essais de matériel, techniques de
+        traitement. Ils sont conservés tels quels, à leur adresse d'origine, aux côtés de billets plus récents.
+      </p>
+
+      <h2>Utilisation des images</h2>
+      <p>Les images et les textes de ce site sont la propriété de leur auteur. Merci de demander avant de les réutiliser.</p>
+    </div>
+  </div>
+</Base>
+)}

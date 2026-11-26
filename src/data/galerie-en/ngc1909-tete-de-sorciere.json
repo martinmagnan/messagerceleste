@@ -1,0 +1,38 @@
+{
+ "name": "The Witch Head Nebula",
+ "designation": "NGC 1909 (IC 2118)",
+ "constellation": "Eridanus",
+ "subtitle": "3-panel broadband mosaic, LRGB",
+ "integration": "71.2 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C then to −15 °C, 1×1 binning",
+  "Champ": "about 3.2° × 5.6°",
+  "Période": "14 October to 26 December 2025"
+ },
+ "details": {
+  "Détail : le visage": "Detail: the face",
+  "Détail : nuage supérieur": "Detail: upper cloud",
+  "Détail : nuage détaché": "Detail: detached cloud",
+  "Détail : galaxies lointaines": "Detail: distant galaxies"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This vertical 3.2° by 5.6° field shows the Witch Head, a long reflection nebula in Eridanus, very close to the border with Orion, about 900 light-years away.</p>\n<p>Its profile, visible in the lower half of the image, suggests a face with a hooked nose and a pointed chin, turned to the right. The nebula does not shine by itself: it is a cloud of dust lit by Rigel, the brightest star in Orion, just outside the field on the right. Its glow in fact spills onto the right edge of the image. The bluish tint comes from the dust, which scatters blue light better, and from the colour of Rigel itself. Towards the top, the nebula continues into a long, fainter filament.</p>\n<p>Around it, the background is streaked with reddish clouds: this is the diffuse hydrogen of the great Orion-Eridanus bubble, picked up by the red filter. Several small distant galaxies are visible across the field.</p>\n<p>The colours are close to the real ones: they were calibrated on the stars in the field.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>14 October to 26 December 2025</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C then to −15 °C, 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>L, R, G, B</dd></div><div><dt>Sub-exposure</dt><dd>180 s</dd></div><div><dt>Software</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Frames kept per panel (all available raw frames were stacked):</p>\n<pre>  Panel        L      R      G      B    Period\n  1 (top)    118    105    100    107    14 October to 21 December 2025\n  2 (middle) 132    152    129    137    13 November to 22 December 2025\n  3 (bottom) 143    100    100    100    11 to 26 December 2025\n  Total      393    357    329    344</pre>\n<dl><div><dt>Integration time</dt><dd>L 19.7 h + R 17.9 h + G 16.5 h + B 17.2 h = 71.2 h (1,423 frames of 180 s).</dd></div></dl>\n<p>The acquisition programme was not finished for panels 2 and 3: the image uses the frames present on the disk.</p>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6048 × 10626 pixels (64.3 megapixels)</dd></div><div><dt>Field</dt><dd>about 3.2° × 5.6°</dd></div><div><dt>Field centre</dt><dd>RA 5h 03m, Dec −8.3° (approximate) Single panel: 6252 × 4176 pixels, or 3.3° × 2.2°</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done entirely in PixInsight 1.9.6, starting from the raw frames.</p>\n<h4>Preprocessing (per panel and per filter)</h4><ul><li>Calibration: 180 s master darks at 0 °C and at −15 °C depending on the temperature of each frame; L, R, G, B master flats from October 2025 (0 °C) and December 2025 (−15 °C).</li><li>Frame alignment, local normalization, stacking.</li><li>Astrometric solution of each stack.</li></ul>\n<h4>Assembly</h4><ul><li>RGB combination of each panel and colour calibration on the stars (SpectrophotometricColorCalibration, Gaia catalogue).</li><li>RGB and luminance mosaics with AstrometricRegistration, in the same geometry: photometric normalization, equalization of the sky backgrounds in the overlaps, multi-scale blending.</li></ul>\n<h4>Linear processing</h4><ul><li>Gradient correction (AutomaticBackgroundExtractor, degree-2 polynomial) on the colour and the luminance.</li><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction), StarXTerminator (separation of stars and nebulae).</li></ul>\n<h4>Non-linear processing</h4><ul><li>Background neutralization, then linked stretch of the three colours, target background level 0.20.</li><li>Combination of the luminance with the colour (LRGB).</li><li>Green toned down (SCNR 0.7), contrast and saturation curves.</li><li>DarkStructureEnhance, two passes.</li><li>Reintegration of the stars, stretched less than the nebulae.</li></ul>\n<h4>Notes</h4><ul><li>A first rendering without gradient correction had a greenish sky background; the gradient correction and the green reduction removed it.</li><li>In panel 2, some of the L, R and G frames taken at 0 °C were calibrated with flats at −15 °C, for lack of a closer flat in date.</li><li>Visible flaws: the glow of Rigel on the right edge, a slightly blue-green area at lower right (leftover gradient) and a small fan-shaped reflection in the lower left corner.</li><li>The red clouds in the background are heavily stretched; no Ha frames were taken to confirm their detail.</li></ul>"
+  }
+ ],
+ "source": "f51b0c67a038"
+}

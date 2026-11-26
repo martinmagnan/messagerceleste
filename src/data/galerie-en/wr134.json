@@ -1,0 +1,36 @@
+{
+ "name": "The nebula of Wolf-Rayet star 134",
+ "designation": "WR 134",
+ "constellation": "Cygnus",
+ "subtitle": "Single-image narrowband, SHO (Hubble) palette, RGB colour stars",
+ "integration": "52.5 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning",
+  "Champ": "about 3.3° × 2.2°",
+  "Période": "26 September to 22 November 2025"
+ },
+ "details": {
+  "Détail : arc de WR 134": "Detail: WR 134 arc",
+  "Détail : nébuleuses obscures": "Detail: dark nebulae"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This 3.3° by 2.2° field, in the Cygnus Milky Way, is centred on WR 134, a Wolf-Rayet star: a massive, very hot star at the end of its life, losing its matter in a violent stellar wind. This wind has blown a bubble of gas around it, of which we mainly see a thin, bluish arc, shining in the ionized oxygen (OIII) line. It is the same phenomenon as in the Crescent Nebula (NGC 6888), about two degrees away, but much fainter.</p>\n<p>Around the arc, the whole field is occupied by the great clouds of hydrogen and sulphur of the Cygnus region, crossed by filaments and areas of dark dust.</p>\n<p>In the SHO palette, sulphur (SII) is assigned to red, hydrogen (Ha) to green and oxygen (OIII) to blue; the dominant green of the hydrogen is then toned down. The nebulae therefore do not have their real colours. The stars, on the other hand, come from short R, G and B exposures and have their true colours.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>26 September to 22 November 2025</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>Ha, OIII, SII for the nebulae; R, G, B for the stars</dd></div><div><dt>Software</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Raw frames available:</p>\n<div class=\"tableau\"><table><thead><tr><th>Filter</th><th>Frames</th><th>Sub-exposure</th><th>Total</th><th>Period</th></tr></thead><tbody><tr><td>Ha</td><td>100</td><td>600 s</td><td>16.7 h</td><td>26 September to 14 October 2025</td></tr><tr><td>OIII</td><td>105</td><td>600 s</td><td>17.5 h</td><td>14 October to 6 November 2025</td></tr><tr><td>SII</td><td>100</td><td>600 s</td><td>16.7 h</td><td>6 to 22 November 2025</td></tr><tr><td>R</td><td>11</td><td>180 s</td><td>33 min</td><td>21 November 2025</td></tr><tr><td>G</td><td>11</td><td>180 s</td><td>33 min</td><td>21 November 2025</td></tr><tr><td>B</td><td>11</td><td>180 s</td><td>33 min</td><td>21 and 22 November 2025</td></tr></tbody></table></div>\n<dl><div><dt>Integration time</dt><dd>50.8 h in narrowband + 1.65 h in RGB = 52.5 h (338 frames).</dd></div></dl>\n<p>This total is that of the raw frames present on the disk. Stacking was done with WeightedBatchPreprocessing on 22 November 2025; the number of frames actually kept by WBPP was not re-checked and may be slightly lower.</p>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6156 × 4068 pixels (25.0 megapixels), after cropping the edges</dd></div><div><dt>Field</dt><dd>about 3.3° × 2.2°</dd></div><div><dt>Field centre</dt><dd>RA 20h 10m, Dec +36° 10'</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done in PixInsight 1.9.6.</p>\n<h4>Preprocessing</h4><ul><li>Calibration, alignment and stacking with WeightedBatchPreprocessing (Ha, OIII, SII, R, G, B masters).</li></ul>\n<h4>Preparation</h4><ul><li>SHO combination (R = SII, G = Ha, B = OIII) for the nebulae.</li><li>RGB combination for the stars, with colour calibration on the stars in the field (SpectrophotometricColorCalibration, Gaia catalogue).</li><li>Common cropping of the edges.</li></ul>\n<h4>Linear processing</h4><ul><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction).</li><li>StarXTerminator: the stars are removed from the SHO image and extracted from the RGB image.</li></ul>\n<h4>Non-linear processing</h4><ul><li>Channel-by-channel stretch of the SHO image.</li><li>Green toned down (SCNR 0.7), contrast and saturation curves.</li><li>Addition of the RGB stars, stretched less than the nebulae.</li></ul>\n<h4>Notes</h4><ul><li>The RGB frames are few (11 per filter): they are enough for the colour of the stars, not for a broadband image.</li><li>This image was produced before the DarkStructureEnhance finish and the lighter background setting were added.</li></ul>"
+  }
+ ],
+ "source": "af6acf341942"
+}

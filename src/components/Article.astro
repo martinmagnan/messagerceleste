@@ -1,52 +1,63 @@
 ---
-// Page d'un carnet, ancien (HTML repris de Blogger) ou nouveau (Markdown).
+// Page d'un billet : ancien blog ou billet récent (JSON), ou billet en Markdown.
 import Base from '../layouts/Base.astro';
-import { u, rebase, formatDate, carnets, etiquetteUrl } from '../lib/site.js';
+import { u, rebase, formatDate, carnetsPour, etiquetteUrl, nomEtiquette, traducteur } from '../lib/site.js';
 
-const { post } = Astro.props;
-const i = carnets.findIndex((p) => p.url === post.url);
-const plusRecent = carnets[i - 1];
-const plusAncien = carnets[i + 1];
-const html = rebase(post.html ?? (await post.compiled()));
+const { url, lang = 'fr' } = Astro.props;
+const t = traducteur(lang);
+const liste = carnetsPour(lang);
+const i = liste.findIndex((p) => p.url === url);
+const post = liste[i];
+const plusRecent = liste[i - 1];
+const plusAncien = liste[i + 1];
+const html = rebase(post.html ?? (await post.compiled()), lang);
+
+// Bandeau d'information : billet d'archive, traduction, traduction périmée ou absente.
+const notes = [];
+if (post.ancien) notes.push(t('article.archive'));
+if (lang === 'en') {
+  if (!post.traduit) notes.push(t('article.nontraduit'));
+  else if (!post.ancien) notes.push(t('article.traduit'));
+  if (post.traduit && post.perime) notes.push(t('article.perime'));
+}
+const n = post.comments.length;
 ---
-<Base title={post.title} description={post.excerpt || undefined} image={post.cover}>
+<Base title={post.title} description={post.excerpt || undefined} image={post.cover} lang={lang}>
   <div class="page etroit">
     <header class="article-entete">
-      <p class="surtitre"><a href={u('/carnets/')} style="color:inherit;text-decoration:none">Carnets</a></p>
+      <p class="surtitre"><a href={u('/carnets/', lang)} style="color:inherit;text-decoration:none">{t('nav.carnets')}</a></p>
       <h1>{post.title}</h1>
-      <time class="discret" datetime={post.date.toISOString()}>{formatDate(post.date)}</time>
-      {post.fichier && <a class="lien-edition" data-edition hidden href={`${u('/edition/')}#${post.fichier}`}>Modifier ce billet</a>}
+      <time class="discret" datetime={post.date.toISOString()}>{formatDate(post.date, lang)}</time>
+      {lang === 'fr' && post.fichier && <a class="lien-edition" data-edition hidden href={`${u('/edition/')}#${post.fichier}`}>{t('article.modifier')}</a>}
     </header>
 
-    {post.ancien && (
-      <p class="bandeau-archive">Article repris tel quel de l'ancien blog (2007–2011). Certains liens externes peuvent ne plus fonctionner.</p>
-    )}
+    {notes.length > 0 && <p class="bandeau-archive">{notes.join(' ')}</p>}
 
-    <article class="article">
+    <article class="article" lang={lang === 'en' && !post.traduit ? 'fr' : undefined}>
       <Fragment set:html={html} />
     </article>
 
     {post.labels.length > 0 && (
       <ul class="etiquettes" style="margin-top:2.5rem">
-        {post.labels.map((l) => <li><a href={u(etiquetteUrl(l))}>{l}</a></li>)}
+        {post.labels.map((l) => <li><a href={u(etiquetteUrl(l), lang)}>{nomEtiquette(l, lang)}</a></li>)}
       </ul>
     )}
 
-    {post.comments.length > 0 && (
+    {n > 0 && (
       <section class="commentaires">
-        <h2>{post.comments.length === 1 ? 'Un commentaire' : `${post.comments.length} commentaires`}</h2>
+        <h2>{n === 1 ? t('commentaires.un') : t('commentaires.n', { n })}</h2>
         {post.comments.map((c) => (
-          <article>
-            <header><strong>{c.author}</strong> · {formatDate(new Date(c.date))}</header>
-            <div set:html={rebase(c.html)} />
+          <article lang="fr">
+            <header><strong>{c.author}</strong> · {formatDate(new Date(c.date), lang)}</header>
+            <div set:html={rebase(c.html, lang)} />
           </article>
         ))}
       </section>
     )}
 
-    <nav class="voisins" aria-label="Articles voisins">
-      {plusAncien && <a href={u(plusAncien.url)}><small>← Plus ancien</small>{plusAncien.title}</a>}
-      {plusRecent && <a class="suivant" href={u(plusRecent.url)}><small>Plus récent →</small>{plusRecent.title}</a>}
+    <nav class="voisins" aria-label={t('article.voisins')}>
+      {plusAncien && <a href={u(plusAncien.url, lang)}><small>{t('article.ancien')}</small>{plusAncien.title}</a>}
+      {plusRecent && <a class="suivant" href={u(plusRecent.url, lang)}><small>{t('article.recent')}</small>{plusRecent.title}</a>}
     </nav>
   </div>
 </Base>

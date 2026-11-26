@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import { u, etiquettesPour, nomEtiquette, traducteur } from '../lib/site.js';
+
+const { lang = 'fr' } = Astro.props;
+const t = traducteur(lang);
+const tri = [...etiquettesPour(lang)].sort((a, b) => nomEtiquette(a.name, lang).localeCompare(nomEtiquette(b.name, lang), lang));
+---
+<Base title={t('etiquettes.titre')} description={t('etiquettes.meta')} lang={lang}>
+  <div class="page etroit">
+    <header class="article-entete">
+      <p class="surtitre"><a href={u('/carnets/', lang)} style="color:inherit;text-decoration:none">{t('nav.carnets')}</a></p>
+      <h1>{t('etiquettes.titre')}</h1>
+      <p class="discret">{t('etiquettes.intro', { n: tri.length })}</p>
+    </header>
+    <ul class="etiquettes">
+      {tri.map((e) => <li><a href={u(e.url, lang)}>{nomEtiquette(e.name, lang)}<span class="nb">{e.posts.length}</span></a></li>)}
+    </ul>
+  </div>
+</Base>

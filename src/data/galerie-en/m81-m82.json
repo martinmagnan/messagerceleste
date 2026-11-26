@@ -1,0 +1,37 @@
+{
+ "name": "Bode's Galaxy, the Cigar Galaxy and the integrated flux nebulae",
+ "designation": "M81 and M82",
+ "constellation": "Ursa Major",
+ "subtitle": "Single-image broadband with hydrogen, HaLRGB",
+ "integration": "48.3 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to −15 °C (0 °C for the Ha), 1×1 binning",
+  "Champ": "about 3.3° × 2.2°",
+  "Période": "10 October 2025 to 14 March 2026"
+ },
+ "details": {
+  "Détail : M81": "Detail: M81",
+  "Détail : M82": "Detail: M82",
+  "Détail : NGC 3077": "Detail: NGC 3077"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This 3.3° by 2.2° field, in Ursa Major, shows the most famous pair of galaxies in the northern sky, about 12 million light-years away.</p>\n<p>M81, Bode's Galaxy, is the large spiral seen at three-quarter view, left of centre: a yellow core of old stars, surrounded by bluish arms where young stars are forming. Above it, M82, the Cigar Galaxy, is seen edge-on. A close encounter with M81 triggered a burst of star formation there, whose wind blows large jets of red hydrogen out on either side of the disc; these are what the Ha filter brings out. At lower left, the small galaxy NGC 3077 belongs to the same group.</p>\n<p>The whole field is crossed by very faint grey-brown veils: these are the integrated flux nebulae, dust from our own Galaxy lying well above its plane and lit only by the overall light of the Milky Way. They are in the foreground, thousands of times closer than the galaxies. Seeing them takes a very dark sky and a long integration time.</p>\n<p>The colours are close to the real ones: they were calibrated on the stars in the field, and the hydrogen only strengthens the red.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>10 October 2025 to 14 March 2026</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to −15 °C (0 °C for the Ha), 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>L, R, G, B and Ha</dd></div><div><dt>Software</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Frames kept:</p>\n<div class=\"tableau\"><table><thead><tr><th>Filter</th><th>Frames</th><th>Sub-exposure</th><th>Total</th><th>Period</th></tr></thead><tbody><tr><td>L</td><td>98</td><td>300 s</td><td>8.2 h</td><td>27 December 2025 to 22 February 2026</td></tr><tr><td>R</td><td>88</td><td>300 s</td><td>7.3 h</td><td>14 January to 12 March 2026</td></tr><tr><td>G</td><td>100</td><td>300 s</td><td>8.3 h</td><td>16 February to 13 March 2026</td></tr><tr><td>B</td><td>100</td><td>300 s</td><td>8.3 h</td><td>20 February to 14 March 2026</td></tr><tr><td>Ha</td><td>97</td><td>600 s</td><td>16.2 h</td><td>10 October to 12 November 2025</td></tr></tbody></table></div>\n<dl><div><dt>Integration time</dt><dd>32.2 h in LRGB + 16.2 h in Ha = 48.3 h (483 frames). Two of the 99 Ha frames could not be aligned and were discarded.</dd></div></dl>\n<p>The target also has 89 OIII frames of 600 s, not used in this rendering.</p>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6186 × 4074 pixels (25.2 megapixels), after cropping the edges</dd></div><div><dt>Field</dt><dd>about 3.3° × 2.2°</dd></div><div><dt>Field centre</dt><dd>RA 9h 47m, Dec +69° 24'</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done entirely in PixInsight 1.9.6, starting from the raw frames.</p>\n<h4>Preprocessing (per filter)</h4><ul><li>Calibration: 300 s master darks at −15 °C (LRGB) and 600 s at 0 °C (Ha); L, R, G, B master flats at −15 °C from December 2025; Ha master flat from October 2025.</li><li>Frame alignment, local normalization, stacking.</li><li>Astrometric solution of each stack.</li></ul>\n<h4>Preparation</h4><ul><li>RGB combination and colour calibration on the stars in the field (SpectrophotometricColorCalibration, Gaia catalogue).</li><li>Common cropping of the edges.</li></ul>\n<h4>Linear processing</h4><ul><li>Light gradient correction (AutomaticBackgroundExtractor, degree-1 polynomial, so as not to erase the faint dust in the field).</li><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction), StarXTerminator (separation of stars and nebulae), on the colour, the luminance and the Ha.</li></ul>\n<h4>Non-linear processing</h4><ul><li>Background neutralization, then linked stretch of the three colours, target background level 0.20.</li><li>Injection of the Ha into the red (40%) and into the luminance.</li><li>Colour saturation boosted in the galaxies only (lightness mask), before the combination with the luminance, which would otherwise wash it out.</li><li>Combination of the luminance with the colour (LRGB).</li><li>Compression of the galaxy cores: HDRMultiscaleTransform in two passes (6 layers then 4 layers), with a lightness mask, to reveal the spiral right down to the core of M81 and the dust lanes at the centre of M82.</li><li>Saturation raised a second time in the bright areas.</li><li>Green toned down (SCNR 0.7), contrast and saturation curves.</li><li>Reintegration of the stars, stretched less than the nebulae.</li></ul>\n<h4>Notes</h4><ul><li>Tenth version of the rendering: the earlier ones showed grey galaxies. The arms of M81 keep a salmon tint, pinker than the expected blue; the background dust is unchanged.</li><li>DarkStructureEnhance was not applied: on a first rendering, it carved an artificial dark halo around M81.</li><li>The integrated flux nebulae are heavily stretched; their tint depends strongly on the background neutralization.</li></ul>"
+  }
+ ],
+ "source": "1c492c2491ef"
+}

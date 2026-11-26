@@ -1,14 +1,14 @@
 ---
-import { u, formatDate } from '../lib/site.js';
-const { posts } = Astro.props;
+import { u, asset, formatDate } from '../lib/site.js';
+const { posts, lang = 'fr' } = Astro.props;
 ---
 <ul class="liste">
   {posts.map((p) => (
     <li>
-      {p.cover ? <img class="vignette" src={u(p.cover)} alt="" loading="lazy" width="88" height="88" /> : <div class="vide" />}
+      {p.cover ? <img class="vignette" src={asset(p.cover)} alt="" loading="lazy" width="88" height="88" /> : <div class="vide" />}
       <div>
-        <h3><a href={u(p.url)}>{p.title}</a></h3>
-        <time datetime={p.date.toISOString()}>{formatDate(p.date)}</time>
+        <h3><a href={u(p.url, lang)}>{p.title}</a></h3>
+        <time datetime={p.date.toISOString()}>{formatDate(p.date, lang)}</time>
         {p.excerpt && <p>{p.excerpt}</p>}
       </div>
     </li>

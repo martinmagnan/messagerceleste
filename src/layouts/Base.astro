@@ -1,45 +1,60 @@
 ---
 import '../styles/global.css';
-import { SITE, u } from '../lib/site.js';
+import { SITE, BASE, u, asset, traducteur } from '../lib/site.js';
 
-const { title, description = SITE.description, image, noindex = false } = Astro.props;
-const fullTitle = title ? `${title} · ${SITE.title}` : `${SITE.title} · ${SITE.tagline}`;
+// lang : langue de la page. autreLangue : false quand la page n'existe que dans une langue.
+const { title, description, image, noindex = false, lang = 'fr', autreLangue = true } = Astro.props;
+const t = traducteur(lang);
+const desc = description ?? t('site.description');
+const fullTitle = title ? `${title} · ${SITE.title}` : `${SITE.title} · ${t('site.tagline')}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = image ? new URL(u(image), Astro.site) : null;
+const ogImage = image ? new URL(asset(image), Astro.site) : null;
 const path = Astro.url.pathname;
-const section = (p) => path.startsWith(u(p)) || (p === '/carnets/' && /\/\d{4}\/\d{2}\//.test(path));
+
+// La même page dans l'autre langue : on ajoute ou on retire le préfixe /en.
+const relatif = path.slice(BASE.length) || '/';
+const sansEn = relatif.replace(/^\/en(\/|$)/, '/');
+const versFr = BASE + sansEn;
+const versEn = BASE + '/en' + (sansEn === '/' ? '/' : sansEn);
+const autre = lang === 'fr' ? versEn : versFr;
+
+const section = (p) => path.startsWith(u(p, lang)) || (p === '/carnets/' && /\/\d{4}\/\d{2}\//.test(path));
 const nav = [
-  ['/galerie/', 'Galerie'],
-  ['/carnets/', 'Carnets'],
-  ['/a-propos/', 'À propos'],
+  ['/galerie/', t('nav.galerie')],
+  ['/carnets/', t('nav.carnets')],
+  ['/a-propos/', t('nav.apropos')],
 ];
 ---
 <!doctype html>
-<html lang="fr">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={desc} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
-    <link rel="alternate" type="application/rss+xml" title={SITE.title} href={u('/rss.xml')} />
+    {autreLangue && <link rel="alternate" hreflang="fr" href={new URL(versFr, Astro.site)} />}
+    {autreLangue && <link rel="alternate" hreflang="en" href={new URL(versEn, Astro.site)} />}
+    {autreLangue && <link rel="alternate" hreflang="x-default" href={new URL(versFr, Astro.site)} />}
+    <link rel="icon" href={asset('/favicon.svg')} type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.title} href={u('/rss.xml', lang)} />
     <meta name="theme-color" content="#090b10" />
     <meta property="og:site_name" content={SITE.title} />
     <meta property="og:title" content={title || SITE.title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={desc} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content="fr_CA" />
+    <meta property="og:locale" content={lang === 'en' ? 'en_CA' : 'fr_CA'} />
     {ogImage && <meta property="og:image" content={ogImage} />}
     <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
   </head>
   <body>
     <header class="entete">
       <div class="page">
-        <a class="marque" href={u('/')}>Messager <span>Céleste</span></a>
-        <nav aria-label="Navigation principale">
-          {nav.map(([href, label]) => <a href={u(href)} aria-current={section(href) ? 'page' : undefined}>{label}</a>)}
+        <a class="marque" href={u('/', lang)}>Messager <span>Céleste</span></a>
+        <nav aria-label={t('nav.principale')}>
+          {nav.map(([href, label]) => <a href={u(href, lang)} aria-current={section(href) ? 'page' : undefined}>{label}</a>)}
+          {autreLangue && <a class="langue" href={autre} hreflang={lang === 'fr' ? 'en' : 'fr'} lang={lang === 'fr' ? 'en' : 'fr'} title={t('langue.autre.titre')}>{t('langue.autre')}</a>}
         </nav>
       </div>
     </header>
@@ -48,8 +63,11 @@ const nav = [
     </main>
     <footer class="pied">
       <div class="page">
-        <span>© 2007–{new Date().getFullYear()} {SITE.author}. Images et textes : tous droits réservés.</span>
-        <span><a href={u('/rss.xml')}>Flux RSS</a> · <a href={u('/edition/')} rel="nofollow">Édition</a></span>
+        <span>© 2007–{new Date().getFullYear()} {SITE.author}. {t('pied.droits')}</span>
+        <span>
+          <a href={u('/rss.xml', lang)}>{t('pied.rss')}</a>
+          {lang === 'fr' && <Fragment> · <a href={u('/edition/')} rel="nofollow">{t('pied.edition')}</a></Fragment>}
+        </span>
       </div>
     </footer>
     <script is:inline>

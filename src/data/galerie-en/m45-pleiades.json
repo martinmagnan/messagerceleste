@@ -1,0 +1,37 @@
+{
+ "name": "The Pleiades and their nebulosity",
+ "designation": "M45",
+ "constellation": "Taurus",
+ "subtitle": "4-panel broadband mosaic, LRGB",
+ "integration": "95.7 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to −15 °C (a few frames at 0 °C), 1×1 binning",
+  "Champ": "about 6.1° × 3.9°",
+  "Période": "9 December 2025 to 11 February 2026"
+ },
+ "details": {
+  "Détail : cœur de l'amas": "Detail: core of the cluster",
+  "Détail : nébuleuse de Mérope (NGC 1435)": "Detail: Merope Nebula (NGC 1435)",
+  "Détail : nébuleuse de Maïa (NGC 1432)": "Detail: Maia Nebula (NGC 1432)"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This 6.1° by 3.9° field shows the Pleiades cluster (M45) and, above all, the vast cloud of interstellar dust in which it is bathed.</p>\n<p>The cluster occupies the right-hand part of the image, below the centre. Its young, hot blue stars, about 440 light-years away, light up the dust they pass through: these are reflection nebulae, blue because dust scatters blue light better. The best known are the Merope Nebula (NGC 1435) and the Maia Nebula (NGC 1432), with their characteristic fine streaks.</p>\n<p>The rest of the field is filled with much fainter dust, lit only by the overall light of the Milky Way: long grey-brown veils stretching across the whole width of the mosaic. It is these diffuse nebulosities, well beyond the cluster itself, that the wide field and the long integration time make it possible to show.</p>\n<p>Unlike the narrowband images, the colours here are close to the real ones: they were calibrated on the stars in the field.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>9 December 2025 to 11 February 2026</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to −15 °C (a few frames at 0 °C), 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>L, R, G, B</dd></div><div><dt>Sub-exposure</dt><dd>180 s</dd></div><div><dt>Software</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Raw frames available per panel:</p>\n<pre>  Panel        L      R      G      B    Period\n  1          119    100    153    141    18 January to 11 February 2026\n  2          103    100    100    190    20 December 2025 to 10 January 2026\n  3          100    103    100    100    15 to 18 January 2026\n  4          163    120    121    100    9 December 2025 to 6 February 2026\n  Total      485    423    474    531</pre>\n<dl><div><dt>Integration time</dt><dd>L 24.3 h + R 21.2 h + G 23.7 h + B 26.6 h = 95.7 h (1,913 frames of 180 s).</dd></div></dl>\n<p>This total is that of the raw frames present on the disk. Stacking was done with WeightedBatchPreprocessing on 14 February 2026; the number of frames actually kept by WBPP was not re-checked and may be slightly lower.</p>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>11622 × 7314 pixels (85.0 megapixels)</dd></div><div><dt>Field</dt><dd>about 6.1° × 3.9°</dd></div><div><dt>Position</dt><dd>the Pleiades are at RA 3h 47m, Dec +24° 07' Single panel: 6252 × 4176 pixels, or 3.3° × 2.2°</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done in PixInsight 1.9.6.</p>\n<h4>Preprocessing</h4><ul><li>Calibration, alignment and stacking with WeightedBatchPreprocessing (L, R, G, B masters for each panel).</li></ul>\n<h4>Assembly</h4><ul><li>RGB combination of each panel and colour calibration on the stars (SpectrophotometricColorCalibration, Gaia catalogue).</li><li>RGB and luminance mosaics with AstrometricRegistration, in the same geometry: photometric normalization, equalization of the sky backgrounds in the overlaps, multi-scale blending.</li></ul>\n<h4>Linear processing</h4><ul><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction), StarXTerminator (separation of stars and nebulae).</li></ul>\n<h4>Non-linear processing</h4><ul><li>Background neutralization, then linked stretch of the three colours, target background level 0.16.</li><li>Combination of the luminance with the colour (LRGB).</li><li>Contrast and saturation curves, green toned down (SCNR 0.7).</li><li>Reintegration of the stars, stretched less than the nebulae.</li></ul>\n<h4>Notes</h4><ul><li>This image was produced before the DarkStructureEnhance finish and the lighter background setting were added.</li><li>Known flaws: a small coloured streak to the left of the Pleiades and a slight large-scale colour gradient (no gradient correction was applied).</li></ul>"
+  }
+ ],
+ "source": "9f7a4a29e9e9"
+}

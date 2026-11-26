@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import ListeCarnets from '../components/ListeCarnets.astro';
+import { u, carnetsPour, etiquettesPour, nomEtiquette, traducteur } from '../lib/site.js';
+
+const { lang = 'fr' } = Astro.props;
+const t = traducteur(lang);
+const carnets = carnetsPour(lang);
+const annees = [...new Set(carnets.map((p) => p.date.getFullYear()))];
+const principales = etiquettesPour(lang).slice(0, 14);
+---
+<Base title={t('nav.carnets')} description={t('carnets.meta')} lang={lang}>
+  <div class="page etroit">
+    <header class="article-entete">
+      <p class="surtitre">{t('nav.carnets')}</p>
+      <h1>{t('carnets.titre')}</h1>
+      <p class="discret">{t('carnets.intro', { n: carnets.length, a: annees.at(-1), b: annees[0] })}</p>
+    </header>
+
+    <ul class="etiquettes">
+      {principales.map((e) => <li><a href={u(e.url, lang)}>{nomEtiquette(e.name, lang)}<span class="nb">{e.posts.length}</span></a></li>)}
+      <li><a href={u('/carnets/etiquettes/', lang)}>{t('carnets.etiquettes')}</a></li>
+    </ul>
+
+    {annees.map((a) => (
+      <section>
+        <h2 class="annee" id={String(a)}>{a}</h2>
+        <ListeCarnets posts={carnets.filter((p) => p.date.getFullYear() === a)} lang={lang} />
+      </section>
+    ))}
+  </div>
+</Base>

@@ -1,0 +1,38 @@
+{
+ "name": "The Heart and Soul Nebulae",
+ "designation": "IC 1805 and IC 1848",
+ "constellation": "Cassiopeia",
+ "subtitle": "4-panel narrowband mosaic, SHO and HOO palettes",
+ "integration": "200 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning",
+  "Champ": "about 5.9° × 3.3°",
+  "Période": "30 August to 23 November 2026"
+ },
+ "details": {
+  "Détail : Melotte 15, au centre du Cœur": "Detail: Melotte 15, at the centre of the Heart",
+  "Détail : IC 1795 et NGC 896, la Tête de Poisson": "Detail: IC 1795 and NGC 896, the Fish Head",
+  "Détail : piliers de l'Âme": "Detail: pillars of the Soul",
+  "Détail : bord supérieur de l'Âme": "Detail: upper edge of the Soul"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This field of nearly 6° by 3.3° brings together two large emission nebulae in Cassiopeia, about 6,000 light-years away in the Perseus Arm.</p>\n<p>On the left, IC 1805, the Heart Nebula: a vast cavity carved out by the radiation and winds of the young star cluster Melotte 15, visible at its centre and surrounded by dark columns of dust. The very bright knot at the lower left of the Heart is IC 1795 with NGC 896, the \"Fish Head\".</p>\n<p>At upper right, IC 1848, the Soul Nebula, made of two lobes edged with ionization fronts and dark globules where new stars are being born. Between the two nebulae, fainter veils of hydrogen link the whole together.</p>\n<p>Two palettes were produced from the same data:</p>\n<ul><li>SHO (Hubble palette): sulphur (SII) in red, hydrogen (Ha) in green, oxygen (OIII) in blue, with the green toned down. The edges of the nebulae stand out in gold and the cavities in blue.</li><li>HOO: hydrogen in red, oxygen in green and blue. The rendering is closer to natural colours: red edges, blue-green cores.</li></ul>\n<p>In both cases, the colours show the distribution of the gases, not what the eye would see.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>30 August to 23 November 2026</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>Ha, OIII, SII</dd></div><div><dt>Sub-exposure</dt><dd>600 s</dd></div><div><dt>Software</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Frames kept per panel (all available raw frames were stacked):</p>\n<pre>  Panel       Ha    OIII    SII    Period\n  1          100    100     100    12 to 23 November 2026\n  2          100    100     100    14 September to 22 October 2026\n  3          100    100     100    30 August to 13 September 2026\n  4          100    100     100    19 October to 12 November 2026\n  Total      400    400     400</pre>\n<dl><div><dt>Integration time</dt><dd>Ha 66.7 h + OIII 66.7 h + SII 66.7 h = 200 h (1,200 frames of 600 s), or 50 h per panel. The HOO palette uses only the Ha and OIII, or 133.3 h.</dd></div></dl>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>11106 × 6210 pixels (69.0 megapixels)</dd></div><div><dt>Field</dt><dd>about 5.9° × 3.3°</dd></div><div><dt>Field centre</dt><dd>RA 2h 42m, Dec +61.5° (approximate) Single panel: 6252 × 4176 pixels, or 3.3° × 2.2°</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done entirely in PixInsight 1.9.6, starting from the raw frames.</p>\n<h4>Preprocessing (per panel and per filter)</h4><ul><li>Calibration: 600 s master dark at 0 °C; Ha master flat from 28 July 2026; OIII and SII master flats at −15 °C from December 2025.</li><li>Frame alignment, local normalization, stacking.</li><li>Astrometric solution of each stack.</li></ul>\n<h4>Assembly</h4><ul><li>Colour combination of each panel: SHO (R = SII, G = Ha, B = OIII) or HOO (R = Ha, G = OIII, B = OIII).</li><li>Mosaic with AstrometricRegistration: photometric normalization, equalization of the sky backgrounds in the overlaps, multi-scale blending.</li></ul>\n<h4>Linear processing</h4><ul><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction), StarXTerminator (separation of stars and nebulae).</li></ul>\n<h4>Non-linear processing</h4><ul><li>Channel-by-channel stretch, contrast and saturation curves, reintegration of the stars, stretched less than the nebulae.</li><li>SHO version: target background level 0.17, green toned down (SCNR 0.7).</li><li>HOO version: target background level 0.17.</li><li>HOO v2 version: target background level 0.20 (lighter sky), stronger contrast and two passes of DarkStructureEnhance to bring out the dark nebulae.</li></ul>\n<h4>Notes</h4><ul><li>No RGB frames were taken for this target: the colour of the stars comes from the narrowband filters and is not their real colour (red or cyan stars in HOO).</li><li>The SHO version was produced before the filling of null pixels was added to the mosaic; it has not been checked on this point.</li></ul>"
+  }
+ ],
+ "source": "5d7d6dc9874e"
+}

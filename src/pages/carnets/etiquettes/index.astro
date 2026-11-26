@@ -1,17 +1,4 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import { u, etiquettes } from '../../../lib/site.js';
-const tri = [...etiquettes].sort((a, b) => a.name.localeCompare(b.name, 'fr'));
+import EtiquettesIndex from '../../../vues/EtiquettesIndex.astro';
 ---
-<Base title="Étiquettes" description="Tous les sujets et instruments abordés dans les carnets.">
-  <div class="page etroit">
-    <header class="article-entete">
-      <p class="surtitre"><a href={u('/carnets/')} style="color:inherit;text-decoration:none">Carnets</a></p>
-      <h1>Étiquettes</h1>
-      <p class="discret">{tri.length} sujets et instruments.</p>
-    </header>
-    <ul class="etiquettes">
-      {tri.map((t) => <li><a href={u(t.url)}>{t.name}<span class="nb">{t.posts.length}</span></a></li>)}
-    </ul>
-  </div>
-</Base>
+<EtiquettesIndex lang="fr" />

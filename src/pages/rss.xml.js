@@ -1,22 +1,25 @@
 import rss from '@astrojs/rss';
-import { SITE, u, galerie, carnets } from '../lib/site.js';
+import { SITE, u, galeriePour, carnetsPour, traducteur } from '../lib/site.js';
+
+const lang = 'fr';
 
 export function GET(context) {
+  const t = traducteur(lang);
   const items = [
-    ...galerie.map((g) => ({
+    ...galeriePour(lang).map((g) => ({
       title: `${g.designation} — ${g.name}`,
-      link: u(g.url),
+      link: u(g.url, lang),
       pubDate: g.date,
       description: g.subtitle,
     })),
-    ...carnets.map((p) => ({ title: p.title, link: u(p.url), pubDate: p.date, description: p.excerpt })),
+    ...carnetsPour(lang).map((p) => ({ title: p.title, link: u(p.url, lang), pubDate: p.date, description: p.excerpt })),
   ]
     .sort((a, b) => b.pubDate - a.pubDate)
     .slice(0, 40);
 
   return rss({
-    title: `${SITE.title} · ${SITE.tagline}`,
-    description: SITE.description,
+    title: `${SITE.title} · ${t('site.tagline')}`,
+    description: t('site.description'),
     site: context.site,
     items,
     customData: '<language>fr-ca</language>',

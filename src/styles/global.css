@@ -206,3 +206,8 @@ h4 { font-size: 1.02rem; font-family: var(--sans); font-weight: 600; color: var(
 .article figure { margin: 1.8rem 0; }
 .article figure img { margin: 0 auto; border: 1px solid var(--trait); }
 .article figcaption { font-size: 0.86rem; color: var(--discret); text-align: center; margin-top: 0.5rem; }
+
+/* Bouton de langue dans l'en-tête */
+.entete nav { align-items: baseline; }
+.entete nav a.langue { border: 1px solid var(--trait); border-radius: 999px; padding: 0.15rem 0.75rem; font-size: 0.85rem; color: var(--texte); }
+.entete nav a.langue:hover { border-color: var(--accent); color: #fff; }

@@ -1,0 +1,36 @@
+{
+ "name": "The Pacman Nebula",
+ "designation": "SH2-184 (NGC 281)",
+ "constellation": "Cassiopeia",
+ "subtitle": "Single-image narrowband, SHO (Hubble) palette",
+ "integration": "52.8 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C then to −15 °C, 1×1 binning",
+  "Champ": "about 3.3° × 2.2°",
+  "Période": "8 November 2025 to 29 August 2026"
+ },
+ "details": {
+  "Détail : cœur": "Detail: core",
+  "Détail : la nébuleuse entière": "Detail: the whole nebula"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This 3.3° by 2.2° field, in Cassiopeia, is centred on NGC 281, also catalogued as Sharpless 2-184: a star-forming region about 9,500 light-years away, in the Perseus Arm of our Galaxy. Its nickname \"Pacman\" comes from the dark lane of dust that notches the cloud like an open mouth.</p>\n<p>At the heart of the nebula, the young cluster IC 1590 shelters massive, very hot stars whose radiation ionizes the gas and makes it glow. This radiation also carves out the cloud: on the left edge, it sculpts a golden front and pillars, while small, very dark nodules of dust, Bok globules, stand out against the bright background. These are cocoons where stars may still form.</p>\n<p>Around it, the whole field is streaked with much fainter veils of hydrogen, including a long vertical filament at upper left.</p>\n<p>In the SHO palette, sulphur (SII) is assigned to red, hydrogen (Ha) to green and oxygen (OIII) to blue; the dominant green of the hydrogen is then toned down. The core appears blue because ionized oxygen dominates there, near the hot stars; the golden edges are where hydrogen and sulphur prevail. The colours are therefore not those the eye would see.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>8 November 2025 to 29 August 2026</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C then to −15 °C, 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>Ha, OIII, SII</dd></div><div><dt>Sub-exposure</dt><dd>600 s</dd></div><div><dt>Software</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Frames kept (all raw frames were aligned and stacked):</p>\n<div class=\"tableau\"><table><thead><tr><th>Filter</th><th>Frames</th><th>Sub-exposure</th><th>Total</th><th>Period</th></tr></thead><tbody><tr><td>Ha</td><td>109</td><td>600 s</td><td>18.2 h</td><td>8 November 2025 to 1 January 2026</td></tr><tr><td>OIII</td><td>110</td><td>600 s</td><td>18.3 h</td><td>19 December 2025 to 31 January 2026</td></tr><tr><td>SII</td><td>98</td><td>600 s</td><td>16.3 h</td><td>31 January to 29 August 2026</td></tr></tbody></table></div>\n<dl><div><dt>Integration time</dt><dd>52.8 h (317 frames of 600 s).</dd></div></dl>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6216 × 4134 pixels (25.7 megapixels), after cropping the edges</dd></div><div><dt>Field</dt><dd>about 3.3° × 2.2°</dd></div><div><dt>Field centre</dt><dd>RA 0h 53m, Dec +56° 37' (approximate)</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done entirely in PixInsight 1.9.6, starting from the raw frames.</p>\n<h4>Preprocessing (per filter)</h4><ul><li>Calibration: 600 s master darks at 0 °C and at −15 °C depending on the temperature of each frame; Ha master flats at 0 °C and at −15 °C; OIII and SII master flats at −15 °C.</li><li>Frame alignment, local normalization, stacking.</li><li>Astrometric solution of each stack.</li></ul>\n<h4>Preparation</h4><ul><li>SHO combination (R = SII, G = Ha, B = OIII).</li><li>Common cropping of the edges.</li></ul>\n<h4>Linear processing</h4><ul><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction), StarXTerminator (separation of stars and nebulae).</li></ul>\n<h4>Non-linear processing</h4><ul><li>Channel-by-channel stretch, target background level 0.14 (lower than the usual setting of 0.20, so as not to burn out the core).</li><li>Compression of the core: HDRMultiscaleTransform (6 layers, applied at 80%), with a lightness mask.</li><li>Green toned down (SCNR 0.7), contrast and saturation curves.</li><li>DarkStructureEnhance, two passes.</li><li>Reintegration of the stars, stretched less than the nebulae.</li></ul>\n<h4>Notes</h4><ul><li>Second version of the rendering: in the first, the core of the nebula was burned out.</li><li>No RGB frames were taken for this target: the colour of the stars comes from the narrowband filters and is not their real colour.</li><li>The 74 SII frames taken at 0 °C were calibrated with a flat at −15 °C, for lack of an SII flat at 0 °C.</li></ul>"
+  }
+ ],
+ "source": "1891e31933e5"
+}

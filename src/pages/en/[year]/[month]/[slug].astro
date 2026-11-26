@@ -1,0 +1,12 @@
+---
+// Billets enregistrés en JSON (ancien blog et billets récents), servis à l'adresse /AAAA/MM/slug.html
+import Article from '../../../../components/Article.astro';
+import { carnets } from '../../../../lib/site.js';
+
+export function getStaticPaths() {
+  return carnets
+    .filter((p) => p.fichier)
+    .map((post) => ({ params: { year: post.year, month: post.month, slug: post.slug }, props: { url: post.url } }));
+}
+---
+<Article url={Astro.props.url} lang="en" />

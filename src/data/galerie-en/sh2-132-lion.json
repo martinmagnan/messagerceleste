@@ -1,0 +1,37 @@
+{
+ "name": "The Lion Nebula",
+ "designation": "SH2-132",
+ "constellation": "Cepheus",
+ "subtitle": "Single-image narrowband, SHO (Hubble) palette, RGB colour stars",
+ "integration": "71.0 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C then to −15 °C, 1×1 binning",
+  "Champ": "about 3.3° × 2.2°",
+  "Période": "2 November to 17 December 2025"
+ },
+ "details": {
+  "Détail : cœur de la nébuleuse": "Detail: core of the nebula",
+  "Détail : partie violette": "Detail: purple part",
+  "Détail : petite nébuleuse en bas du champ": "Detail: small nebula at the bottom of the field"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This 3.3° by 2.2° field, on the border between Cepheus and Lacerta (the Lizard), is centred on Sh2-132, nicknamed the Lion Nebula, about 10,000 light-years away.</p>\n<p>It is a large region of hydrogen ionized by several massive stars, including two Wolf-Rayet stars. Their radiation and winds carve cavities in it: the blue areas are rich in ionized oxygen (OIII), the golden edges in sulphur and hydrogen. The purple part, at lower right, mixes all three gases. Dark nebulae stand out against the whole.</p>\n<p>In the SHO palette, sulphur (SII) is assigned to red, hydrogen (Ha) to green and oxygen (OIII) to blue: the nebulae do not have their real colours. The stars, on the other hand, come from short R, G and B exposures and have their true colours.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>2 November to 17 December 2025</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C then to −15 °C, 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>Ha, OIII, SII, R, G, B</dd></div><div><dt>Software</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Frames kept (all available raw frames were stacked):</p>\n<div class=\"tableau\"><table><thead><tr><th>Filter</th><th>Frames</th><th>Sub-exposure</th><th>Total</th><th>Period</th></tr></thead><tbody><tr><td>Ha</td><td>103</td><td>600 s</td><td>17.2 h</td><td>2 November to 5 November 2025</td></tr><tr><td>OIII</td><td>165</td><td>600 s</td><td>27.5 h</td><td>5 November to 13 December 2025</td></tr><tr><td>SII</td><td>128</td><td>600 s</td><td>21.3 h</td><td>1 December to 17 December 2025</td></tr><tr><td>R</td><td>100</td><td>60 s</td><td>1.7 h</td><td>7 December 2025</td></tr><tr><td>G</td><td>100</td><td>60 s</td><td>1.7 h</td><td>7 December to 8 December 2025</td></tr><tr><td>B</td><td>100</td><td>60 s</td><td>1.7 h</td><td>8 December 2025</td></tr></tbody></table></div>\n<dl><div><dt>Integration time</dt><dd>71.0 h (696 frames).</dd></div></dl>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6198 × 4092 pixels (25.4 megapixels), after cropping the edges</dd></div><div><dt>Field</dt><dd>about 3.3° × 2.2°</dd></div><div><dt>Field centre</dt><dd>RA 22h 21m, Dec +55° 48'</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done entirely in PixInsight 1.9.6, starting from the raw frames.</p>\n<h4>Preprocessing (per filter)</h4><ul><li>Calibration: 600 s master darks at 0 °C and at −15 °C depending on the frame; Ha master flat from October 2025; OIII, SII, R, G, B master flats at −15 °C from December 2025. No 60 s dark exists: the master bias was used as the dark for the R, G, B frames.</li><li>Frame alignment, local normalization, stacking.</li><li>Astrometric solution of each stack.</li></ul>\n<h4>Preparation</h4><ul><li>SHO combination (R = SII, G = Ha, B = OIII) for the nebulae.</li><li>RGB combination for the stars, with colour calibration on the stars in the field (SpectrophotometricColorCalibration, Gaia catalogue).</li><li>Common cropping of the edges.</li></ul>\n<h4>Linear processing</h4><ul><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction), StarXTerminator (separation of stars and nebulae): the stars are removed from the SHO image and extracted from the RGB image.</li></ul>\n<h4>Non-linear processing</h4><ul><li>Channel-by-channel stretch, target background level 0.20.</li><li>Green toned down (SCNR 0.7), contrast and saturation curves.</li><li>DarkStructureEnhance, two passes, to strengthen the dark nebulae.</li><li>Reintegration of the stars, stretched less than the nebulae.</li></ul>\n<h4>Notes</h4><ul><li>The 60 s RGB frames are used only for the colour of the stars.</li></ul>"
+  }
+ ],
+ "source": "b2d94f0fbf71"
+}

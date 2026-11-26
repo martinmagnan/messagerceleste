@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import Carte from '../components/Carte.astro';
+import ListeCarnets from '../components/ListeCarnets.astro';
+import { u, asset, galeriePour, carnetsPour, traducteur } from '../lib/site.js';
+
+const { lang = 'fr' } = Astro.props;
+const t = traducteur(lang);
+const [vedette, ...autres] = galeriePour(lang);
+const carnets = carnetsPour(lang);
+const recents = carnets.slice(0, 5);
+---
+<Base image={vedette?.cover.web} lang={lang}>
+  {vedette && (
+    <a class="vedette" href={u(vedette.url, lang)}>
+      <img
+        src={asset(vedette.cover.web)}
+        srcset={`${asset(vedette.cover.thumb)} 900w, ${asset(vedette.cover.web)} 2200w`}
+        sizes="100vw"
+        alt={`${vedette.designation} — ${vedette.name}`}
+        width={vedette.cover.width}
+        height={vedette.cover.height}
+        fetchpriority="high"
+      />
+      <div class="legende">
+        <div class="page">
+          <p class="surtitre">{t('accueil.derniere')} · {vedette.designation}</p>
+          <h1>{vedette.name}</h1>
+          <p class="meta">{[vedette.constellation, vedette.integration && t('pose', { x: vedette.integration })].filter(Boolean).join(' · ')}</p>
+        </div>
+      </div>
+    </a>
+  )}
+
+  <div class="page">
+    <section class="section">
+      <header>
+        <h2>{t('nav.galerie')}</h2>
+        <a href={u('/galerie/', lang)}>{t('accueil.toutes')}</a>
+      </header>
+      <div class="grille">
+        {autres.slice(0, 6).map((item) => <Carte item={item} lang={lang} />)}
+      </div>
+    </section>
+
+    <section class="section">
+      <header>
+        <h2>{t('nav.carnets')}</h2>
+        <a href={u('/carnets/', lang)}>{t('accueil.articles', { n: carnets.length })}</a>
+      </header>
+      <p class="intro">{t('site.description')}</p>
+      <ListeCarnets posts={recents} lang={lang} />
+    </section>
+  </div>
+</Base>

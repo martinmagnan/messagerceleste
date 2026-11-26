@@ -1,0 +1,9 @@
+---
+import Etiquette from '../../../../../vues/Etiquette.astro';
+import { galerie, etiquettes } from '../../../../../lib/site.js';
+
+export function getStaticPaths() {
+  return etiquettes.map((e) => ({ params: { tag: e.slug } }));
+}
+---
+<Etiquette lang="en" tag={Astro.params.tag} />

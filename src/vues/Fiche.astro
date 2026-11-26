@@ -1,0 +1,125 @@
+---
+// Fiche d'une image de la galerie.
+import Base from '../layouts/Base.astro';
+import { u, asset, galeriePour, traducteur } from '../lib/site.js';
+
+const { slug, lang = 'fr' } = Astro.props;
+const t = traducteur(lang);
+const galerie = galeriePour(lang);
+const i = galerie.findIndex((g) => g.slug === slug);
+const item = galerie[i];
+const vues = item.images.filter((im) => im.kind === 'image');
+const details = item.images.filter((im) => im.kind === 'detail');
+const f = item.facts;
+const court = (s) => (s ? s.split(/[,(]/)[0].trim() : null);
+const faits = [
+  [t('fait.integration'), item.integration],
+  [t('fait.constellation'), item.constellation],
+  [t('fait.optique'), court(f['Optique'])?.replace(/^lunette /, '')],
+  [t('fait.camera'), court(f['Caméra'])],
+  [t('fait.champ'), f['Champ']?.replace(/^(environ|about|approximately|roughly) /i, '')],
+  [t('fait.periode'), f['Période']?.replace(/^(du|from) /i, '')],
+].filter(([, v]) => v);
+const r = item.reperage;
+const titre = `${item.designation} — ${item.name}`;
+const description = `${item.subtitle}. ${[item.constellation, item.integration && t('pose', { x: item.integration })].filter(Boolean).join(', ')}.`;
+---
+<Base title={titre} description={description} image={item.cover.web} lang={lang}>
+  <div class="page">
+    <header class="fiche-titre">
+      <p class="surtitre"><a href={u('/galerie/', lang)} style="color:inherit;text-decoration:none">{t('nav.galerie')}</a> · {item.designation}</p>
+      <h1>{item.name}</h1>
+      <p class="sous-titre">{item.subtitle}</p>
+    </header>
+
+    {vues.map((v, n) => (
+      <figure class="vue">
+        <a href={asset(v.large)} title={t('fiche.ouvrir')}>
+          <img
+            src={asset(v.web)}
+            srcset={`${asset(v.thumb)} 900w, ${asset(v.web)} ${Math.min(v.width, 2200)}w`}
+            sizes="(min-width: 74rem) 70rem, 100vw"
+            alt={`${titre} (${v.label})`}
+            width={v.width}
+            height={v.height}
+            loading={n === 0 ? 'eager' : 'lazy'}
+          />
+        </a>
+        <figcaption>
+          <span><strong>{v.label}</strong></span>
+          <a href={asset(v.large)}>{t('fiche.grande', { w: v.largeWidth })}</a>
+        </figcaption>
+      </figure>
+    ))}
+
+    <dl class="faits">
+      {faits.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+    </dl>
+
+    {details.length > 0 && (
+      <div class="details">
+        {details.map((d) => (
+          <figure class="vue">
+            <a href={asset(d.large)} title={t('fiche.pleine.titre')}><img src={asset(d.thumb)} alt={`${titre} (${d.label})`} width={d.width} height={d.height} loading="lazy" /></a>
+            <figcaption><span><strong>{d.label}</strong></span><a href={asset(d.large)}>{t('fiche.pleine', { w: d.width, h: d.height })}</a></figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
+
+    <div class="prose">
+      {item.sections.slice(0, 1).map((s) => (
+        <section>
+          <h2>{s.title}</h2>
+          <Fragment set:html={s.html} />
+        </section>
+      ))}
+    </div>
+
+    {r && (
+      <section class="reperage">
+        <h2>{t('reperage.titre')}</h2>
+        <div class="reperage-grille">
+          {r.annotee && (
+            <figure class="vue">
+              <a href={asset(r.annotee.full)} title={t('reperage.annotee')}>
+                <img src={asset(r.annotee.thumb)} alt={`${titre} — ${t('reperage.annotee.alt')}`} width={r.annotee.width} height={r.annotee.height} loading="lazy" />
+              </a>
+              <figcaption>
+                <span><strong>{t('reperage.annotee')}</strong> · {t('reperage.annotee.detail')}</span>
+                <a href={asset(r.annotee.full)}>{t('reperage.grand')}</a>
+              </figcaption>
+            </figure>
+          )}
+          {r.carte && (
+            <figure class="vue">
+              <a href={asset(r.carte.full)} title={t('reperage.carte')}>
+                <img src={asset(r.carte.thumb)} alt={`${titre} — ${t('reperage.carte.alt')}`} width={r.carte.width} height={r.carte.height} loading="lazy" />
+              </a>
+              <figcaption>
+                <span><strong>{t('reperage.carte')}</strong> · {t('reperage.carte.detail')}</span>
+                <a href={asset(r.carte.full)}>{t('reperage.grand')}</a>
+              </figcaption>
+            </figure>
+          )}
+        </div>
+        <p class="discret">{t('reperage.note')}</p>
+      </section>
+    )}
+
+    <div class="prose">
+      {item.sections.slice(1).map((s) => (
+        <section>
+          <h2>{s.title}</h2>
+          <Fragment set:html={s.html} />
+        </section>
+      ))}
+      <p class="discret" style="margin-top:2.5rem">{t('fiche.auteur', { x: item.author })}</p>
+    </div>
+
+    <nav class="voisins" aria-label={t('fiche.voisines')} style="max-width:none">
+      {galerie[i + 1] && <a href={u(galerie[i + 1].url, lang)}><small>{t('fiche.precedente')}</small>{galerie[i + 1].designation} — {galerie[i + 1].name}</a>}
+      {galerie[i - 1] && <a class="suivant" href={u(galerie[i - 1].url, lang)}><small>{t('fiche.suivante')}</small>{galerie[i - 1].designation} — {galerie[i - 1].name}</a>}
+    </nav>
+  </div>
+</Base>

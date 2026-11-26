@@ -1,0 +1,38 @@
+{
+ "name": "The Crescent Nebula and the Sadr region",
+ "designation": "NGC 6888",
+ "constellation": "Cygnus",
+ "subtitle": "4-panel narrowband mosaic, SHO (Hubble) palette",
+ "integration": "193.3 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning",
+  "Champ": "about 6.0° × 3.6°",
+  "Période": "29 June to 29 August 2026"
+ },
+ "details": {
+  "Détail : NGC 6888, le Croissant": "Detail: NGC 6888, the Crescent",
+  "Détail : IC 1318, le Papillon": "Detail: IC 1318, the Butterfly",
+  "Détail : filaments": "Detail: filaments",
+  "Détail : Bulle de savon (PN G75.5+1.7)": "Detail: Soap Bubble (PN G75.5+1.7)"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This 6° by 3.6° field covers the heart of the constellation Cygnus, right in the Milky Way. At the bottom, slightly right of centre, NGC 6888, the Crescent Nebula, appears as a small blue shell: a bubble of gas blown by the wind of the Wolf-Rayet star WR 136, whose blue betrays strong emission from ionized oxygen (OIII).</p>\n<p>At upper left, the large bright clouds cut by a dark lane belong to IC 1318, the Butterfly Nebula, around the star Sadr (Gamma Cygni). Between the two, the whole field is filled with veils of hydrogen and sulphur (golden and orange tones), oxygen-rich areas (blue tones) and numerous dark nebulae silhouetted against the luminous background.</p>\n<p>In the SHO palette, sulphur (SII) is assigned to red, hydrogen (Ha) to green and oxygen (OIII) to blue; the dominant green of the hydrogen is then toned down, which gives the gold and blue tones of the image. The colours are therefore not those the eye would see: they show the distribution of the gases.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>29 June to 29 August 2026</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>Ha, OIII, SII</dd></div><div><dt>Sub-exposure</dt><dd>600 s</dd></div><div><dt>Software</dt><dd>Voyager 2.3.14f (RoboTarget)</dd></div></dl>\n<p>Frames kept per panel (all available raw frames were stacked):</p>\n<pre>  Panel       Ha    OIII    SII    Period\n  1           96     96      98    15 to 29 August 2026\n  2           99     76      98    29 June to 25 July 2026\n  3          100     97     100    27 July to 15 August 2026\n  4          100    100     100    30 June to 8 August 2026\n  Total      395    369     396</pre>\n<dl><div><dt>Integration time</dt><dd>Ha 65.8 h + OIII 61.5 h + SII 66.0 h = 193.3 h (1,160 frames of 600 s), or about 48 h per panel.</dd></div></dl>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>11400 × 6804 pixels (77.6 megapixels)</dd></div><div><dt>Field</dt><dd>about 6.0° × 3.6°</dd></div><div><dt>Field centre</dt><dd>RA 20h 15m, Dec +39.4° (approximate) Single panel: 6252 × 4176 pixels, or 3.3° × 2.2°</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done entirely in PixInsight 1.9.6, starting from the raw frames.</p>\n<h4>Preprocessing (per panel and per filter)</h4><ul><li>Calibration: 600 s master dark at 0 °C; Ha master flat from 28 July 2026; OIII and SII master flats at −15 °C from December 2025.</li><li>Frame alignment, local normalization, stacking.</li><li>Astrometric solution of each stack.</li></ul>\n<h4>Assembly</h4><ul><li>SHO combination of each panel (R = SII, G = Ha, B = OIII).</li><li>Mosaic with AstrometricRegistration: photometric normalization, equalization of the sky backgrounds in the overlaps, multi-scale blending.</li><li>Filling of a hole a few pixels wide at the junction of the panels.</li></ul>\n<h4>Linear processing</h4><ul><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction), StarXTerminator (separation of stars and nebulae).</li></ul>\n<h4>Non-linear processing</h4><ul><li>Channel-by-channel stretch, target background level 0.20.</li><li>Green toned down (SCNR 0.7) and contrast and saturation curves.</li><li>DarkStructureEnhance, two passes, to strengthen the dark nebulae.</li><li>Reintegration of the stars, stretched less than the nebulae.</li></ul>\n<h4>Notes</h4><ul><li>No RGB frames were taken for this target: the colour of the stars comes from the narrowband filters and is not their real colour.</li><li>Panel 2 has fewer OIII frames than the others (76 against about a hundred).</li></ul>"
+  }
+ ],
+ "source": "6df9eca4e68f"
+}

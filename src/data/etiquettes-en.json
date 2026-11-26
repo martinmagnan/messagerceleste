@@ -1,0 +1,23 @@
+{
+  "//": "Traduction anglaise des étiquettes des carnets. Une étiquette absente d'ici (nom d'instrument, d'objet, de logiciel) s'affiche telle quelle.",
+  "accessoires": "accessories",
+  "Astronomie": "Astronomy",
+  "astrophotographie": "astrophotography",
+  "Automatisation": "Automation",
+  "Comète": "Comet",
+  "Éclipse": "Eclipse",
+  "Equipement": "Equipment",
+  "Galaxie": "Galaxy",
+  "Guidage": "Guiding",
+  "lentille": "lens",
+  "Livre": "Book",
+  "logiciel": "software",
+  "Lune": "Moon",
+  "Matériel": "Hardware",
+  "observatoire": "observatory",
+  "Réducteur": "Reducer",
+  "Statistiques": "Statistics",
+  "Tableau de bord": "Dashboard",
+  "Technique": "Technique",
+  "telescope": "telescope"
+}

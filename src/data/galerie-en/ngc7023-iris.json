@@ -1,0 +1,36 @@
+{
+ "name": "The Iris Nebula and the dust of Cepheus",
+ "designation": "NGC 7023",
+ "constellation": "Cepheus",
+ "subtitle": "Single-image broadband, LRGB",
+ "integration": "20.0 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning",
+  "Champ": "about 3.3° × 2.2°",
+  "Période": "30 August to 5 September 2026"
+ },
+ "details": {
+  "Détail : nébuleuse de l'Iris": "Detail: Iris Nebula",
+  "Détail : nuages sombres": "Detail: dark clouds"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This 3.3° by 2.2° field, in Cepheus, shows the Iris Nebula in the middle of a vast complex of interstellar dust, about 1,300 light-years away.</p>\n<p>The Iris, on the right, is a reflection nebula: the dust scatters the blue light of the young star HD 200775, nestled at the centre of the flower. It does not shine by itself. All around, the cloud from which the star was born spreads out in brown swirls: too far from the star to be lit closely, this dust returns only the faint overall light of the Milky Way and hides the stars behind it. The densest areas appear dark brown.</p>\n<p>On the left, a second set of dark clouds and filaments fills the whole height of the image. Between the two, gaps reveal the star background.</p>\n<p>The colours are close to the real ones: they were calibrated on the stars in the field.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>30 August to 5 September 2026</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>L, R, G, B</dd></div><div><dt>Software</dt><dd>Voyager (RoboTarget)</dd></div><div><dt>Sub-exposure</dt><dd>180 s</dd></div></dl>\n<p>Frames kept (all raw frames were aligned and stacked):</p>\n<div class=\"tableau\"><table><thead><tr><th>Filter</th><th>Frames</th><th>Sub-exposure</th><th>Total</th><th>Period</th></tr></thead><tbody><tr><td>L</td><td>100</td><td>180 s</td><td>5.0 h</td><td>30 August to 1 September 2026</td></tr><tr><td>R</td><td>100</td><td>180 s</td><td>5.0 h</td><td>1 to 3 September 2026</td></tr><tr><td>G</td><td>100</td><td>180 s</td><td>5.0 h</td><td>3 and 4 September 2026</td></tr><tr><td>B</td><td>100</td><td>180 s</td><td>5.0 h</td><td>4 and 5 September 2026</td></tr></tbody></table></div>\n<dl><div><dt>Integration time</dt><dd>20.0 h (400 frames of 180 s).</dd></div></dl>\n<p>The target also has Ha, OIII and SII frames, not used in this rendering.</p>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6216 × 4140 pixels (25.7 megapixels), after cropping the edges</dd></div><div><dt>Field</dt><dd>about 3.3° × 2.2°</dd></div><div><dt>Field centre</dt><dd>RA 20h 52m, Dec +67° 56' (telescope pointing)</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done entirely in PixInsight 1.9.6, starting from the raw frames.</p>\n<h4>Preprocessing (per filter)</h4><ul><li>Calibration: 180 s master dark at 0 °C; L, R, G, B master flats at −15 °C.</li><li>Frame alignment, local normalization, stacking.</li><li>Astrometric solution of each stack.</li></ul>\n<h4>Preparation</h4><ul><li>RGB combination and colour calibration on the stars in the field (SpectrophotometricColorCalibration, Gaia catalogue).</li><li>Common cropping of the edges.</li></ul>\n<h4>Linear processing</h4><ul><li>Light gradient correction (AutomaticBackgroundExtractor, degree-1 polynomial).</li><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction), StarXTerminator (separation of stars and nebulae).</li></ul>\n<h4>Non-linear processing</h4><ul><li>Background neutralization, then linked stretch of the three colours, target background level 0.20.</li><li>Combination of the luminance with the colour (LRGB).</li><li>Green toned down (SCNR 0.7), contrast and saturation curves.</li><li>DarkStructureEnhance, two passes, to strengthen the dark clouds.</li><li>Reintegration of the stars, stretched less than the nebulae.</li></ul>\n<h4>Notes</h4><ul><li>The frames, taken at 0 °C, were calibrated with flats at −15 °C, for lack of closer flats.</li><li>A first rendering, discarded, mistakenly used only 8 frames per filter; this one uses all 100 frames of each filter.</li><li>The core of the Iris is very bright and close to saturation.</li></ul>"
+  }
+ ],
+ "source": "e19119818b12"
+}

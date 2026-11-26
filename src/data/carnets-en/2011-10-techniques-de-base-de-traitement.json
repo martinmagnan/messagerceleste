@@ -1,0 +1,6 @@
+{
+ "title": "Basic astronomical image processing techniques with photoshop",
+ "excerpt": "Here is a video I made a while ago, which illustrates a few basic techniques of astronomical image processing with photoshop. The Messier 51 image was calibrated (Flat and Bias) and integrated (average…",
+ "html": "Here is a video I made a while ago, which illustrates a few basic&nbsp;techniques of astronomical image processing with photoshop. The Messier 51 image was calibrated (Flat and Bias) &nbsp;and integrated (average with sigma rejection) beforehand in PixInsight. The final result is available in a previous entry.<br>\n<br>\n<div class=\"centre\">\n<iframe allowfullscreen=\"allowfullscreen\" webkitallowfullscreen=\"webkitallowfullscreen\" mozallowfullscreen=\"mozallowfullscreen\" width=\"480\" height=\"400\" src=\"https://www.youtube.com/embed/A6xV6x-cotY?feature=player_embedded\" frameborder=\"0\" loading=\"lazy\"></iframe></div>\n<br>",
+ "source": "f33d5eba6823"
+}

@@ -1,0 +1,37 @@
+{
+ "name": "The Rho Ophiuchi cloud",
+ "designation": "IC 4604",
+ "constellation": "Ophiuchus",
+ "subtitle": "Single-image broadband, LRGB",
+ "integration": "19.6 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to −15 °C then to 0 °C, 1×1 binning",
+  "Champ": "about 3.2° × 2.1°",
+  "Période": "26 March to 8 July 2026"
+ },
+ "details": {
+  "Détail : Rho Ophiuchi": "Detail: Rho Ophiuchi",
+  "Détail : IC 4603": "Detail: IC 4603",
+  "Détail : nébuleuses obscures": "Detail: dark nebulae"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This 3.2° by 2.1° field shows part of the Rho Ophiuchi complex, one of the closest star-forming regions to us, at about 450 light-years, and one of the most colourful in the sky.</p>\n<p>The large blue nebula is IC 4604: dust reflecting the light of the Rho Ophiuchi star system, visible at its centre. It is surrounded by cooler dust clouds in brown-orange hues, and crossed by long dark nebulae, so dense that they completely hide the stars behind them.</p>\n<p>The colours are close to the real ones: they were calibrated on the stars in the field.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>26 March to 8 July 2026</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to −15 °C then to 0 °C, 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>L, R, G, B</dd></div><div><dt>Software</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Frames kept (all available raw frames were stacked):</p>\n<div class=\"tableau\"><table><thead><tr><th>Filter</th><th>Frames</th><th>Sub-exposure</th><th>Total</th><th>Period</th></tr></thead><tbody><tr><td>L</td><td>100</td><td>180 s</td><td>5.0 h</td><td>26 March to 27 March 2026</td></tr><tr><td>R</td><td>100</td><td>180 s</td><td>5.0 h</td><td>27 March to 22 June 2026</td></tr><tr><td>G</td><td>100</td><td>180 s</td><td>5.0 h</td><td>22 June to 4 July 2026</td></tr><tr><td>B</td><td>92</td><td>180 s</td><td>4.6 h</td><td>4 July to 8 July 2026</td></tr></tbody></table></div>\n<dl><div><dt>Integration time</dt><dd>19.6 h (392 frames).</dd></div></dl>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6108 × 3978 pixels (24.3 megapixels), after cropping the edges</dd></div><div><dt>Field</dt><dd>about 3.2° × 2.1°</dd></div><div><dt>Field centre</dt><dd>RA 16h 29m, Dec −23° 56'</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done entirely in PixInsight 1.9.6, starting from the raw frames.</p>\n<h4>Preprocessing (per filter)</h4><ul><li>Calibration: 180 s master darks at −15 °C and at 0 °C depending on the frame; L, R, G, B master flats at −15 °C from December 2025.</li><li>Frame alignment, local normalization, stacking.</li><li>Astrometric solution of each stack.</li></ul>\n<h4>Preparation</h4><ul><li>RGB combination and colour calibration on the stars in the field (SpectrophotometricColorCalibration, Gaia catalogue).</li><li>Common cropping of the edges.</li></ul>\n<h4>Linear processing</h4><ul><li>Light gradient correction (AutomaticBackgroundExtractor, degree-1 polynomial).</li><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction), StarXTerminator (separation of stars and nebulae).</li></ul>\n<h4>Non-linear processing</h4><ul><li>Background neutralization, then linked stretch of the three colours, target background level 0.20.</li><li>Combination of the luminance with the colour (LRGB).</li><li>Green toned down (SCNR 0.7), contrast and saturation curves.</li><li>DarkStructureEnhance, two passes, to strengthen the dark nebulae.</li><li>Reintegration of the stars, stretched less than the nebulae.</li></ul>\n<h4>Notes</h4><ul><li>At the latitude of the site, this field only rises to about 35° above the southern horizon.</li><li>Some of the frames were taken at 0 °C and calibrated with flats at −15 °C, for lack of a closer flat in date.</li></ul>"
+  }
+ ],
+ "source": "f51c8cb47ef0"
+}

@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import Carte from '../components/Carte.astro';
+import { galeriePour, traducteur } from '../lib/site.js';
+
+const { lang = 'fr' } = Astro.props;
+const t = traducteur(lang);
+const galerie = galeriePour(lang);
+---
+<Base title={t('nav.galerie')} description={t('galerie.meta')} image={galerie[0]?.cover.web} lang={lang}>
+  <div class="page">
+    <header class="fiche-titre">
+      <p class="surtitre">{t('nav.galerie')}</p>
+      <h1>{t('galerie.titre')}</h1>
+      <p class="sous-titre">{t('galerie.intro', { n: galerie.length })}</p>
+    </header>
+    <div class="grille">
+      {galerie.map((item, i) => <Carte item={item} eager={i < 3} lang={lang} />)}
+    </div>
+  </div>
+</Base>
