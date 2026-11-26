@@ -1,10 +1,13 @@
 {
-  "//": "Titres soignés et adresses des images de la galerie, par nom de fiche .txt (sans extension). Une fiche absente d'ici reçoit un titre et une adresse automatiques.",
+  "//": "Titres soignés et adresses des images de la galerie, par nom de fiche .txt (sans extension). Une fiche absente d'ici reçoit un titre et une adresse automatiques. « exclure » liste les fichiers de la fiche à ne pas publier.",
   "HeartAndSoul_mosaique": {
     "slug": "coeur-et-ame",
     "designation": "IC 1805 et IC 1848",
     "nom": "Les nébuleuses du Cœur et de l'Âme",
-    "constellation": "Cassiopée"
+    "constellation": "Cassiopée",
+    "exclure": [
+      "HeartAndSoul_mosaique_HOO.jpg"
+    ]
   },
   "M45_mosaique_LRGB": {
     "slug": "m45-pleiades",

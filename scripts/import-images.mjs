@@ -18,6 +18,7 @@ const SRC = path.resolve(process.argv[2] || path.join(ROOT, '..', 'images_finale
 const OUT = path.join(ROOT, 'src/data/galerie');
 const PUB = path.join(ROOT, 'public/galerie');
 const TITRES = JSON.parse(await readFile(path.join(ROOT, 'src/data/galerie-titres.json'), 'utf8'));
+const MENTIONS = JSON.parse(await readFile(path.join(ROOT, 'src/data/galerie-mentions.json'), 'utf8'));
 
 const THUMB = 900, WEB = 2200, LARGE = 4000;
 const info = (p) => stat(p).catch(() => null);
@@ -170,10 +171,15 @@ async function derive(srcFile, dir, urlBase) {
   return out;
 }
 
+const fiches = (await readdir(SRC)).filter((f) => f.endsWith('.txt')).sort();
+if (!fiches.length) {
+  // Garde-fou : sans fiche, on ne touche à rien plutôt que de vider la galerie.
+  console.error(`Aucune fiche .txt dans ${SRC} : galerie laissée telle quelle.`);
+  process.exit(1);
+}
+
 await mkdir(OUT, { recursive: true });
 for (const f of await readdir(OUT)) if (f.endsWith('.json')) await rm(path.join(OUT, f));
-
-const fiches = (await readdir(SRC)).filter((f) => f.endsWith('.txt')).sort();
 const kept = new Set();
 for (const fiche of fiches) {
   const base = fiche.replace(/\.txt$/, '');
@@ -184,7 +190,9 @@ for (const fiche of fiches) {
 
   const images = [];
   let newest = 0;
+  const exclues = TITRES[base]?.exclure || [];
   for (const file of meta.files) {
+    if (exclues.includes(file)) continue;
     const srcFile = path.join(SRC, file);
     const st = await info(srcFile);
     if (!st) { console.warn(`  ${fiche} : ${file} introuvable, ignoré`); continue; }
@@ -199,6 +207,16 @@ for (const fiche of fiches) {
     Object.assign(facts, r.facts);
     return { title: s.title.charAt(0) + s.title.slice(1).toLowerCase(), html: r.html };
   });
+  // Mentions ajoutées selon le lieu d'acquisition (galerie-mentions.json).
+  const description = sections.find((s) => s.title === 'Description') || sections[0];
+  for (const m of MENTIONS) {
+    if (description && (facts['Lieu'] || '').includes(m.lieu)) description.html += `\n<p>${esc(m.texte)}</p>`;
+  }
+
+  // Retire les versions allégées qui ne servent plus (image exclue ou renommée).
+  const utiles = new Set(images.flatMap((i) => [i.thumb, i.web, i.large]).map((u) => path.basename(u)));
+  for (const f of await readdir(dir)) if (!utiles.has(f)) await rm(path.join(dir, f));
+
   const integ = facts["Temps d'intégration"];
   const total = integ ? (integ.match(/=\s*([\d,.]+\s*h)/) || integ.match(/([\d,.]+\s*h)/) || [])[1] : null;
 

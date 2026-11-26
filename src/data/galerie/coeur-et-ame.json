@@ -35,17 +35,6 @@
    "largeWidth": 4000
   },
   {
-   "file": "HeartAndSoul_mosaique_HOO.jpg",
-   "kind": "image",
-   "label": "HOO",
-   "width": 11106,
-   "height": 6210,
-   "thumb": "/galerie/coeur-et-ame/heartandsoul-mosaique-hoo-900.webp",
-   "web": "/galerie/coeur-et-ame/heartandsoul-mosaique-hoo-2200.jpg",
-   "large": "/galerie/coeur-et-ame/heartandsoul-mosaique-hoo-4000.jpg",
-   "largeWidth": 4000
-  },
-  {
    "file": "HeartAndSoul_mosaique_HOO_v2.jpg",
    "kind": "image",
    "label": "HOO v2",
@@ -60,7 +49,7 @@
  "sections": [
   {
    "title": "Description",
-   "html": "<p>Ce champ de près de 6° sur 3,3° réunit deux grandes nébuleuses en émission de Cassiopée, situées à environ 6000 années-lumière dans le bras de Persée.</p>\n<p>À gauche, IC 1805, la nébuleuse du Cœur : une vaste cavité creusée par le rayonnement et les vents de l'amas d'étoiles jeunes Melotte 15, visible en son centre, entouré de colonnes de poussière sombres. Le nœud très brillant en bas à gauche du Cœur est IC 1795 avec NGC 896, la « Tête de Poisson ».</p>\n<p>En haut à droite, IC 1848, la nébuleuse de l'Âme, formée de deux lobes bordés de fronts d'ionisation et de globules sombres où naissent de nouvelles étoiles. Entre les deux nébuleuses, des voiles d'hydrogène plus faibles relient l'ensemble.</p>\n<p>Deux palettes ont été produites à partir des mêmes données :</p>\n<ul><li>SHO (palette Hubble) : soufre (SII) en rouge, hydrogène (Ha) en vert, oxygène (OIII) en bleu, avec atténuation du vert. Les bords des nébuleuses ressortent en or et les cavités en bleu.</li><li>HOO : hydrogène en rouge, oxygène en vert et en bleu. Le rendu est plus proche des couleurs naturelles : bords rouges, cœurs bleu-vert.</li></ul>\n<p>Dans les deux cas, les couleurs montrent la répartition des gaz et non ce que verrait l'œil.</p>"
+   "html": "<p>Ce champ de près de 6° sur 3,3° réunit deux grandes nébuleuses en émission de Cassiopée, situées à environ 6000 années-lumière dans le bras de Persée.</p>\n<p>À gauche, IC 1805, la nébuleuse du Cœur : une vaste cavité creusée par le rayonnement et les vents de l'amas d'étoiles jeunes Melotte 15, visible en son centre, entouré de colonnes de poussière sombres. Le nœud très brillant en bas à gauche du Cœur est IC 1795 avec NGC 896, la « Tête de Poisson ».</p>\n<p>En haut à droite, IC 1848, la nébuleuse de l'Âme, formée de deux lobes bordés de fronts d'ionisation et de globules sombres où naissent de nouvelles étoiles. Entre les deux nébuleuses, des voiles d'hydrogène plus faibles relient l'ensemble.</p>\n<p>Deux palettes ont été produites à partir des mêmes données :</p>\n<ul><li>SHO (palette Hubble) : soufre (SII) en rouge, hydrogène (Ha) en vert, oxygène (OIII) en bleu, avec atténuation du vert. Les bords des nébuleuses ressortent en or et les cavités en bleu.</li><li>HOO : hydrogène en rouge, oxygène en vert et en bleu. Le rendu est plus proche des couleurs naturelles : bords rouges, cœurs bleu-vert.</li></ul>\n<p>Dans les deux cas, les couleurs montrent la répartition des gaz et non ce que verrait l'œil.</p>\n<p>Cette image a été acquise en collaboration avec Renaud Venne-Landry.</p>"
   },
   {
    "title": "Acquisition",
