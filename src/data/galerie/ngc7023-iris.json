@@ -1,0 +1,89 @@
+{
+ "slug": "ngc7023-iris",
+ "source": "NGC7023_Iris_LRGB.txt",
+ "designation": "NGC 7023",
+ "name": "La nébuleuse de l'Iris et les poussières de Céphée",
+ "constellation": "Céphée",
+ "subtitle": "Image simple en large bande, LRGB",
+ "author": "Martin Magnan",
+ "date": "2026-09-05T12:00:00.000Z",
+ "integration": "20,0 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 30 août au 5 septembre 2026",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "L, R, G, B",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Pose unitaire": "180 s",
+  "Temps d'intégration": "20,0 h (400 poses de 180 s).",
+  "Dimensions": "6216 × 4140 pixels (25,7 mégapixels), après recadrage des bords",
+  "Champ": "environ 3,3° × 2,2°",
+  "Centre du champ": "AR 20 h 52 min, Déc +67° 56' (pointage du télescope)"
+ },
+ "images": [
+  {
+   "file": "NGC7023_Iris_LRGB.jpg",
+   "kind": "image",
+   "label": "LRGB",
+   "width": 6216,
+   "height": 4140,
+   "thumb": "/galerie/ngc7023-iris/ngc7023-iris-lrgb-900.webp",
+   "web": "/galerie/ngc7023-iris/ngc7023-iris-lrgb-2200.jpg",
+   "large": "/galerie/ngc7023-iris/ngc7023-iris-lrgb-4000.jpg",
+   "largeWidth": 4000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nébuleuse de l'Iris",
+   "width": 1500,
+   "height": 1125,
+   "thumb": "/galerie/ngc7023-iris/detail-nebuleuse-de-l-iris-3974-1963-1500x1125-900.webp",
+   "web": "/galerie/ngc7023-iris/detail-nebuleuse-de-l-iris-3974-1963-1500x1125.jpg",
+   "large": "/galerie/ngc7023-iris/detail-nebuleuse-de-l-iris-3974-1963-1500x1125.jpg",
+   "largeWidth": 1500
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : nuages sombres",
+   "width": 2000,
+   "height": 1500,
+   "thumb": "/galerie/ngc7023-iris/detail-nuages-sombres-243-906-2000x1500-900.webp",
+   "web": "/galerie/ngc7023-iris/detail-nuages-sombres-243-906-2000x1500.jpg",
+   "large": "/galerie/ngc7023-iris/detail-nuages-sombres-243-906-2000x1500.jpg",
+   "largeWidth": 2000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : globule en forme de comète",
+   "width": 1100,
+   "height": 825,
+   "thumb": "/galerie/ngc7023-iris/detail-globule-en-forme-de-comete-2807-2361-1100x825-900.webp",
+   "web": "/galerie/ngc7023-iris/detail-globule-en-forme-de-comete-2807-2361-1100x825.jpg",
+   "large": "/galerie/ngc7023-iris/detail-globule-en-forme-de-comete-2807-2361-1100x825.jpg",
+   "largeWidth": 1100
+  }
+ ],
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de 3,3° sur 2,2°, dans Céphée, montre la nébuleuse de l'Iris au milieu d'un vaste complexe de poussière interstellaire, à environ 1 300 années-lumière.</p>\n<p>L'Iris, à droite, est une nébuleuse par réflexion : la poussière y diffuse la lumière bleue de la jeune étoile HD 200775, nichée au centre de la fleur. Elle ne brille pas par elle-même. Tout autour, le nuage dont l'étoile est née s'étend en volutes brunes : trop loin de l'étoile pour être éclairée de près, cette poussière ne renvoie que la faible lumière d'ensemble de la Voie lactée et cache les étoiles situées derrière elle. Les zones les plus denses apparaissent en brun foncé.</p>\n<p>À gauche, un second ensemble de nuages sombres et de filaments occupe toute la hauteur de l'image. Entre les deux, les trouées laissent voir le fond d'étoiles.</p>\n<p>Les couleurs sont proches des couleurs réelles : elles ont été calibrées sur les étoiles du champ.</p>\n<p>Cette image a été acquise en collaboration avec Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 30 août au 5 septembre 2026</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>L, R, G, B</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div><div><dt>Pose unitaire</dt><dd>180 s</dd></div></dl>\n<p>Poses retenues (toutes les brutes ont été alignées et empilées) :</p>\n<div class=\"tableau\"><table><thead><tr><th>Filtre</th><th>Poses</th><th>Pose unitaire</th><th>Total</th><th>Période</th></tr></thead><tbody><tr><td>L</td><td>100</td><td>180 s</td><td>5,0 h</td><td>30 août au 1er septembre 2026</td></tr><tr><td>R</td><td>100</td><td>180 s</td><td>5,0 h</td><td>1er au 3 septembre 2026</td></tr><tr><td>G</td><td>100</td><td>180 s</td><td>5,0 h</td><td>3 et 4 septembre 2026</td></tr><tr><td>B</td><td>100</td><td>180 s</td><td>5,0 h</td><td>4 et 5 septembre 2026</td></tr></tbody></table></div>\n<dl><div><dt>Temps d'intégration</dt><dd>20,0 h (400 poses de 180 s).</dd></div></dl>\n<p>La cible dispose aussi de poses Ha, OIII et SII, non utilisées dans ce rendu.</p>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6216 × 4140 pixels (25,7 mégapixels), après recadrage des bords</dd></div><div><dt>Champ</dt><dd>environ 3,3° × 2,2°</dd></div><div><dt>Centre du champ</dt><dd>AR 20 h 52 min, Déc +67° 56' (pointage du télescope)</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par filtre)</h4><ul><li>Calibration : master dark 180 s à 0 °C ; master flats L, R, G, B à −15 °C.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Préparation</h4><ul><li>Combinaison RGB et calibration des couleurs sur les étoiles du champ (SpectrophotometricColorCalibration, catalogue Gaia).</li><li>Recadrage commun des bords.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>Correction de gradient légère (AutomaticBackgroundExtractor, polynôme de degré 1).</li><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses).</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Neutralisation du fond puis étirement lié des trois couleurs, niveau de fond visé 0,20.</li><li>Combinaison de la luminance avec la couleur (LRGB).</li><li>Atténuation du vert (SCNR 0,7), courbes de contraste et de saturation.</li><li>DarkStructureEnhance, deux passes, pour renforcer les nuages sombres.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>Les poses, prises à 0 °C, ont été calibrées avec des flats à −15 °C, faute de flats plus proches.</li><li>Un premier rendu, écarté, n'utilisait par erreur que 8 poses par filtre ; celui-ci utilise les 100 poses de chaque filtre.</li><li>Le cœur de l'Iris est très lumineux et proche de la saturation.</li></ul>"
+  }
+ ]
+}

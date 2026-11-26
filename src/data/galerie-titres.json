@@ -1,5 +1,5 @@
 {
-  "//": "Titres soignés et adresses des images de la galerie, par nom de fiche .txt (sans extension). Une fiche absente d'ici reçoit un titre et une adresse automatiques. « exclure » liste les fichiers de la fiche à ne pas publier.",
+  "//": "Images publiées dans la galerie, par nom de fiche .txt (sans extension) : adresse (slug) et titre soigné. Seules les fiches listées ici sont publiées ; « publier »: false garde une fiche hors ligne. « exclure » liste les fichiers de la fiche à ne pas publier.",
   "HeartAndSoul_mosaique": {
     "slug": "coeur-et-ame",
     "designation": "IC 1805 et IC 1848",
@@ -74,5 +74,21 @@
     "designation": "SH2-184 (NGC 281)",
     "nom": "La nébuleuse Pacman",
     "constellation": "Cassiopée"
+  },
+  "NGC7023_Iris_LRGB": {
+    "slug": "ngc7023-iris",
+    "designation": "NGC 7023",
+    "nom": "La nébuleuse de l'Iris et les poussières de Céphée",
+    "constellation": "Céphée"
+  },
+  "M78_HaLRGB": {
+    "slug": "m78",
+    "designation": "M78",
+    "nom": "Nébuleuse par réflexion et boucle de Barnard",
+    "constellation": "Orion"
+  },
+  "M33_HaLRGB": {
+    "publier": false,
+    "note": "Rendu à reprendre (Martin, 2026-11-26) : ne pas publier pour l'instant."
   }
 }

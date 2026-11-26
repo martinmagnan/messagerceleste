@@ -7,7 +7,7 @@ Site statique de [messagerceleste.com](https://www.messagerceleste.com) : une ga
 ### Ajouter ou mettre à jour une image de la galerie
 
 1. Déposer l'image finale et sa fiche `.txt` dans `../images_finales/` (même format que les fiches existantes : titre en majuscules, ligne `Fichier :`, sections `DESCRIPTION`, `ACQUISITION`, `IMAGE FINALE`, `TRAITEMENT`).
-2. Facultatif : ajouter une entrée dans `src/data/galerie-titres.json` pour choisir l'adresse et un titre soigné. Sans entrée, le titre et l'adresse sont déduits de la fiche.
+2. Inscrire la fiche dans `src/data/galerie-titres.json` (adresse et titre soigné). **Seules les fiches inscrites sont publiées** : une image déposée dans `images_finales/` reste hors ligne tant qu'elle n'y figure pas, et `"publier": false` retire une image de la galerie.
 3. Lancer :
 
    ```bash

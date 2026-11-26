@@ -3,24 +3,24 @@
   "HeartAndSoul_mosaique": [
     { "nom": "Melotte 15, au centre du Cœur", "cx": 0.325, "cy": 0.43, "largeur": 2000, "hauteur": 1500 },
     { "nom": "IC 1795 et NGC 896, la Tête de Poisson", "cx": 0.175, "cy": 0.63, "largeur": 2000, "hauteur": 1500 },
-    { "nom": "piliers de l'Âme", "cx": 0.80, "cy": 0.27, "largeur": 2200, "hauteur": 1650 },
-    { "nom": "bord supérieur de l'Âme", "cx": 0.71, "cy": 0.10, "largeur": 1800, "hauteur": 1350 }
+    { "nom": "piliers de l'Âme", "cx": 0.8, "cy": 0.27, "largeur": 2200, "hauteur": 1650 },
+    { "nom": "bord supérieur de l'Âme", "cx": 0.71, "cy": 0.1, "largeur": 1800, "hauteur": 1350 }
   ],
   "IC4604_Rho_Ophiuchi_LRGB": [
     { "nom": "Rho Ophiuchi", "cx": 0.28, "cy": 0.72, "largeur": 1600, "hauteur": 1200 },
     { "nom": "seconde nébuleuse par réflexion", "cx": 0.27, "cy": 0.25, "largeur": 1500, "hauteur": 1125 },
-    { "nom": "nébuleuses obscures", "cx": 0.50, "cy": 0.34, "largeur": 1500, "hauteur": 1125 }
+    { "nom": "nébuleuses obscures", "cx": 0.5, "cy": 0.34, "largeur": 1500, "hauteur": 1125 }
   ],
   "M16_SHO": [
-    { "nom": "Piliers de la Création", "cx": 0.478, "cy": 0.50, "largeur": 1200, "hauteur": 900 },
-    { "nom": "la nébuleuse de l'Aigle", "cx": 0.50, "cy": 0.56, "largeur": 2400, "hauteur": 1800 }
+    { "nom": "Piliers de la Création", "cx": 0.478, "cy": 0.5, "largeur": 1200, "hauteur": 900 },
+    { "nom": "la nébuleuse de l'Aigle", "cx": 0.5, "cy": 0.56, "largeur": 2400, "hauteur": 1800 }
   ],
   "NGC6514_M20_M8_HaLRGB": [
     { "nom": "Lagune", "cx": 0.63, "cy": 0.84, "largeur": 2000, "hauteur": 1500 },
-    { "nom": "nébuleuses à gauche de la Lagune", "cx": 0.20, "cy": 0.57, "largeur": 1600, "hauteur": 2000 }
+    { "nom": "nébuleuses à gauche de la Lagune", "cx": 0.2, "cy": 0.57, "largeur": 1600, "hauteur": 2000 }
   ],
   "M45_mosaique_LRGB": [
-    { "nom": "cœur de l'amas", "cx": 0.70, "cy": 0.62, "largeur": 2400, "hauteur": 1800 },
+    { "nom": "cœur de l'amas", "cx": 0.7, "cy": 0.62, "largeur": 2400, "hauteur": 1800 },
     { "nom": "nébuleuse de Mérope (NGC 1435)", "cx": 0.718, "cy": 0.685, "largeur": 1500, "hauteur": 1125 },
     { "nom": "nébuleuse de Maïa (NGC 1432)", "cx": 0.735, "cy": 0.55, "largeur": 1500, "hauteur": 1125 }
   ],
@@ -53,7 +53,17 @@
     { "nom": "la nébuleuse entière", "cx": 0.37, "cy": 0.63, "largeur": 2400, "hauteur": 1800 }
   ],
   "WR134_SHO": [
-    { "nom": "arc de WR 134", "cx": 0.50, "cy": 0.47, "largeur": 1400, "hauteur": 1050 },
+    { "nom": "arc de WR 134", "cx": 0.5, "cy": 0.47, "largeur": 1400, "hauteur": 1050 },
     { "nom": "nébuleuses obscures", "cx": 0.66, "cy": 0.89, "largeur": 1800, "hauteur": 1350 }
+  ],
+  "NGC7023_Iris_LRGB": [
+    { "nom": "nébuleuse de l'Iris", "cx": 0.76, "cy": 0.61, "largeur": 1500, "hauteur": 1125 },
+    { "nom": "nuages sombres", "cx": 0.2, "cy": 0.4, "largeur": 2000, "hauteur": 1500 },
+    { "nom": "globule en forme de comète", "cx": 0.54, "cy": 0.67, "largeur": 1100, "hauteur": 825 }
+  ],
+  "M78_HaLRGB": [
+    { "nom": "M78, NGC 2071 et leurs bandes sombres", "cx": 0.72, "cy": 0.66, "largeur": 1800, "hauteur": 2000 },
+    { "nom": "amas NGC 2112", "cx": 0.165, "cy": 0.48, "largeur": 900, "hauteur": 675 },
+    { "nom": "petite nébuleuse en éventail", "cx": 0.705, "cy": 0.365, "largeur": 800, "hauteur": 600 }
   ]
 }

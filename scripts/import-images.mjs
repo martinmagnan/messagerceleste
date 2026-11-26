@@ -141,7 +141,7 @@ function parse(text, base) {
 function label(file, base) {
   const stem = file.replace(/\.[^.]+$/, '');
   const d = stem.match(/_detail(?:_(.+))?$/i);
-  if (d) return { kind: 'detail', label: d[1] ? 'Détail : ' + d[1].replace(/_/g, ' ').replace(/\bcoeur\b/g, 'cœur') : 'Détail' };
+  if (d) return { kind: 'detail', label: 'Détail : ' + (d[1] || stem.replace(/_detail$/i, '')).replace(/_/g, ' ').replace(/\bcoeur\b/g, 'cœur') };
   const p = stem.match(/(SHO|HOO|HaLRGB|HaRGB|LRGB|RGB)(?:_(v\d+))?$/i);
   return { kind: 'image', label: p ? p[1] + (p[2] ? ' ' + p[2] : '') : stem.replace(/_/g, ' ') };
 }
@@ -205,6 +205,11 @@ for (const f of await readdir(OUT)) if (f.endsWith('.json')) await rm(path.join(
 const kept = new Set();
 for (const fiche of fiches) {
   const base = fiche.replace(/\.txt$/, '');
+  // Publication sur inscription : une fiche absente de galerie-titres.json reste hors ligne.
+  if (!TITRES[base] || TITRES[base].publier === false) {
+    console.log(`non publiée : ${fiche}` + (TITRES[base] ? ' (publier: false)' : ' (absente de galerie-titres.json)'));
+    continue;
+  }
   const meta = parse(await readFile(path.join(SRC, fiche), 'utf8'), base);
   const dir = path.join(PUB, meta.slug);
   await mkdir(dir, { recursive: true });
