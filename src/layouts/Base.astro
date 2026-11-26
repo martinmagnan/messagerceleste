@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { SITE, BASE, u, asset, traducteur } from '../lib/site.js';
+import Statistiques from '../components/Statistiques.astro';
 
 // lang : langue de la page. autreLangue : false quand la page n'existe que dans une langue.
 const { title, description, image, noindex = false, lang = 'fr', autreLangue = true } = Astro.props;
@@ -66,10 +67,12 @@ const nav = [
         <span>© 2007–{new Date().getFullYear()} {SITE.author}. {t('pied.droits')}</span>
         <span>
           <a href={u('/rss.xml', lang)}>{t('pied.rss')}</a>
+          {!noindex && <Fragment> · <a href="#consentement" data-stats>{t('stats.lien')}</a></Fragment>}
           {lang === 'fr' && <Fragment> · <a href={u('/edition/')} rel="nofollow">{t('pied.edition')}</a></Fragment>}
         </span>
       </div>
     </footer>
+    {!noindex && <Statistiques lang={lang} />}
     <script is:inline>
       // Affiche les liens « Modifier » quand l'auteur est connecté au mode édition sur cet appareil.
       try {

@@ -16,6 +16,11 @@ const UI = {
     'pied.droits': 'Images et textes : tous droits réservés.',
     'pied.rss': 'Flux RSS',
     'pied.edition': 'Édition',
+    'stats.titre': 'Mesure de fréquentation',
+    'stats.texte': "Ce site aimerait mesurer sa fréquentation avec Google Analytics (pages consultées, pays, type d'appareil). Rien n'est mesuré sans votre accord, et vous pouvez changer d'avis en tout temps par le lien « Statistiques » en bas de page.",
+    'stats.oui': 'Accepter',
+    'stats.non': 'Refuser',
+    'stats.lien': 'Statistiques',
 
     'accueil.derniere': 'Dernière image',
     'accueil.toutes': 'Toutes les images →',
@@ -85,6 +90,11 @@ const UI = {
     'pied.droits': 'Images and text: all rights reserved.',
     'pied.rss': 'RSS feed',
     'pied.edition': '',
+    'stats.titre': 'Visitor statistics',
+    'stats.texte': 'This site would like to measure its traffic with Google Analytics (pages viewed, country, type of device). Nothing is measured without your consent, and you can change your mind at any time with the “Statistics” link at the bottom of the page.',
+    'stats.oui': 'Accept',
+    'stats.non': 'Decline',
+    'stats.lien': 'Statistics',
 
     'accueil.derniere': 'Latest image',
     'accueil.toutes': 'All images →',

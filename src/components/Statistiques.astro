@@ -1,0 +1,63 @@
+---
+// Mesure de fréquentation (Google Analytics 4), seulement après accord du visiteur (Loi 25).
+// Tant que le visiteur n'a pas dit oui, aucun script Google n'est chargé et aucun témoin n'est déposé.
+// Le choix est gardé dans le navigateur ; le lien « Statistiques » du pied de page permet d'en changer.
+// Analytics ne se charge que sur le vrai domaine (pas en aperçu local).
+import { GA_ID, traducteur } from '../lib/site.js';
+const { lang = 'fr' } = Astro.props;
+const t = traducteur(lang);
+---
+<div class="consentement" id="consentement" role="region" aria-label={t('stats.titre')} hidden>
+  <p>{t('stats.texte')}</p>
+  <div class="choix">
+    <button type="button" data-choix="oui">{t('stats.oui')}</button>
+    <button type="button" data-choix="non">{t('stats.non')}</button>
+  </div>
+</div>
+<script is:inline define:vars={{ GA_ID }}>
+  (() => {
+    const CLE = 'messagerceleste.stats';
+    const boite = document.getElementById('consentement');
+    let choix = null;
+    try { choix = localStorage.getItem(CLE); } catch {}
+
+    const charger = () => {
+      if (!/(^|\.)messagerceleste\.com$/.test(location.hostname) || window.gtag) return;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', GA_ID);
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+    };
+
+    // Retire les témoins d'Analytics (_ga, _ga_…) quand le visiteur retire son accord.
+    const effacer = () => {
+      const domaines = ['', '; domain=' + location.hostname, '; domain=.' + location.hostname.replace(/^www\./, '')];
+      document.cookie.split(';').map((c) => c.split('=')[0].trim()).filter((n) => /^_ga/.test(n))
+        .forEach((n) => domaines.forEach((d) => (document.cookie = n + '=; Max-Age=0; path=/' + d)));
+    };
+
+    if (choix === 'oui') charger();
+    else if (choix !== 'non') boite.hidden = false;
+
+    boite.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-choix]');
+      if (!b) return;
+      const avant = choix;
+      choix = b.dataset.choix;
+      try { localStorage.setItem(CLE, choix); } catch {}
+      boite.hidden = true;
+      if (choix === 'oui') charger();
+      else if (avant === 'oui') { effacer(); location.reload(); }
+    });
+
+    document.querySelectorAll('[data-stats]').forEach((a) => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      boite.hidden = false;
+      boite.querySelector('button').focus();
+    }));
+  })();
+</script>

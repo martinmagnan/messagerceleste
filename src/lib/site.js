@@ -13,7 +13,11 @@ export const SITE = {
 // Dépôt GitHub du site (« compte/nom »), utilisé par le mode édition.
 export const REPO = import.meta.env.PUBLIC_REPO || 'martinmagnan/messagerceleste';
 
-export const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+// Google Analytics 4 (propriété « Messager Céleste », flux Web www.messagerceleste.com).
+// Chargé seulement après accord du visiteur : voir src/components/Statistiques.astro.
+export const GA_ID = 'G-P0L2V172KC';
+
+export const BASE =import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const externe = (p) => /^([a-z]+:|\/\/|#)/i.test(p);
 const chemin = (p) => (p.startsWith('/') ? p : '/' + p);
