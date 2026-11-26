@@ -79,6 +79,20 @@
    "largeWidth": 800
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/ngc6888-croissant/annotee.jpg",
+   "thumb": "/galerie/ngc6888-croissant/annotee-1100.webp",
+   "width": 2200,
+   "height": 1313
+  },
+  "carte": {
+   "full": "/galerie/ngc6888-croissant/carte-reperage.png",
+   "thumb": "/galerie/ngc6888-croissant/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",

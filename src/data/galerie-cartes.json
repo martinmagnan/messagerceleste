@@ -1,0 +1,73 @@
+{
+  "//": "Cartes de repérage (FindingChart) et images annotées (AnnotateImage) générées dans PixInsight, par image de la galerie : image source et date de sa dernière modification au moment de la génération. Si la source change, l'import signale que carte et annotation sont à refaire (scripts/pixinsight/).",
+  "coeur-et-ame": {
+    "source": "HeartAndSoul_mosaique_SHO.jpg",
+    "sourceModifiee": "2026-11-25T20:06:32.041Z",
+    "generee": "2026-11-26"
+  },
+  "ic4604-rho-ophiuchi": {
+    "source": "IC4604_Rho_Ophiuchi_LRGB.jpg",
+    "sourceModifiee": "2026-11-26T07:22:22.260Z",
+    "generee": "2026-11-26"
+  },
+  "m16-aigle": {
+    "source": "M16_SHO.jpg",
+    "sourceModifiee": "2026-11-26T07:22:22.200Z",
+    "generee": "2026-11-26"
+  },
+  "m20-m8-trifide-lagune": {
+    "source": "NGC6514_M20_M8_HaLRGB.jpg",
+    "sourceModifiee": "2026-11-25T04:41:02.475Z",
+    "generee": "2026-11-26"
+  },
+  "m45-pleiades": {
+    "source": "M45_mosaique_LRGB.jpg",
+    "sourceModifiee": "2026-11-25T12:23:18.104Z",
+    "generee": "2026-11-26"
+  },
+  "m78": {
+    "source": "M78_HaLRGB.jpg",
+    "sourceModifiee": "2026-11-26T12:34:38.100Z",
+    "generee": "2026-11-26"
+  },
+  "m81-m82": {
+    "source": "M81-M82_HaLRGB.jpg",
+    "sourceModifiee": "2026-11-26T12:34:38.344Z",
+    "generee": "2026-11-26"
+  },
+  "ngc1333": {
+    "source": "NGC1333_HaLRGB.jpg",
+    "sourceModifiee": "2026-11-26T07:22:22.364Z",
+    "generee": "2026-11-26"
+  },
+  "ngc1909-tete-de-sorciere": {
+    "source": "NGC1909_Tete_de_Sorciere_LRGB.jpg",
+    "sourceModifiee": "2026-11-26T04:21:35.104Z",
+    "generee": "2026-11-26"
+  },
+  "ngc6888-croissant": {
+    "source": "NGC6888_mosaique_SHO_v3.jpg",
+    "sourceModifiee": "2026-11-26T03:19:07.405Z",
+    "generee": "2026-11-26"
+  },
+  "ngc7023-iris": {
+    "source": "NGC7023_Iris_LRGB.jpg",
+    "sourceModifiee": "2026-11-26T12:34:38.040Z",
+    "generee": "2026-11-26"
+  },
+  "sh2-132-lion": {
+    "source": "SH2-132_SHO.jpg",
+    "sourceModifiee": "2026-11-26T07:22:22.508Z",
+    "generee": "2026-11-26"
+  },
+  "sh2-184-pacman": {
+    "source": "SH2-184_NGC281_Pacman_SHO.jpg",
+    "sourceModifiee": "2026-11-26T12:17:03.127Z",
+    "generee": "2026-11-26"
+  },
+  "wr134": {
+    "source": "WR134_SHO.jpg",
+    "sourceModifiee": "2026-11-25T12:46:38.247Z",
+    "generee": "2026-11-26"
+  }
+}

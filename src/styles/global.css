@@ -184,3 +184,12 @@ h4 { font-size: 1.02rem; font-family: var(--sans); font-weight: 600; color: var(
 
 .lien-edition { margin-left: 1rem; font-size: 0.86rem; color: var(--accent); }
 .lien-edition[hidden] { display: none; }
+
+/* ── Repérage : image annotée et carte ───────────────────────────────────── */
+.reperage { margin: 2.6rem 0 0; }
+.reperage h2 { padding-bottom: 0.4rem; border-bottom: 1px solid var(--trait); max-width: var(--texte-max); }
+.reperage-grille { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; margin-top: 1.2rem; }
+.reperage-grille .vue { margin: 0; }
+.reperage-grille .vue img { max-height: none; width: 100%; }
+.reperage > p { font-size: 0.86rem; margin: 0.6rem 0 0; }
+@media (max-width: 48rem) { .reperage-grille { grid-template-columns: 1fr; } }

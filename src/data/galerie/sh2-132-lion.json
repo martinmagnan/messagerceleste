@@ -67,6 +67,20 @@
    "largeWidth": 800
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/sh2-132-lion/annotee.jpg",
+   "thumb": "/galerie/sh2-132-lion/annotee-1100.webp",
+   "width": 2200,
+   "height": 1452
+  },
+  "carte": {
+   "full": "/galerie/sh2-132-lion/carte-reperage.png",
+   "thumb": "/galerie/sh2-132-lion/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",

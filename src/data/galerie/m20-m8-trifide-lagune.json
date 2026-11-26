@@ -58,15 +58,29 @@
   {
    "file": null,
    "kind": "detail",
-   "label": "Détail : nébuleuses à gauche de la Lagune",
+   "label": "Détail : NGC 6559, IC 1274 et IC 4685",
    "width": 1600,
    "height": 2000,
-   "thumb": "/galerie/m20-m8-trifide-lagune/detail-nebuleuses-a-gauche-de-la-lagune-382-1059-1600x2000-900.webp",
-   "web": "/galerie/m20-m8-trifide-lagune/detail-nebuleuses-a-gauche-de-la-lagune-382-1059-1600x2000.jpg",
-   "large": "/galerie/m20-m8-trifide-lagune/detail-nebuleuses-a-gauche-de-la-lagune-382-1059-1600x2000.jpg",
+   "thumb": "/galerie/m20-m8-trifide-lagune/detail-ngc-6559-ic-1274-et-ic-4685-382-1059-1600x2000-900.webp",
+   "web": "/galerie/m20-m8-trifide-lagune/detail-ngc-6559-ic-1274-et-ic-4685-382-1059-1600x2000.jpg",
+   "large": "/galerie/m20-m8-trifide-lagune/detail-ngc-6559-ic-1274-et-ic-4685-382-1059-1600x2000.jpg",
    "largeWidth": 1600
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/m20-m8-trifide-lagune/annotee.jpg",
+   "thumb": "/galerie/m20-m8-trifide-lagune/annotee-1100.webp",
+   "width": 2200,
+   "height": 1345
+  },
+  "carte": {
+   "full": "/galerie/m20-m8-trifide-lagune/carte-reperage.png",
+   "thumb": "/galerie/m20-m8-trifide-lagune/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",

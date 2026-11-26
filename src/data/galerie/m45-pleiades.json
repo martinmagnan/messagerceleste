@@ -68,6 +68,20 @@
    "largeWidth": 1500
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/m45-pleiades/annotee.jpg",
+   "thumb": "/galerie/m45-pleiades/annotee-1100.webp",
+   "width": 2200,
+   "height": 1384
+  },
+  "carte": {
+   "full": "/galerie/m45-pleiades/carte-reperage.png",
+   "thumb": "/galerie/m45-pleiades/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",

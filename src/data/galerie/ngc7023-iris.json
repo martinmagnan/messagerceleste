@@ -68,6 +68,20 @@
    "largeWidth": 1100
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/ngc7023-iris/annotee.jpg",
+   "thumb": "/galerie/ngc7023-iris/annotee-1100.webp",
+   "width": 2200,
+   "height": 1465
+  },
+  "carte": {
+   "full": "/galerie/ngc7023-iris/carte-reperage.png",
+   "thumb": "/galerie/ngc7023-iris/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",

@@ -20,6 +20,15 @@ Site statique de [messagerceleste.com](https://www.messagerceleste.com) : une ga
 
 Chaque fiche peut montrer de 1 à 4 agrandis à pleine résolution. Ils sont décrits dans `src/data/galerie-details.json` : pour chaque fiche, une liste de zones avec un nom, le centre de la zone en fraction de l'image (`cx`, `cy`, de 0 à 1) et sa taille en pixels (`largeur`, `hauteur`). `npm run import:images` découpe ces zones dans l'image d'origine ; si l'image est retraitée avec le même cadrage, les agrandis se refont tout seuls. Les extraits listés dans la fiche `.txt` elle-même (`NOM_detail_xxx.jpg`) sont repris aussi.
 
+### Carte de repérage et image annotée
+
+Chaque fiche montre une image annotée (script AnnotateImage) et une carte de repérage (processus FindingChart). Elles sont faites dans PixInsight, sur le Mac, par deux scripts gardés dans `scripts/pixinsight/` :
+
+1. `carte_solve.js` ouvre la version 2200 px de chaque image (`public/galerie/<slug>/…-2200.jpg`, à copier dans le dossier d'entrée indiqué en tête du script), en résout l'astrométrie à partir du centre et de la taille du champ inscrits dans la liste `CIBLES`, enregistre l'image résolue et produit la carte.
+2. `carte_annot.js` annote les images résolues avec les réglages retenus (variante `H`, décrite dans le script).
+
+Les résultats se rangent dans `public/galerie/<slug>/` sous les noms `annotee.jpg`, `annotee-1100.webp`, `carte-reperage.png` et `carte-reperage-900.webp`, et `src/data/galerie-cartes.json` note l'image source de chacun. Quand une image est retraitée, `npm run import:images` signale que sa carte et son annotation sont à refaire.
+
 ### Écrire un nouveau carnet
 
 Créer un fichier Markdown dans `src/content/carnets/`, par exemple `premiere-lumiere-texas.md` :

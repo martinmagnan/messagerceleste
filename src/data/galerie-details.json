@@ -8,7 +8,7 @@
   ],
   "IC4604_Rho_Ophiuchi_LRGB": [
     { "nom": "Rho Ophiuchi", "cx": 0.28, "cy": 0.72, "largeur": 1600, "hauteur": 1200 },
-    { "nom": "seconde nébuleuse par réflexion", "cx": 0.27, "cy": 0.25, "largeur": 1500, "hauteur": 1125 },
+    { "nom": "IC 4603", "cx": 0.27, "cy": 0.25, "largeur": 1500, "hauteur": 1125 },
     { "nom": "nébuleuses obscures", "cx": 0.5, "cy": 0.34, "largeur": 1500, "hauteur": 1125 }
   ],
   "M16_SHO": [
@@ -17,7 +17,7 @@
   ],
   "NGC6514_M20_M8_HaLRGB": [
     { "nom": "Lagune", "cx": 0.63, "cy": 0.84, "largeur": 2000, "hauteur": 1500 },
-    { "nom": "nébuleuses à gauche de la Lagune", "cx": 0.2, "cy": 0.57, "largeur": 1600, "hauteur": 2000 }
+    { "nom": "NGC 6559, IC 1274 et IC 4685", "cx": 0.2, "cy": 0.57, "largeur": 1600, "hauteur": 2000 }
   ],
   "M45_mosaique_LRGB": [
     { "nom": "cœur de l'amas", "cx": 0.7, "cy": 0.62, "largeur": 2400, "hauteur": 1800 },
@@ -29,9 +29,9 @@
   ],
   "NGC1333_HaLRGB": [
     { "nom": "NGC 1333", "cx": 0.49, "cy": 0.765, "largeur": 1500, "hauteur": 1125 },
-    { "nom": "nébuleuse bleue en haut du champ", "cx": 0.44, "cy": 0.07, "largeur": 1300, "hauteur": 975 },
-    { "nom": "nébuleuse bleue et nuage sombre", "cx": 0.26, "cy": 0.56, "largeur": 1500, "hauteur": 1125 },
-    { "nom": "nébuleuse jaune en bas du champ", "cx": 0.245, "cy": 0.945, "largeur": 1100, "hauteur": 825 }
+    { "nom": "vdB 16", "cx": 0.44, "cy": 0.07, "largeur": 1300, "hauteur": 975 },
+    { "nom": "vdB 13 et Barnard 203", "cx": 0.26, "cy": 0.56, "largeur": 1500, "hauteur": 1125 },
+    { "nom": "vdB 12", "cx": 0.245, "cy": 0.945, "largeur": 1100, "hauteur": 825 }
   ],
   "NGC1909_Tete_de_Sorciere_LRGB": [
     { "nom": "le visage", "cx": 0.77, "cy": 0.78, "largeur": 2400, "hauteur": 2400 },

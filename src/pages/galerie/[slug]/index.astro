@@ -20,6 +20,7 @@ const faits = [
   ['Période', f['Période']?.replace(/^du /, '')],
 ].filter(([, v]) => v);
 const i = galerie.findIndex((g) => g.slug === item.slug);
+const r = item.reperage;
 const titre = `${item.designation} — ${item.name}`;
 const description = `${item.subtitle}. ${[item.constellation, item.integration && item.integration + ' de pose'].filter(Boolean).join(', ')}.`;
 ---
@@ -67,7 +68,47 @@ const description = `${item.subtitle}. ${[item.constellation, item.integration &
     )}
 
     <div class="prose">
-      {item.sections.map((s) => (
+      {item.sections.slice(0, 1).map((s) => (
+        <section>
+          <h2>{s.title}</h2>
+          <Fragment set:html={s.html} />
+        </section>
+      ))}
+    </div>
+
+    {r && (
+      <section class="reperage">
+        <h2>Repérage dans le ciel</h2>
+        <div class="reperage-grille">
+          {r.annotee && (
+            <figure class="vue">
+              <a href={u(r.annotee.full)} title="Ouvrir l'image annotée en grand">
+                <img src={u(r.annotee.thumb)} alt={`${titre} — image annotée`} width={r.annotee.width} height={r.annotee.height} loading="lazy" />
+              </a>
+              <figcaption>
+                <span><strong>Image annotée</strong> · objets des catalogues Messier, NGC/IC, Sharpless, Barnard et vdB, étoiles nommées</span>
+                <a href={u(r.annotee.full)}>En grand →</a>
+              </figcaption>
+            </figure>
+          )}
+          {r.carte && (
+            <figure class="vue">
+              <a href={u(r.carte.full)} title="Ouvrir la carte en grand">
+                <img src={u(r.carte.thumb)} alt={`${titre} — carte de repérage`} width={r.carte.width} height={r.carte.height} loading="lazy" />
+              </a>
+              <figcaption>
+                <span><strong>Carte de repérage</strong> · le champ de l'image est le rectangle rouge</span>
+                <a href={u(r.carte.full)}>En grand →</a>
+              </figcaption>
+            </figure>
+          )}
+        </div>
+        <p class="discret">Annotation et carte générées dans PixInsight (AnnotateImage, FindingChart) à partir de la solution astrométrique de l'image.</p>
+      </section>
+    )}
+
+    <div class="prose">
+      {item.sections.slice(1).map((s) => (
         <section>
           <h2>{s.title}</h2>
           <Fragment set:html={s.html} />

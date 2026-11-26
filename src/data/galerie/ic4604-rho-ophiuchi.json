@@ -47,12 +47,12 @@
   {
    "file": null,
    "kind": "detail",
-   "label": "Détail : seconde nébuleuse par réflexion",
+   "label": "Détail : IC 4603",
    "width": 1500,
    "height": 1125,
-   "thumb": "/galerie/ic4604-rho-ophiuchi/detail-seconde-nebuleuse-par-reflexion-899-432-1500x1125-900.webp",
-   "web": "/galerie/ic4604-rho-ophiuchi/detail-seconde-nebuleuse-par-reflexion-899-432-1500x1125.jpg",
-   "large": "/galerie/ic4604-rho-ophiuchi/detail-seconde-nebuleuse-par-reflexion-899-432-1500x1125.jpg",
+   "thumb": "/galerie/ic4604-rho-ophiuchi/detail-ic-4603-899-432-1500x1125-900.webp",
+   "web": "/galerie/ic4604-rho-ophiuchi/detail-ic-4603-899-432-1500x1125.jpg",
+   "large": "/galerie/ic4604-rho-ophiuchi/detail-ic-4603-899-432-1500x1125.jpg",
    "largeWidth": 1500
   },
   {
@@ -67,6 +67,20 @@
    "largeWidth": 1500
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/ic4604-rho-ophiuchi/annotee.jpg",
+   "thumb": "/galerie/ic4604-rho-ophiuchi/annotee-1100.webp",
+   "width": 2200,
+   "height": 1433
+  },
+  "carte": {
+   "full": "/galerie/ic4604-rho-ophiuchi/carte-reperage.png",
+   "thumb": "/galerie/ic4604-rho-ophiuchi/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",

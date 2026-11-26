@@ -57,6 +57,20 @@
    "largeWidth": 2400
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/sh2-184-pacman/annotee.jpg",
+   "thumb": "/galerie/sh2-184-pacman/annotee-1100.webp",
+   "width": 2200,
+   "height": 1463
+  },
+  "carte": {
+   "full": "/galerie/sh2-184-pacman/carte-reperage.png",
+   "thumb": "/galerie/sh2-184-pacman/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",

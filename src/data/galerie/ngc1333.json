@@ -47,37 +47,51 @@
   {
    "file": null,
    "kind": "detail",
-   "label": "Détail : nébuleuse bleue en haut du champ",
+   "label": "Détail : vdB 16",
    "width": 1300,
    "height": 975,
-   "thumb": "/galerie/ngc1333/detail-nebuleuse-bleue-en-haut-du-champ-2082-0-1300x975-900.webp",
-   "web": "/galerie/ngc1333/detail-nebuleuse-bleue-en-haut-du-champ-2082-0-1300x975.jpg",
-   "large": "/galerie/ngc1333/detail-nebuleuse-bleue-en-haut-du-champ-2082-0-1300x975.jpg",
+   "thumb": "/galerie/ngc1333/detail-vdb-16-2082-0-1300x975-900.webp",
+   "web": "/galerie/ngc1333/detail-vdb-16-2082-0-1300x975.jpg",
+   "large": "/galerie/ngc1333/detail-vdb-16-2082-0-1300x975.jpg",
    "largeWidth": 1300
   },
   {
    "file": null,
    "kind": "detail",
-   "label": "Détail : nébuleuse bleue et nuage sombre",
+   "label": "Détail : vdB 13 et Barnard 203",
    "width": 1500,
    "height": 1125,
-   "thumb": "/galerie/ngc1333/detail-nebuleuse-bleue-et-nuage-sombre-865-1763-1500x1125-900.webp",
-   "web": "/galerie/ngc1333/detail-nebuleuse-bleue-et-nuage-sombre-865-1763-1500x1125.jpg",
-   "large": "/galerie/ngc1333/detail-nebuleuse-bleue-et-nuage-sombre-865-1763-1500x1125.jpg",
+   "thumb": "/galerie/ngc1333/detail-vdb-13-et-barnard-203-865-1763-1500x1125-900.webp",
+   "web": "/galerie/ngc1333/detail-vdb-13-et-barnard-203-865-1763-1500x1125.jpg",
+   "large": "/galerie/ngc1333/detail-vdb-13-et-barnard-203-865-1763-1500x1125.jpg",
    "largeWidth": 1500
   },
   {
    "file": null,
    "kind": "detail",
-   "label": "Détail : nébuleuse jaune en bas du champ",
+   "label": "Détail : vdB 12",
    "width": 1100,
    "height": 825,
-   "thumb": "/galerie/ngc1333/detail-nebuleuse-jaune-en-bas-du-champ-971-3327-1100x825-900.webp",
-   "web": "/galerie/ngc1333/detail-nebuleuse-jaune-en-bas-du-champ-971-3327-1100x825.jpg",
-   "large": "/galerie/ngc1333/detail-nebuleuse-jaune-en-bas-du-champ-971-3327-1100x825.jpg",
+   "thumb": "/galerie/ngc1333/detail-vdb-12-971-3327-1100x825-900.webp",
+   "web": "/galerie/ngc1333/detail-vdb-12-971-3327-1100x825.jpg",
+   "large": "/galerie/ngc1333/detail-vdb-12-971-3327-1100x825.jpg",
    "largeWidth": 1100
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/ngc1333/annotee.jpg",
+   "thumb": "/galerie/ngc1333/annotee-1100.webp",
+   "width": 2200,
+   "height": 1471
+  },
+  "carte": {
+   "full": "/galerie/ngc1333/carte-reperage.png",
+   "thumb": "/galerie/ngc1333/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",

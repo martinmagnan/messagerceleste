@@ -19,6 +19,7 @@ const OUT = path.join(ROOT, 'src/data/galerie');
 const PUB = path.join(ROOT, 'public/galerie');
 const TITRES = JSON.parse(await readFile(path.join(ROOT, 'src/data/galerie-titres.json'), 'utf8'));
 const DETAILS = JSON.parse(await readFile(path.join(ROOT, 'src/data/galerie-details.json'), 'utf8'));
+const CARTES = JSON.parse(await readFile(path.join(ROOT, 'src/data/galerie-cartes.json'), 'utf8'));
 const MENTIONS = JSON.parse(await readFile(path.join(ROOT, 'src/data/galerie-mentions.json'), 'utf8'));
 
 const THUMB = 900, WEB = 2200, LARGE = 4000;
@@ -245,8 +246,24 @@ for (const fiche of fiches) {
     if (description && (facts['Lieu'] || '').includes(m.lieu)) description.html += `\n<p>${esc(m.texte)}</p>`;
   }
 
+  // Carte de repérage et image annotée, générées dans PixInsight (scripts/pixinsight/) et rangées
+  // à côté des versions allégées. Elles ne sont pas recalculées ici : on signale seulement si
+  // l'image source a changé depuis.
+  const reperage = {};
+  for (const [cle, plein, vignette] of [['annotee', 'annotee.jpg', 'annotee-1100.webp'], ['carte', 'carte-reperage.png', 'carte-reperage-900.webp']]) {
+    if (!(await info(path.join(dir, plein))) || !(await info(path.join(dir, vignette)))) continue;
+    const m = await sharp(path.join(dir, plein)).metadata();
+    reperage[cle] = { full: `/galerie/${meta.slug}/${plein}`, thumb: `/galerie/${meta.slug}/${vignette}`, width: m.width, height: m.height };
+  }
+  const carte = CARTES[meta.slug];
+  if (carte && Object.keys(reperage).length) {
+    const st = await info(path.join(SRC, carte.source));
+    if (!st || st.mtimeMs > Date.parse(carte.sourceModifiee) + 2000)
+      console.warn(`  ${meta.slug} : l'image a changé depuis la carte et l'annotation (${carte.generee}) — à refaire dans PixInsight`);
+  }
+
   // Retire les versions allégées qui ne servent plus (image exclue ou renommée).
-  const utiles = new Set(images.flatMap((i) => [i.thumb, i.web, i.large]).map((u) => path.basename(u)));
+  const utiles = new Set([...images.flatMap((i) => [i.thumb, i.web, i.large]), ...Object.values(reperage).flatMap((r) => [r.full, r.thumb])].map((u) => path.basename(u)));
   for (const f of await readdir(dir)) if (!utiles.has(f)) await rm(path.join(dir, f));
 
   const integ = facts["Temps d'intégration"];
@@ -264,6 +281,7 @@ for (const fiche of fiches) {
     integration: total ? total.replace(/\s+/g, ' ') : null,
     facts,
     images,
+    reperage: Object.keys(reperage).length ? reperage : null,
     sections,
   };
   await writeFile(path.join(OUT, `${meta.slug}.json`), JSON.stringify(entry, null, 1) + '\n');

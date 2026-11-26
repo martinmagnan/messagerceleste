@@ -79,6 +79,20 @@
    "largeWidth": 900
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/ngc1909-tete-de-sorciere/annotee.jpg",
+   "thumb": "/galerie/ngc1909-tete-de-sorciere/annotee-1100.webp",
+   "width": 2200,
+   "height": 3865
+  },
+  "carte": {
+   "full": "/galerie/ngc1909-tete-de-sorciere/carte-reperage.png",
+   "thumb": "/galerie/ngc1909-tete-de-sorciere/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",

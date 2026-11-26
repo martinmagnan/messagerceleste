@@ -56,6 +56,20 @@
    "largeWidth": 1800
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/wr134/annotee.jpg",
+   "thumb": "/galerie/wr134/annotee-1100.webp",
+   "width": 2200,
+   "height": 1454
+  },
+  "carte": {
+   "full": "/galerie/wr134/carte-reperage.png",
+   "thumb": "/galerie/wr134/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",

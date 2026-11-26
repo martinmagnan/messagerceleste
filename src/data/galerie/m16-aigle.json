@@ -56,6 +56,20 @@
    "largeWidth": 2400
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/m16-aigle/annotee.jpg",
+   "thumb": "/galerie/m16-aigle/annotee-1100.webp",
+   "width": 2200,
+   "height": 1430
+  },
+  "carte": {
+   "full": "/galerie/m16-aigle/carte-reperage.png",
+   "thumb": "/galerie/m16-aigle/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",

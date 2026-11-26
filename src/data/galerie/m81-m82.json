@@ -67,6 +67,20 @@
    "largeWidth": 800
   }
  ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/m81-m82/annotee.jpg",
+   "thumb": "/galerie/m81-m82/annotee-1100.webp",
+   "width": 2200,
+   "height": 1449
+  },
+  "carte": {
+   "full": "/galerie/m81-m82/carte-reperage.png",
+   "thumb": "/galerie/m81-m82/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
  "sections": [
   {
    "title": "Description",
