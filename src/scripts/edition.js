@@ -1,4 +1,4 @@
-// Mode édition des billets.
+// Mode édition des billets et des images de la galerie.
 //
 // La page est statique : elle parle directement à l'API GitHub avec un jeton
 // personnel saisi par l'auteur et gardé dans son navigateur. Chaque
@@ -11,12 +11,15 @@ const BASE = racine.dataset.base;
 const BRANCHE = new URLSearchParams(location.search).get('branche') || 'main';
 const DOSSIER = 'src/data/carnets';
 const DOSSIER_IMAGES = 'public/carnets/img';
+const DOSSIER_GALERIE = 'src/data/galerie';
+const DOSSIER_MODIFS = 'src/data/galerie-modifs';
 const CLE = 'messagerceleste.jeton';
 const API = 'https://api.github.com';
 
 let jeton = localStorage.getItem(CLE) || sessionStorage.getItem(CLE) || '';
 let moi = null; // { name, email } pour signer les commits
 let billets = []; // [{ nom, chemin, sha, data }]
+let images = []; // [{ slug, base, sha, modifs }] : fiche générée + modifications faites ici
 let filtre = 'tous';
 let recherche = '';
 let modifie = false;
@@ -151,16 +154,23 @@ function ecranConnexion(erreur) {
 async function charger() {
   const [compte, nom] = REPO.split('/');
   const rep = await api('POST', '/graphql', {
-    query: `query($o:String!,$n:String!,$e:String!){repository(owner:$o,name:$n){object(expression:$e){... on Tree{entries{name object{... on Blob{oid text isTruncated}}}}}}}`,
-    variables: { o: compte, n: nom, e: `${BRANCHE}:${DOSSIER}` },
+    query: `query($o:String!,$n:String!,$a:String!,$b:String!,$c:String!){repository(owner:$o,name:$n){
+      carnets:object(expression:$a){...T} galerie:object(expression:$b){...T} modifs:object(expression:$c){...T}}}
+      fragment T on Tree{entries{name object{... on Blob{oid text isTruncated}}}}`,
+    variables: { o: compte, n: nom, a: `${BRANCHE}:${DOSSIER}`, b: `${BRANCHE}:${DOSSIER_GALERIE}`, c: `${BRANCHE}:${DOSSIER_MODIFS}` },
   });
   if (rep.errors?.length) throw new Error(rep.errors[0].message);
-  const entrees = rep.data?.repository?.object?.entries;
-  if (!entrees) throw new Error(`dossier ${DOSSIER} introuvable sur la branche ${BRANCHE}`);
-  billets = entrees
+  const lire = (cle) => (rep.data?.repository?.[cle]?.entries || [])
     .filter((e) => e.name.endsWith('.json') && e.object?.text && !e.object.isTruncated)
-    .map((e) => ({ nom: e.name.replace(/\.json$/, ''), chemin: `${DOSSIER}/${e.name}`, sha: e.object.oid, data: JSON.parse(e.object.text) }))
+    .map((e) => ({ nom: e.name.replace(/\.json$/, ''), sha: e.object.oid, data: JSON.parse(e.object.text) }));
+  if (!rep.data?.repository?.carnets) throw new Error(`dossier ${DOSSIER} introuvable sur la branche ${BRANCHE}`);
+  billets = lire('carnets')
+    .map((e) => ({ ...e, chemin: `${DOSSIER}/${e.nom}.json` }))
     .sort((a, b) => b.data.date.localeCompare(a.data.date));
+  const modifs = Object.fromEntries(lire('modifs').map((e) => [e.nom, e]));
+  images = lire('galerie')
+    .map((e) => ({ slug: e.nom, base: e.data, sha: modifs[e.nom]?.sha || null, modifs: modifs[e.nom]?.data || {} }))
+    .sort((a, b) => b.base.date.localeCompare(a.base.date));
 }
 
 async function enregistrer(billet, texteCommit) {
@@ -176,11 +186,25 @@ async function enregistrer(billet, texteCommit) {
 }
 
 async function ouvrir() {
-  racine.replaceChildren(h('p', { class: 'discret' }, 'Chargement des billets…'));
+  racine.replaceChildren(h('p', { class: 'discret' }, 'Chargement…'));
   await charger();
   const cible = decodeURIComponent(location.hash.slice(1));
+  if (cible.startsWith('galerie/')) {
+    const img = images.find((i) => i.slug === cible.slice(8));
+    return img ? ecranEditeurImage(img) : ecranImages();
+  }
+  if (cible === 'galerie') return ecranImages();
   const billet = cible && billets.find((b) => b.nom === cible);
   billet ? ecranEditeur(billet) : ecranListe();
+}
+
+// Onglets Billets / Images, en tête des deux listes.
+function ongletsMode(actif) {
+  const onglet = (cle, texte, action) => h('button', { type: 'button', class: actif === cle ? 'actif' : '', onclick: action }, texte);
+  return h('div', { class: 'ed-mode' },
+    onglet('billets', `Billets (${billets.length})`, () => ecranListe()),
+    onglet('images', `Images (${images.length})`, () => ecranImages()),
+  );
 }
 
 // ── Liste ──────────────────────────────────────────────────────────────────
@@ -233,6 +257,7 @@ function ecranListe(info) {
   }, texte);
 
   racine.replaceChildren(
+    ongletsMode('billets'),
     h('div', { class: 'ed-barre' },
       h('input', { type: 'search', placeholder: 'Chercher un titre ou une étiquette', value: recherche, 'aria-label': 'Chercher', oninput: (ev) => { recherche = ev.target.value; dessiner(); } }),
       h('div', { class: 'ed-onglets' },
@@ -405,6 +430,192 @@ function ecranEditeur(billet) {
 }
 
 window.addEventListener('beforeunload', (ev) => { if (modifie) ev.preventDefault(); });
+
+// ── Images de la galerie ───────────────────────────────────────────────────
+// Les fiches de la galerie sont générées à partir des fichiers d'images. Ce qui est changé ici
+// est rangé à part (src/data/galerie-modifs/<image>.json) et se superpose à la fiche générée :
+// rien n'est perdu quand la galerie est régénérée.
+const cleImage = (i) => i.web.split('/').pop();
+const vueImage = (img) => ({ ...img.base, ...Object.fromEntries(['name', 'designation', 'constellation', 'subtitle'].filter((k) => img.modifs[k] != null).map((k) => [k, img.modifs[k]])), sections: img.modifs.sections || img.base.sections });
+
+async function enregistrerModifs(img, modifs, texteCommit) {
+  const chemin = `/repos/${REPO}/contents/${DOSSIER_MODIFS}/${img.slug}.json`;
+  if (!Object.keys(modifs).length) {
+    // Plus aucune modification : on retire le fichier pour revenir à la fiche générée.
+    if (img.sha) await api('DELETE', chemin, { message: texteCommit, sha: img.sha, branch: BRANCHE, author: moi, committer: moi });
+    img.sha = null;
+  } else {
+    const rep = await api('PUT', chemin, {
+      message: texteCommit,
+      content: b64texte(JSON.stringify(modifs, null, 1) + '\n'),
+      ...(img.sha ? { sha: img.sha } : {}),
+      branch: BRANCHE, author: moi, committer: moi,
+    });
+    img.sha = rep.content.sha;
+  }
+  img.modifs = modifs;
+}
+
+function ecranImages(info) {
+  history.replaceState(null, '', `${location.pathname}${location.search}#galerie`);
+  const ligne = (img) => {
+    const v = vueImage(img), masquee = !!img.modifs.hidden;
+    const bascule = h('button', {
+      type: 'button',
+      onclick: async () => {
+        bascule.disabled = true;
+        const m = { ...img.modifs };
+        if (masquee) delete m.hidden; else m.hidden = true;
+        try {
+          await enregistrerModifs(img, m, `${masquee ? 'Rendre visible' : 'Masquer'} : ${v.designation}`);
+          ecranImages(`« ${v.designation} » est maintenant ${masquee ? 'visible' : 'masquée'}. Le site se met à jour dans environ une minute.`);
+        } catch (e) { bascule.disabled = false; message(explique(e), 'erreur'); }
+      },
+    }, masquee ? 'Rendre visible' : 'Masquer');
+    const couverture = img.base.images.find((i) => i.kind === 'image') || img.base.images[0];
+    return h('li', { class: masquee ? 'masque' : '' },
+      h('img', { class: 'ed-vignette', src: BASE + couverture.thumb, alt: '', loading: 'lazy' }),
+      h('div', {},
+        h('strong', {}, `${v.designation} — ${v.name}`),
+        h('span', { class: 'discret' }, v.constellation,
+          masquee ? ' · ' : '', masquee ? h('em', { class: 'ed-badge' }, 'Masquée') : '',
+          Object.keys(img.modifs).some((k) => k !== 'hidden') ? ' · modifiée ici' : ''),
+      ),
+      h('div', { class: 'ed-actions' },
+        h('button', { type: 'button', class: 'ed-primaire', onclick: () => ecranEditeurImage(img) }, 'Modifier'),
+        bascule,
+      ),
+    );
+  };
+  racine.replaceChildren(
+    ongletsMode('images'),
+    h('div', { class: 'ed-barre' },
+      h('span', { class: 'discret', style: 'flex:1' }, "Titres, textes et agrandis de chaque image. Les fichiers d'images eux-mêmes ne se changent pas ici."),
+      h('button', { type: 'button', onclick: deconnecter }, 'Se déconnecter'),
+    ),
+    h('p', { id: 'ed-message', class: 'ed-message', hidden: true }),
+    BRANCHE !== 'main' ? h('p', { class: 'ed-message info' }, `Branche d'essai « ${BRANCHE} » : rien n'est publié sur le site.`) : '',
+    h('ul', { class: 'ed-liste ed-liste-images' }, images.map(ligne)),
+  );
+  if (info) message(info, 'ok');
+}
+
+function ecranEditeurImage(img) {
+  history.replaceState(null, '', `${location.pathname}${location.search}#galerie/${img.slug}`);
+  const base = img.base, m0 = img.modifs, v = vueImage(img);
+  modifie = false;
+  const touche = () => { modifie = true; };
+  const champ = (id, valeur) => h('input', { type: 'text', id, value: valeur, oninput: touche });
+  const designation = champ('ed-designation', v.designation);
+  const nom = champ('ed-nom', v.name);
+  const constellation = champ('ed-constellation', v.constellation);
+  const sousTitre = champ('ed-soustitre', v.subtitle);
+  const masque = h('input', { type: 'checkbox', checked: !!m0.hidden, onchange: touche });
+
+  // Agrandis : afficher ou non, et libellé.
+  const details = base.images.filter((i) => i.kind === 'detail').map((i) => {
+    const cle = cleImage(i), d0 = m0.details?.[cle] || {};
+    return {
+      cle, baseLabel: i.label,
+      affiche: h('input', { type: 'checkbox', checked: !d0.hidden, onchange: touche, 'aria-label': 'Afficher cet agrandi' }),
+      label: h('input', { type: 'text', value: d0.label || i.label, oninput: touche, 'aria-label': "Libellé de l'agrandi" }),
+      vignette: BASE + i.thumb,
+    };
+  });
+
+  // Sections de texte : une zone d'édition par section, avec bascule vers le code HTML.
+  let sectionsTouchees = false;
+  const sections = v.sections.map((sec) => {
+    const zone = h('div', { class: 'prose ed-zone', contenteditable: 'true', oninput: () => { sectionsTouchees = true; touche(); } });
+    zone.innerHTML = versEditeur(sec.html);
+    const source = h('textarea', { class: 'ed-source', hidden: true, spellcheck: 'false', oninput: () => { sectionsTouchees = true; touche(); } });
+    const basculer = () => {
+      if (source.hidden) { source.value = versDepot(zone).innerHTML; source.style.height = Math.max(zone.offsetHeight, 160) + 'px'; }
+      else zone.innerHTML = versEditeur(source.value);
+      source.hidden = !source.hidden; zone.hidden = !zone.hidden;
+    };
+    return { titre: sec.title, zone, source, basculer, html0: sec.html, lire: () => { if (!source.hidden) basculer(); return versDepot(zone).innerHTML.trim(); } };
+  });
+  const commande = (c, valeur) => () => { document.execCommand(c, false, valeur); sectionsTouchees = true; touche(); };
+  const outil = (texte, titreOutil, action) => h('button', { type: 'button', title: titreOutil, onmousedown: (ev) => ev.preventDefault(), onclick: action }, texte);
+
+  const fermer = () => {
+    if (modifie && !confirm('Abandonner les changements non enregistrés ?')) return;
+    modifie = false;
+    ecranImages();
+  };
+  const boutonEnregistrer = h('button', { type: 'submit', class: 'ed-primaire' }, 'Enregistrer');
+  const couverture = base.images.find((i) => i.kind === 'image') || base.images[0];
+
+  racine.replaceChildren(
+    h('form', {
+      class: 'ed-editeur',
+      onsubmit: async (ev) => {
+        ev.preventDefault();
+        if (!modifie) return ecranImages('Aucun changement à enregistrer.');
+        // On ne garde que ce qui diffère de la fiche générée.
+        const m = {};
+        for (const [cle, el] of [['designation', designation], ['name', nom], ['constellation', constellation], ['subtitle', sousTitre]])
+          if (el.value.trim() && el.value.trim() !== base[cle]) m[cle] = el.value.trim();
+        if (masque.checked) m.hidden = true;
+        const dd = {};
+        for (const d of details) {
+          const x = {};
+          if (!d.affiche.checked) x.hidden = true;
+          if (d.label.value.trim() && d.label.value.trim() !== d.baseLabel) x.label = d.label.value.trim();
+          if (Object.keys(x).length) dd[d.cle] = x;
+        }
+        if (Object.keys(dd).length) m.details = dd;
+        if (sectionsTouchees) {
+          const nouvelles = sections.map((sec, i) => ({ title: sec.titre, html: sec.lire() }));
+          if (nouvelles.some((sec, i) => sec.html !== base.sections[i]?.html)) m.sections = nouvelles;
+        } else if (m0.sections) m.sections = m0.sections;
+        boutonEnregistrer.disabled = true;
+        message('Enregistrement…');
+        try {
+          await enregistrerModifs(img, m, `Modifier l'image : ${designation.value.trim() || base.designation}`);
+          modifie = false;
+          ecranImages(`« ${designation.value.trim() || base.designation} » est enregistrée. Le site se met à jour dans environ une minute.`);
+        } catch (e) { boutonEnregistrer.disabled = false; message(explique(e), 'erreur'); }
+      },
+    },
+      h('div', { class: 'ed-barre' },
+        h('button', { type: 'button', onclick: fermer }, '← Toutes les images'),
+        !m0.hidden && h('a', { href: `${BASE}/galerie/${img.slug}/`, target: '_blank', rel: 'noopener' }, "Voir l'image en ligne"),
+      ),
+      h('img', { class: 'ed-apercu', src: BASE + couverture.thumb, alt: '' }),
+      h('div', { class: 'ed-champs' },
+        h('div', {}, h('label', { for: 'ed-designation' }, 'Désignation'), designation),
+        h('div', {}, h('label', { for: 'ed-nom' }, 'Nom'), nom),
+      ),
+      h('div', { class: 'ed-champs' },
+        h('div', {}, h('label', { for: 'ed-constellation' }, 'Constellation'), constellation),
+        h('div', {}, h('label', { for: 'ed-soustitre' }, 'Sous-titre'), sousTitre),
+      ),
+      h('label', { class: 'ed-case' }, masque, ' Masquer cette image (elle disparaît de la galerie, sans être supprimée)'),
+      details.length > 0 && h('fieldset', { class: 'ed-details' },
+        h('legend', {}, 'Agrandis'),
+        details.map((d) => h('div', { class: 'ed-detail' }, h('img', { src: d.vignette, alt: '', loading: 'lazy' }), d.affiche, d.label)),
+        h('p', { class: 'discret' }, "Décocher un agrandi le retire de la fiche. Pour en ajouter ou en recadrer un, il faut passer par le fichier galerie-details.json."),
+      ),
+      h('div', { class: 'ed-outils' },
+        outil('Gras', 'Gras', commande('bold')),
+        outil('Italique', 'Italique', commande('italic')),
+        outil('Liste', 'Liste à puces', commande('insertUnorderedList')),
+        outil('Lien', 'Insérer un lien', () => { const url = prompt('Adresse du lien :', 'https://'); if (url) commande('createLink', url)(); }),
+        outil('Retirer le lien', 'Retirer le lien', commande('unlink')),
+      ),
+      sections.map((sec) => h('section', { class: 'ed-section' },
+        h('div', { class: 'ed-section-titre' }, h('h3', {}, sec.titre), h('button', { type: 'button', onclick: sec.basculer }, 'Code HTML')),
+        sec.zone, sec.source,
+      )),
+      Object.keys(m0).length > 0 && h('p', { class: 'discret' }, 'Cette fiche a déjà été modifiée ici. Pour revenir à la fiche générée, remets chaque champ à sa valeur d\'origine ou supprime le fichier galerie-modifs correspondant.'),
+      h('p', { id: 'ed-message', class: 'ed-message', hidden: true }),
+      h('div', { class: 'ed-barre' }, boutonEnregistrer, h('button', { type: 'button', onclick: fermer }, 'Annuler')),
+    ),
+  );
+  window.scrollTo(0, 0);
+}
 
 // ── Démarrage ──────────────────────────────────────────────────────────────
 if (!jeton) ecranConnexion();

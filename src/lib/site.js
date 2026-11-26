@@ -41,6 +41,8 @@ const dates = {
 };
 export const formatDate = (d, lang = 'fr') => (dates[lang] || dates.fr).format(d);
 
+const parNom = (glob) => Object.fromEntries(Object.entries(glob).map(([f, v]) => [f.split('/').pop().replace(/\.json$/, ''), v]));
+
 // ── Traductions ────────────────────────────────────────────────────────────
 // Les traductions anglaises sont dans src/data/carnets-en et src/data/galerie-en. Chacune porte
 // l'empreinte du texte français dont elle est tirée (« source ») : si le français change, la
@@ -49,7 +51,6 @@ const empreinte = (s) => createHash('sha1').update(s).digest('hex').slice(0, 12)
 export const empreinteBillet = (p) => empreinte(p.title + '\n' + p.html);
 export const empreinteFiche = (g) => empreinte(g.name + '\n' + g.subtitle + '\n' + JSON.stringify(g.sections));
 
-const parNom = (glob) => Object.fromEntries(Object.entries(glob).map(([f, v]) => [f.split('/').pop().replace(/\.json$/, ''), v]));
 const carnetsEn = parNom(import.meta.glob('../data/carnets-en/*.json', { eager: true, import: 'default' }));
 const galerieEn = parNom(import.meta.glob('../data/galerie-en/*.json', { eager: true, import: 'default' }));
 
@@ -58,14 +59,38 @@ export const nomEtiquette = (name, lang = 'fr') => (lang === 'en' && typeof etiq
 
 // ── Galerie ────────────────────────────────────────────────────────────────
 const couverture = (g) => g.images.find((i) => i.kind === 'image') || g.images[0];
+// Les fiches sont générées par scripts/import-images.mjs. Ce qui est changé dans le mode édition
+// (src/data/galerie-modifs/<slug>.json) se superpose à la fiche générée : titres, textes, agrandis
+// masqués ou renommés, image masquée.
+const galerieModifs = parNom(import.meta.glob('../data/galerie-modifs/*.json', { eager: true, import: 'default' }));
+const cleImage = (i) => i.web.split('/').pop();
+const avecModifs = (g) => {
+  const m = galerieModifs[g.slug];
+  if (!m) return g;
+  const images = g.images
+    .filter((i) => !(i.kind === 'detail' && m.details?.[cleImage(i)]?.hidden))
+    .map((i) => {
+      const d = i.kind === 'detail' ? m.details?.[cleImage(i)] : null;
+      return d?.label ? { ...i, label: d.label, labelBase: i.label } : i;
+    });
+  return {
+    ...g,
+    name: m.name ?? g.name, designation: m.designation ?? g.designation,
+    constellation: m.constellation ?? g.constellation, subtitle: m.subtitle ?? g.subtitle,
+    sections: m.sections ?? g.sections,
+    images, hidden: !!m.hidden,
+  };
+};
 export const galerie = Object.values(import.meta.glob('../data/galerie/*.json', { eager: true, import: 'default' }))
+  .map(avecModifs)
+  .filter((g) => !g.hidden)
   .map((g) => ({ ...g, date: new Date(g.date), url: `/galerie/${g.slug}/`, cover: couverture(g) }))
   .sort((a, b) => b.date - a.date);
 
 const galerieAnglaise = galerie.map((g) => {
   const e = galerieEn[g.slug];
   if (!e) return { ...g, traduit: false };
-  const images = g.images.map((i) => (i.kind === 'detail' && e.details?.[i.label] ? { ...i, label: e.details[i.label] } : i));
+  const images = g.images.map((i) => (i.kind === 'detail' && e.details?.[i.labelBase ?? i.label] ? { ...i, label: e.details[i.labelBase ?? i.label] } : i));
   return {
     ...g,
     name: e.name, designation: e.designation, constellation: e.constellation, subtitle: e.subtitle,

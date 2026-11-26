@@ -47,9 +47,11 @@ Le texte de l'article, en Markdown.
 
 L'article paraît à l'adresse `/carnets/premiere-lumiere-texas/`. Ajouter `draft: true` pour le garder hors ligne.
 
-### Modifier ou masquer un billet depuis le site
+### Modifier ou masquer un billet ou une image depuis le site
 
 Le site a un mode édition à l'adresse `/edition/` (lien « Édition » en pied de page). Il permet de modifier le titre, la date, les étiquettes et le texte d'un billet, d'y ajouter une image, et de le masquer ou de le rendre visible. Une fois connecté, un lien « Modifier ce billet » apparaît aussi sur chaque billet.
+
+L'onglet **Images** du mode édition fait la même chose pour la galerie : désignation, nom, constellation, sous-titre, textes des sections, libellé des agrandis, et cases pour masquer un agrandi ou l'image entière. Comme les fiches de la galerie sont régénérées par `npm run import:images`, ces changements sont rangés à part, dans `src/data/galerie-modifs/<image>.json`, et se superposent à la fiche générée : rien n'est perdu quand la galerie est régénérée. Les fichiers d'images eux-mêmes ne se changent pas depuis le site.
 
 Chaque enregistrement est un commit dans ce dépôt ; le site se met à jour tout seul en une minute environ. Avant de reprendre le travail en local, faire `git pull`.
 
