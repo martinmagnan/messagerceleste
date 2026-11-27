@@ -21,6 +21,11 @@ const UI = {
     'stats.oui': 'Accepter',
     'stats.non': 'Refuser',
     'stats.lien': 'Statistiques',
+    'recherche.titre': 'Rechercher',
+    'recherche.champ': 'Rechercher…',
+    'recherche.intro': 'Dans les fiches de la galerie et dans tous les carnets, depuis 2007.',
+    'recherche.meta': "Rechercher dans les images et les carnets d'observation de Messager Céleste.",
+    'recherche.indispo': "La recherche n'est pas disponible dans l'aperçu local : elle fonctionne une fois le site construit.",
 
     'accueil.derniere': 'Dernière image',
     'accueil.toutes': 'Toutes les images →',
@@ -95,6 +100,11 @@ const UI = {
     'stats.oui': 'Accept',
     'stats.non': 'Decline',
     'stats.lien': 'Statistics',
+    'recherche.titre': 'Search',
+    'recherche.champ': 'Search…',
+    'recherche.intro': 'In the gallery entries and in every journal post since 2007.',
+    'recherche.meta': 'Search the images and observing journal of Messager Céleste.',
+    'recherche.indispo': 'Search is not available in the local preview: it works once the site is built.',
 
     'accueil.derniere': 'Latest image',
     'accueil.toutes': 'All images →',

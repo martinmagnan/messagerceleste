@@ -99,6 +99,10 @@ Les articles de l'ancien blog gardent leur adresse d'origine (`/AAAA/MM/slug.htm
 
 `npm run import:blog` a servi à la migration initiale. Il n'a pas à être relancé : il relit le flux public du blog, qui n'est plus à cette adresse depuis la bascule du domaine.
 
+## Recherche
+
+Le champ « Rechercher » de l'en-tête mène à `/recherche/` (`/en/recherche/` en anglais). L'index est produit par [Pagefind](https://pagefind.app) juste après la construction (`npm run build` enchaîne `astro build` et `pagefind --site dist`) : il n'y a ni serveur ni service externe, tout est dans `dist/pagefind/`. Seuls les billets et les fiches de la galerie sont indexés (attribut `data-pagefind-body` dans `src/components/Article.astro` et `src/vues/Fiche.astro`), chacun dans sa langue, avec un filtre Galerie / Carnets. La recherche ne fonctionne pas avec `npm run dev`, seulement sur le site construit (`npm run build && npm run preview`).
+
 ## Statistiques de fréquentation
 
 Le site mesure sa fréquentation avec Google Analytics 4 (propriété « Messager Céleste » du compte Analytics « Carnets-martin », identifiant `G-P0L2V172KC`, dans `src/lib/site.js`). Conformément à la Loi 25, rien n'est chargé tant que le visiteur n'a pas cliqué « Accepter » dans le bandeau ; le lien « Statistiques » du pied de page rouvre le choix, et un refus efface les témoins `_ga`. Analytics ne se charge que sur le vrai domaine, jamais en aperçu local. Le tout est dans `src/components/Statistiques.astro`.

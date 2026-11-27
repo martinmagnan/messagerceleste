@@ -229,3 +229,34 @@ h4 { font-size: 1.02rem; font-family: var(--sans); font-weight: 600; color: var(
 .entete nav { align-items: baseline; }
 .entete nav a.langue { border: 1px solid var(--trait); border-radius: 999px; padding: 0.15rem 0.75rem; font-size: 0.85rem; color: var(--texte); }
 .entete nav a.langue:hover { border-color: var(--accent); color: #fff; }
+
+/* ── Recherche ───────────────────────────────────────────────────────────── */
+.recherche-entete { margin: 0; }
+.recherche-entete input {
+  width: 9rem; font: inherit; font-size: 0.85rem; color: var(--texte);
+  background: var(--surface); border: 1px solid var(--trait); border-radius: 999px; padding: 0.2rem 0.8rem;
+  transition: width 0.2s, border-color 0.2s;
+}
+.recherche-entete input::placeholder { color: var(--discret); }
+.recherche-entete input:focus { outline: none; border-color: var(--accent); width: 13rem; }
+@media (max-width: 40rem) {
+  .entete nav { flex-wrap: wrap; gap: 0.5rem 1.2rem; }
+  .recherche-entete { order: 9; flex-basis: 100%; }
+  .recherche-entete input, .recherche-entete input:focus { width: 100%; }
+}
+#recherche {
+  --pagefind-ui-primary: var(--accent);
+  --pagefind-ui-text: var(--texte);
+  --pagefind-ui-background: var(--surface);
+  --pagefind-ui-border: var(--trait);
+  --pagefind-ui-tag: var(--trait);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 6px;
+  --pagefind-ui-image-border-radius: 4px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: var(--sans);
+  margin-top: 0.5rem;
+}
+#recherche .pagefind-ui__result-link { color: var(--lien); }
+#recherche .pagefind-ui__result-excerpt { color: var(--discret); }
+#recherche mark { background: rgba(220, 180, 106, 0.25); color: var(--texte); padding: 0 0.1em; border-radius: 2px; }

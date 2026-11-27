@@ -1,0 +1,41 @@
+---
+// Page de recherche. L'index est produit par Pagefind après la construction du site
+// (npm run build) : il ne couvre que les billets et les fiches de la galerie, marqués
+// data-pagefind-body, dans la langue de la page.
+import Base from '../layouts/Base.astro';
+import { asset, traducteur } from '../lib/site.js';
+
+const { lang = 'fr' } = Astro.props;
+const t = traducteur(lang);
+---
+<Base title={t('recherche.titre')} description={t('recherche.meta')} lang={lang}>
+  <div class="page etroit">
+    <header class="article-entete">
+      <h1>{t('recherche.titre')}</h1>
+      <p class="discret">{t('recherche.intro')}</p>
+    </header>
+    <div id="recherche" data-indispo={t('recherche.indispo')}></div>
+  </div>
+  <link rel="stylesheet" href={asset('/pagefind/pagefind-ui.css')} />
+  <script is:inline src={asset('/pagefind/pagefind-ui.js')}></script>
+  <script is:inline define:vars={{ bundle: asset('/pagefind/') }}>
+    (() => {
+      const boite = document.getElementById('recherche');
+      if (typeof PagefindUI === 'undefined') {
+        boite.textContent = boite.dataset.indispo;
+        return;
+      }
+      const ui = new PagefindUI({ element: boite, bundlePath: bundle, showSubResults: true, showImages: true, autofocus: true });
+      const q = new URLSearchParams(location.search).get('q');
+      if (q) ui.triggerSearch(q);
+      // Garde la recherche dans l'adresse, pour pouvoir la partager ou revenir en arrière.
+      boite.addEventListener('input', (e) => {
+        if (!e.target.matches('input[type="text"], input[type="search"]')) return;
+        const adresse = new URL(location.href);
+        const v = e.target.value.trim();
+        v ? adresse.searchParams.set('q', v) : adresse.searchParams.delete('q');
+        history.replaceState(null, '', adresse);
+      });
+    })();
+  </script>
+</Base>

@@ -55,6 +55,11 @@ const nav = [
         <a class="marque" href={u('/', lang)}>Messager <span>Céleste</span></a>
         <nav aria-label={t('nav.principale')}>
           {nav.map(([href, label]) => <a href={u(href, lang)} aria-current={section(href) ? 'page' : undefined}>{label}</a>)}
+          {!section('/recherche/') && (
+            <form class="recherche-entete" role="search" action={u('/recherche/', lang)}>
+              <input type="search" name="q" placeholder={t('recherche.champ')} aria-label={t('recherche.titre')} />
+            </form>
+          )}
           {autreLangue && <a class="langue" href={autre} hreflang={lang === 'fr' ? 'en' : 'fr'} lang={lang === 'fr' ? 'en' : 'fr'} title={t('langue.autre.titre')}>{t('langue.autre')}</a>}
         </nav>
       </div>
