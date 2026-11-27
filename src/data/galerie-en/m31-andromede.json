@@ -1,0 +1,38 @@
+{
+ "name": "The Andromeda Galaxy, with M32 and M110",
+ "designation": "M31",
+ "constellation": "Andromeda",
+ "subtitle": "Single-image broadband with hydrogen, HaLRGB",
+ "integration": "36.7 h",
+ "facts": {
+  "Optique": "SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning",
+  "Champ": "about 3.3° × 1.9°",
+  "Période": "24 September to 2 October 2025"
+ },
+ "details": {
+  "Détail : le cœur de M31": "Detail: the core of M31",
+  "Détail : M110": "Detail: M110",
+  "Détail : M32": "Detail: M32",
+  "Détail : NGC 206, nuage d'étoiles": "Detail: NGC 206, star cloud"
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>This 3.3° by 1.9° field shows M31, the Andromeda Galaxy, the nearest large spiral to our own, about 2.5 million light-years away. It is seen almost edge-on, and its disc overflows the field: it spans more than three degrees in the sky, six times the diameter of the full Moon.</p>\n<p>The pale yellow central bulge is made of old stars. Around it wind lanes of brown dust, then the bluish outer arms, where young stars form. The small pink spots dotting the arms are regions of ionized hydrogen, the galaxy's stellar nurseries; the Ha filter is what brings them out.</p>\n<p>Two satellite galaxies accompany M31: M110 (NGC 205), the diffuse oval at upper right, and M32, the small compact globe just below the disc, near the centre. The bright blue star on the left is Nu Andromedae, a star of our own Galaxy, in the foreground like all the other stars in the field.</p>\n<p>The colours are close to the real ones: they were calibrated on the stars in the field, and the hydrogen only reinforces the red.</p>\n<p>This image was acquired in collaboration with Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Location</dt><dd>Starfront remote site, Texas (31°32'51\" N, 99°22'55\" W)</dd></div><div><dt>Period</dt><dd>24 September to 2 October 2025</dd></div><div><dt>Camera</dt><dd>QHY268M (monochrome), gain 56, offset 25, High Gain 2CMS mode, cooled to 0 °C, 1×1 binning</dd></div><div><dt>Optics</dt><dd>SharpStar 94EDPH refractor (94 mm aperture) with its dedicated reducer, 409 mm focal length (f/4.4)</dd></div><div><dt>Image scale</dt><dd>1.90\"/pixel (3.76 µm pixels)</dd></div><div><dt>Filters</dt><dd>L, R, G, B and Ha</dd></div><div><dt>Software</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Frames kept (all raw frames were aligned and stacked):</p>\n<div class=\"tableau\"><table><thead><tr><th>Filter</th><th>Frames</th><th>Sub-exposure</th><th>Total</th><th>Period</th></tr></thead><tbody><tr><td>L</td><td>100</td><td>180 s</td><td>5.0 h</td><td>24 to 26 September 2025</td></tr><tr><td>R</td><td>100</td><td>180 s</td><td>5.0 h</td><td>24 to 26 September 2025</td></tr><tr><td>G</td><td>100</td><td>180 s</td><td>5.0 h</td><td>25 to 27 September 2025</td></tr><tr><td>B</td><td>100</td><td>180 s</td><td>5.0 h</td><td>25 to 27 September 2025</td></tr><tr><td>Ha</td><td>100</td><td>600 s</td><td>16.7 h</td><td>27 September to 2 October 2025</td></tr></tbody></table></div>\n<dl><div><dt>Integration time</dt><dd>20.0 h in LRGB + 16.7 h in Ha = 36.7 h (500 frames).</dd></div></dl>\n<p>The target also has 100 OIII frames of 600 s (2 to 11 October 2025), stacked but not used in this rendering.</p>"
+  },
+  {
+   "title": "Final image",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6210 × 3664 pixels (22.8 megapixels), after cropping the edges</dd></div><div><dt>Field</dt><dd>about 3.3° × 1.9°</dd></div><div><dt>Field centre</dt><dd>RA 0h 43m, Dec +41° 16' (approximate)</dd></div></dl>"
+  },
+  {
+   "title": "Processing",
+   "html": "<p>Done entirely in PixInsight 1.9.6, starting from the raw frames.</p>\n<h4>Preprocessing (per filter)</h4><ul><li>Calibration: 180 s (LRGB) and 600 s (Ha) master darks at 0 °C; L, R, G, B and Ha master flats from October 2025.</li><li>Frame alignment, local normalization, stacking.</li><li>Astrometric solution of each stack.</li></ul>\n<h4>Preparation</h4><ul><li>RGB combination and colour calibration on the stars in the field (BackgroundNeutralization then ColorCalibration, white taken on the stars in the field).</li><li>Common cropping of the edges, then extra cropping at the top (180 pixels) and bottom (260 pixels).</li></ul>\n<h4>Linear processing</h4><ul><li>Light gradient correction (AutomaticBackgroundExtractor, degree-1 polynomial).</li><li>BlurXTerminator (deconvolution), NoiseXTerminator (noise reduction), StarXTerminator (separation of the stars from the galaxy), on the colour, the luminance and the Ha.</li></ul>\n<h4>Non-linear processing</h4><ul><li>Background neutralization, then linked stretch of the three colours, target background level 0.20.</li><li>Ha injected into the red (60%) and into the luminance.</li><li>Colour saturation slightly boosted in the galaxy (luminosity mask), before combining with the luminance.</li><li>Combination of the luminance with the colour (LRGB).</li><li>Core compression: HDRMultiscaleTransform (8 layers, applied at 80%).</li><li>Green toned down (SCNR 0.7), contrast and saturation curves.</li><li>Sky background desaturated (dark areas only).</li><li>Reintegration of the stars, stretched less than the galaxy.</li></ul>\n<h4>Notes</h4><ul><li>Fifth version of the rendering. The first was too orange; the saturation was reduced.</li><li>The stacks show a dark half-ellipse in the middle of the bottom edge in the green, and in the middle of the top edge in the red and blue. In the colour image this gave a magenta band at the bottom and a green band at the top. The extra cropping and the background desaturation almost removed them; a slight pink tint remains at the lower tip of the galaxy. The cause has not been established (the flats were taken two weeks after the frames).</li><li>The background desaturation also makes the blue halo of the star Nu Andromedae and the very faint halo of the galaxy greyer.</li><li>DarkStructureEnhance was not applied: on galaxies, it digs an artificial dark halo.</li><li>Colours calibrated with ColorCalibration rather than SPCC, which gave too orange a rendering.</li><li>Final adjustments made by hand in PixInsight.</li></ul>"
+  }
+ ],
+ "source": "b6165e64083f"
+}

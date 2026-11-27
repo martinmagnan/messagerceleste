@@ -35,6 +35,8 @@ var CIBLES = [
    { slug: "coeur-et-ame", ra: 40.5, dec: 61.5, res: 0.0026818 },
    { slug: "ic4604-rho-ophiuchi", ra: 247.25, dec: -23.933, res: 0.0014545 },
    { slug: "m16-aigle", ra: 274.75, dec: -13.817, res: 0.0014545 },
+   { slug: "m31-andromede", ra: 10.75, dec: 41.267, res: 0.0014898 },
+   { slug: "m33-triangle", ra: 24.0, dec: 30.767, res: 0.0014927 },
    { slug: "m20-m8-trifide-lagune", ra: 271.5, dec: -23.75, res: 0.0014091 },
    { slug: "m45-pleiades", ra: 58.2, dec: 24.6, res: 0.0027727 },
    { slug: "m78", ra: 87.5, dec: 0.367, res: 0.0015000 },

@@ -1,0 +1,102 @@
+{
+ "slug": "m33-triangle",
+ "source": "M33_HaLRGB.txt",
+ "designation": "M33",
+ "name": "La galaxie du Triangle",
+ "constellation": "Triangle",
+ "subtitle": "Image simple en large bande avec hydrogène, HaLRGB",
+ "author": "Martin Magnan",
+ "date": "2025-10-20T12:00:00.000Z",
+ "integration": "38,1 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 15 au 20 octobre 2025",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "L, R, G, B et Ha",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Temps d'intégration": "20,4 h en LRGB + 17,7 h en Ha = 38,1 h (514 poses).",
+  "Dimensions": "6222 × 4152 pixels (25,8 mégapixels), après recadrage des bords",
+  "Champ": "environ 3,3° × 2,2°",
+  "Centre du champ": "AR 1 h 36 min, Déc +30° 46' (pointage du télescope)"
+ },
+ "images": [
+  {
+   "file": "M33_HaLRGB.jpg",
+   "kind": "image",
+   "label": "HaLRGB",
+   "width": 6222,
+   "height": 4152,
+   "thumb": "/galerie/m33-triangle/m33-halrgb-900.webp",
+   "web": "/galerie/m33-triangle/m33-halrgb-2200.jpg",
+   "large": "/galerie/m33-triangle/m33-halrgb-4000.jpg",
+   "largeWidth": 4000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : la galaxie entière",
+   "width": 1800,
+   "height": 2300,
+   "thumb": "/galerie/m33-triangle/detail-la-galaxie-entiere-1215-739-1800x2300-900.webp",
+   "web": "/galerie/m33-triangle/detail-la-galaxie-entiere-1215-739-1800x2300.jpg",
+   "large": "/galerie/m33-triangle/detail-la-galaxie-entiere-1215-739-1800x2300.jpg",
+   "largeWidth": 1800
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : le cœur de M33",
+   "width": 1300,
+   "height": 975,
+   "thumb": "/galerie/m33-triangle/detail-le-c-ur-de-m33-1441-1352-1300x975-900.webp",
+   "web": "/galerie/m33-triangle/detail-le-c-ur-de-m33-1441-1352-1300x975.jpg",
+   "large": "/galerie/m33-triangle/detail-le-c-ur-de-m33-1441-1352-1300x975.jpg",
+   "largeWidth": 1300
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : NGC 604",
+   "width": 900,
+   "height": 675,
+   "thumb": "/galerie/m33-triangle/detail-ngc-604-1952-1768-900x675-900.webp",
+   "web": "/galerie/m33-triangle/detail-ngc-604-1952-1768-900x675.jpg",
+   "large": "/galerie/m33-triangle/detail-ngc-604-1952-1768-900x675.jpg",
+   "largeWidth": 900
+  }
+ ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/m33-triangle/annotee.jpg",
+   "thumb": "/galerie/m33-triangle/annotee-1100.webp",
+   "width": 2200,
+   "height": 1468
+  },
+  "carte": {
+   "full": "/galerie/m33-triangle/carte-reperage.png",
+   "thumb": "/galerie/m33-triangle/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de 3,3° sur 2,2° montre M33, la galaxie du Triangle, troisième grande galaxie du Groupe local après Andromède et la Voie lactée. Elle se trouve à environ 2,7 millions d'années-lumière et s'étend sur plus d'un degré, soit deux fois le diamètre apparent de la Lune.</p>\n<p>M33 est une spirale vue presque de face, aux bras lâches et floconneux. Leur teinte bleue vient d'innombrables étoiles jeunes et chaudes ; le centre, plus jaune, est peuplé d'étoiles plus anciennes. Les bras sont ponctués de taches roses : ce sont des régions d'hydrogène ionisé où naissent des étoiles, que le filtre Ha fait ressortir. La plus grande, NGC 604, est l'une des plus vastes pouponnières d'étoiles connues dans les galaxies proches.</p>\n<p>Le reste du champ montre les étoiles de notre propre Galaxie, au premier plan, et quelques voiles très faibles de poussière galactique.</p>\n<p>Les couleurs sont proches des couleurs réelles : elles ont été calibrées sur les étoiles du champ, et l'hydrogène renforce seulement le rouge.</p>\n<p>Cette image a été acquise en collaboration avec Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 15 au 20 octobre 2025</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>L, R, G, B et Ha</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Poses retenues (toutes les brutes ont été alignées et empilées) :</p>\n<div class=\"tableau\"><table><thead><tr><th>Filtre</th><th>Poses</th><th>Pose unitaire</th><th>Total</th><th>Période</th></tr></thead><tbody><tr><td>L</td><td>101</td><td>180 s</td><td>5,1 h</td><td>15 au 20 octobre 2025</td></tr><tr><td>R</td><td>100</td><td>180 s</td><td>5,0 h</td><td>15 au 19 octobre 2025</td></tr><tr><td>G</td><td>100</td><td>180 s</td><td>5,0 h</td><td>16 au 19 octobre 2025</td></tr><tr><td>B</td><td>107</td><td>180 s</td><td>5,4 h</td><td>16 au 20 octobre 2025</td></tr><tr><td>Ha</td><td>106</td><td>600 s</td><td>17,7 h</td><td>17 au 20 octobre 2025</td></tr></tbody></table></div>\n<dl><div><dt>Temps d'intégration</dt><dd>20,4 h en LRGB + 17,7 h en Ha = 38,1 h (514 poses).</dd></div></dl>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6222 × 4152 pixels (25,8 mégapixels), après recadrage des bords</dd></div><div><dt>Champ</dt><dd>environ 3,3° × 2,2°</dd></div><div><dt>Centre du champ</dt><dd>AR 1 h 36 min, Déc +30° 46' (pointage du télescope)</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par filtre)</h4><ul><li>Calibration : master darks 180 s et 600 s à 0 °C ; master flats L, R, G, B et Ha à 0 °C.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Préparation</h4><ul><li>Combinaison RGB et calibration des couleurs sur les étoiles du champ (SpectrophotometricColorCalibration, catalogue Gaia).</li><li>Recadrage commun des bords.</li></ul>\n<h4>Traitement linéaire</h4><ul><li>Correction de gradient légère (AutomaticBackgroundExtractor, polynôme de degré 1).</li><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et des nébuleuses).</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Neutralisation du fond puis étirement lié des trois couleurs, niveau de fond visé 0,20.</li><li>Saturation de la couleur renforcée dans la galaxie seulement (masque de luminosité), avant la combinaison avec la luminance, qui sinon la délave.</li><li>Injection du Ha dans le rouge et dans la luminance.</li><li>Combinaison de la luminance avec la couleur (LRGB).</li><li>Compression du centre : HDRMultiscaleTransform (8 couches, appliqué à 80 %), avec masque de luminosité.</li><li>Atténuation du vert (SCNR 0,7), courbes de contraste et de saturation.</li><li>Réintégration des étoiles, moins étirées que les nébuleuses.</li></ul>\n<h4>Remarques</h4><ul><li>Quatrième version du rendu. Les deux premières montraient une galaxie grise et plate : la compression à 6 couches effaçait son relief.</li><li>DarkStructureEnhance n'a pas été appliqué (il creuse un halo sombre autour des galaxies).</li><li>Le bord de la galaxie reste un peu net par rapport au fond, et les coins inférieurs gardent une légère teinte magenta (reste de gradient).</li><li>Derniers ajustements faits à la main dans PixInsight.</li></ul>"
+  }
+ ]
+}

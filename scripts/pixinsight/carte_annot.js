@@ -9,7 +9,7 @@
 
 var ROOT = "/Volumes/Cassini/PixInsight_claude/carte_tmp";
 var WORK = "/Volumes/AstroWire/PixInsight_Processing/_site_cartes";
-var SLUGS = ["coeur-et-ame", "ic4604-rho-ophiuchi", "m16-aigle", "m20-m8-trifide-lagune", "m45-pleiades", "m78", "m81-m82", "ngc1333", "ngc1909-tete-de-sorciere", "ngc6888-croissant", "ngc7023-iris", "sh2-132-lion", "sh2-184-pacman", "wr134"];
+var SLUGS = ["coeur-et-ame", "ic4604-rho-ophiuchi", "m16-aigle", "m20-m8-trifide-lagune", "m31-andromede", "m33-triangle", "m45-pleiades", "m78", "m81-m82", "ngc1333", "ngc1909-tete-de-sorciere", "ngc6888-croissant", "ngc7023-iris", "sh2-132-lion", "sh2-184-pacman", "wr134"];
 var RUN = ["H"];
 
 var __lines = [];

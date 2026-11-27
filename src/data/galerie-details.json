@@ -65,5 +65,16 @@
     { "nom": "M78, NGC 2071 et leurs bandes sombres", "cx": 0.72, "cy": 0.66, "largeur": 1800, "hauteur": 2000 },
     { "nom": "amas NGC 2112", "cx": 0.165, "cy": 0.48, "largeur": 900, "hauteur": 675 },
     { "nom": "petite nébuleuse en éventail", "cx": 0.705, "cy": 0.365, "largeur": 800, "hauteur": 600 }
+  ],
+  "M31_Andromede_HaLRGB": [
+    { "nom": "le cœur de M31", "cx": 0.5, "cy": 0.5, "largeur": 1500, "hauteur": 1125 },
+    { "nom": "M110", "cx": 0.634, "cy": 0.293, "largeur": 1000, "hauteur": 1000 },
+    { "nom": "M32", "cx": 0.502, "cy": 0.718, "largeur": 800, "hauteur": 600 },
+    { "nom": "NGC 206, nuage d'étoiles", "cx": 0.627, "cy": 0.83, "largeur": 1100, "hauteur": 825 }
+  ],
+  "M33_HaLRGB": [
+    { "nom": "la galaxie entière", "cx": 0.34, "cy": 0.455, "largeur": 1800, "hauteur": 2300 },
+    { "nom": "le cœur de M33", "cx": 0.336, "cy": 0.443, "largeur": 1300, "hauteur": 975 },
+    { "nom": "NGC 604", "cx": 0.386, "cy": 0.507, "largeur": 900, "hauteur": 675 }
   ]
 }

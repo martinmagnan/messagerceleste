@@ -88,7 +88,21 @@
     "constellation": "Orion"
   },
   "M33_HaLRGB": {
-    "publier": false,
-    "note": "Rendu à reprendre (Martin, 2026-11-26) : ne pas publier pour l'instant."
+    "slug": "m33-triangle",
+    "designation": "M33",
+    "nom": "La galaxie du Triangle",
+    "constellation": "Triangle",
+    "exclure": [
+      "M33_detail.jpg"
+    ]
+  },
+  "M31_Andromede_HaLRGB": {
+    "slug": "m31-andromede",
+    "designation": "M31",
+    "nom": "La galaxie d'Andromède, avec M32 et M110",
+    "constellation": "Andromède",
+    "exclure": [
+      "M31_detail_coeur.jpg"
+    ]
   }
 }

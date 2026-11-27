@@ -69,5 +69,15 @@
     "source": "WR134_SHO.jpg",
     "sourceModifiee": "2026-11-25T12:46:38.247Z",
     "generee": "2026-11-26"
+  },
+  "m31-andromede": {
+    "source": "M31_Andromede_HaLRGB.jpg",
+    "sourceModifiee": "2026-11-27T04:00:10.063Z",
+    "generee": "2026-11-27"
+  },
+  "m33-triangle": {
+    "source": "M33_HaLRGB.jpg",
+    "sourceModifiee": "2026-11-27T04:00:10.195Z",
+    "generee": "2026-11-27"
   }
 }

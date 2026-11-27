@@ -1,0 +1,113 @@
+{
+ "slug": "m31-andromede",
+ "source": "M31_Andromede_HaLRGB.txt",
+ "designation": "M31",
+ "name": "La galaxie d'Andromède, avec M32 et M110",
+ "constellation": "Andromède",
+ "subtitle": "Image simple en large bande avec hydrogène, HaLRGB",
+ "author": "Martin Magnan",
+ "date": "2025-10-02T12:00:00.000Z",
+ "integration": "36,7 h",
+ "facts": {
+  "Lieu": "site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)",
+  "Période": "du 24 septembre au 2 octobre 2025",
+  "Caméra": "QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1",
+  "Optique": "lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)",
+  "Échantillonnage": "1,90\"/pixel (pixels de 3,76 µm)",
+  "Filtres": "L, R, G, B et Ha",
+  "Logiciel": "Voyager (RoboTarget)",
+  "Temps d'intégration": "20,0 h en LRGB + 16,7 h en Ha = 36,7 h (500 poses).",
+  "Dimensions": "6210 × 3664 pixels (22,8 mégapixels), après recadrage des bords",
+  "Champ": "environ 3,3° × 1,9°",
+  "Centre du champ": "AR 0 h 43 min, Déc +41° 16' (approximatif)"
+ },
+ "images": [
+  {
+   "file": "M31_Andromede_HaLRGB.jpg",
+   "kind": "image",
+   "label": "HaLRGB",
+   "width": 6210,
+   "height": 3664,
+   "thumb": "/galerie/m31-andromede/m31-andromede-halrgb-900.webp",
+   "web": "/galerie/m31-andromede/m31-andromede-halrgb-2200.jpg",
+   "large": "/galerie/m31-andromede/m31-andromede-halrgb-4000.jpg",
+   "largeWidth": 4000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : le cœur de M31",
+   "width": 1500,
+   "height": 1125,
+   "thumb": "/galerie/m31-andromede/detail-le-c-ur-de-m31-2355-1270-1500x1125-900.webp",
+   "web": "/galerie/m31-andromede/detail-le-c-ur-de-m31-2355-1270-1500x1125.jpg",
+   "large": "/galerie/m31-andromede/detail-le-c-ur-de-m31-2355-1270-1500x1125.jpg",
+   "largeWidth": 1500
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : M110",
+   "width": 1000,
+   "height": 1000,
+   "thumb": "/galerie/m31-andromede/detail-m110-3437-574-1000x1000-900.webp",
+   "web": "/galerie/m31-andromede/detail-m110-3437-574-1000x1000.jpg",
+   "large": "/galerie/m31-andromede/detail-m110-3437-574-1000x1000.jpg",
+   "largeWidth": 1000
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : M32",
+   "width": 800,
+   "height": 600,
+   "thumb": "/galerie/m31-andromede/detail-m32-2717-2331-800x600-900.webp",
+   "web": "/galerie/m31-andromede/detail-m32-2717-2331-800x600.jpg",
+   "large": "/galerie/m31-andromede/detail-m32-2717-2331-800x600.jpg",
+   "largeWidth": 800
+  },
+  {
+   "file": null,
+   "kind": "detail",
+   "label": "Détail : NGC 206, nuage d'étoiles",
+   "width": 1100,
+   "height": 825,
+   "thumb": "/galerie/m31-andromede/detail-ngc-206-nuage-d-etoiles-3344-2629-1100x825-900.webp",
+   "web": "/galerie/m31-andromede/detail-ngc-206-nuage-d-etoiles-3344-2629-1100x825.jpg",
+   "large": "/galerie/m31-andromede/detail-ngc-206-nuage-d-etoiles-3344-2629-1100x825.jpg",
+   "largeWidth": 1100
+  }
+ ],
+ "reperage": {
+  "annotee": {
+   "full": "/galerie/m31-andromede/annotee.jpg",
+   "thumb": "/galerie/m31-andromede/annotee-1100.webp",
+   "width": 2200,
+   "height": 1298
+  },
+  "carte": {
+   "full": "/galerie/m31-andromede/carte-reperage.png",
+   "thumb": "/galerie/m31-andromede/carte-reperage-900.webp",
+   "width": 1600,
+   "height": 1600
+  }
+ },
+ "sections": [
+  {
+   "title": "Description",
+   "html": "<p>Ce champ de 3,3° sur 1,9° montre M31, la galaxie d'Andromède, la grande spirale la plus proche de la nôtre, à environ 2,5 millions d'années-lumière. Elle est vue très inclinée, et son disque déborde du champ : il s'étend sur plus de trois degrés dans le ciel, six fois le diamètre de la pleine Lune.</p>\n<p>Le bulbe central, jaune pâle, est fait d'étoiles anciennes. Autour de lui s'enroulent des bandes de poussière brune, puis les bras extérieurs, bleutés, où se forment des étoiles jeunes. Les petites taches roses qui jalonnent les bras sont des régions d'hydrogène ionisé, les pouponnières d'étoiles de la galaxie ; c'est le filtre Ha qui les fait ressortir.</p>\n<p>Deux galaxies satellites accompagnent M31 : M110 (NGC 205), l'ovale diffus en haut à droite, et M32, le petit globe compact juste sous le disque, près du centre. L'étoile bleue brillante à gauche est Nu Andromedae, une étoile de notre propre Galaxie, au premier plan comme toutes les autres étoiles du champ.</p>\n<p>Les couleurs sont proches des couleurs réelles : elles ont été calibrées sur les étoiles du champ, et l'hydrogène renforce seulement le rouge.</p>\n<p>Cette image a été acquise en collaboration avec Renaud Venne-Landry.</p>"
+  },
+  {
+   "title": "Acquisition",
+   "html": "<dl><div><dt>Lieu</dt><dd>site distant Starfront, Texas (31°32'51\" N, 99°22'55\" O)</dd></div><div><dt>Période</dt><dd>du 24 septembre au 2 octobre 2025</dd></div><div><dt>Caméra</dt><dd>QHY268M (monochrome), gain 56, offset 25, mode High Gain 2CMS, refroidie à 0 °C, binning 1×1</dd></div><div><dt>Optique</dt><dd>lunette SharpStar 94EDPH (94 mm d'ouverture) avec son réducteur dédié, focale 409 mm (f/4,4)</dd></div><div><dt>Échantillonnage</dt><dd>1,90\"/pixel (pixels de 3,76 µm)</dd></div><div><dt>Filtres</dt><dd>L, R, G, B et Ha</dd></div><div><dt>Logiciel</dt><dd>Voyager (RoboTarget)</dd></div></dl>\n<p>Poses retenues (toutes les brutes ont été alignées et empilées) :</p>\n<div class=\"tableau\"><table><thead><tr><th>Filtre</th><th>Poses</th><th>Pose unitaire</th><th>Total</th><th>Période</th></tr></thead><tbody><tr><td>L</td><td>100</td><td>180 s</td><td>5,0 h</td><td>24 au 26 septembre 2025</td></tr><tr><td>R</td><td>100</td><td>180 s</td><td>5,0 h</td><td>24 au 26 septembre 2025</td></tr><tr><td>G</td><td>100</td><td>180 s</td><td>5,0 h</td><td>25 au 27 septembre 2025</td></tr><tr><td>B</td><td>100</td><td>180 s</td><td>5,0 h</td><td>25 au 27 septembre 2025</td></tr><tr><td>Ha</td><td>100</td><td>600 s</td><td>16,7 h</td><td>27 septembre au 2 octobre 2025</td></tr></tbody></table></div>\n<dl><div><dt>Temps d'intégration</dt><dd>20,0 h en LRGB + 16,7 h en Ha = 36,7 h (500 poses).</dd></div></dl>\n<p>La cible dispose aussi de 100 poses OIII de 600 s (2 au 11 octobre 2025), empilées mais non utilisées dans ce rendu.</p>"
+  },
+  {
+   "title": "Image finale",
+   "html": "<dl><div><dt>Dimensions</dt><dd>6210 × 3664 pixels (22,8 mégapixels), après recadrage des bords</dd></div><div><dt>Champ</dt><dd>environ 3,3° × 1,9°</dd></div><div><dt>Centre du champ</dt><dd>AR 0 h 43 min, Déc +41° 16' (approximatif)</dd></div></dl>"
+  },
+  {
+   "title": "Traitement",
+   "html": "<p>Entièrement réalisé dans PixInsight 1.9.6, à partir des brutes.</p>\n<h4>Prétraitement (par filtre)</h4><ul><li>Calibration : master darks 180 s (LRGB) et 600 s (Ha) à 0 °C ; master flats L, R, G, B et Ha d'octobre 2025.</li><li>Alignement des poses, normalisation locale, empilement.</li><li>Résolution astrométrique de chaque empilement.</li></ul>\n<h4>Préparation</h4><ul><li>Combinaison RGB et calibration des couleurs sur les étoiles du champ (BackgroundNeutralization puis ColorCalibration, blanc pris sur les étoiles du champ).</li><li>Recadrage commun des bords, puis recadrage supplémentaire en haut (180 pixels) et en bas (260 pixels).</li></ul>\n<h4>Traitement linéaire</h4><ul><li>Correction de gradient légère (AutomaticBackgroundExtractor, polynôme de degré 1).</li><li>BlurXTerminator (déconvolution), NoiseXTerminator (réduction du bruit), StarXTerminator (séparation des étoiles et de la galaxie), sur la couleur, la luminance et le Ha.</li></ul>\n<h4>Traitement non linéaire</h4><ul><li>Neutralisation du fond puis étirement lié des trois couleurs, niveau de fond visé 0,20.</li><li>Injection du Ha dans le rouge (60 %) et dans la luminance.</li><li>Saturation de la couleur légèrement renforcée dans la galaxie (masque de luminosité), avant la combinaison avec la luminance.</li><li>Combinaison de la luminance avec la couleur (LRGB).</li><li>Compression du cœur : HDRMultiscaleTransform (8 couches, dosage 80 %).</li><li>Atténuation du vert (SCNR 0,7), courbes de contraste et de saturation.</li><li>Désaturation du fond de ciel (zones sombres seulement).</li><li>Réintégration des étoiles, moins étirées que la galaxie.</li></ul>\n<h4>Remarques</h4><ul><li>Cinquième version du rendu. La première était trop orangée ; la saturation a été réduite.</li><li>Les empilements montrent une zone sombre en demi-ellipse au milieu du bord inférieur dans le vert, et au milieu du bord supérieur dans le rouge et le bleu. Sur l'image en couleurs, cela donnait une bande magenta en bas et une bande verte en haut. Le recadrage supplémentaire et la désaturation du fond les ont presque supprimées ; il reste une légère teinte rose à l'extrémité inférieure de la galaxie. La cause n'a pas été établie (les flats datent de deux semaines après les poses).</li><li>La désaturation du fond rend aussi plus gris le halo bleu de l'étoile Nu Andromedae et le halo très faible de la galaxie.</li><li>DarkStructureEnhance n'a pas été appliqué : sur les galaxies, il creuse un halo sombre artificiel.</li><li>Couleurs calibrées avec ColorCalibration plutôt qu'avec SPCC, qui donnait un rendu trop orangé.</li><li>Derniers ajustements faits à la main dans PixInsight.</li></ul>"
+  }
+ ]
+}
