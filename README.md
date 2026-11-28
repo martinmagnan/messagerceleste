@@ -29,6 +29,14 @@ Chaque fiche montre une image annotée (script AnnotateImage) et une carte de re
 
 Les résultats se rangent dans `public/galerie/<slug>/` sous les noms `annotee.jpg`, `annotee-1100.webp`, `carte-reperage.png` et `carte-reperage-900.webp`, et `src/data/galerie-cartes.json` note l'image source de chacun. Quand une image est retraitée, `npm run import:images` signale que sa carte et son annotation sont à refaire.
 
+### Carte du ciel de la galerie
+
+La page `/galerie/carte/` montre le champ de chaque image sur le ciel entier ; on y zoome jusqu'à voir l'image posée à sa place. La carte est dessinée dans le navigateur (`src/vues/CarteCiel.astro`, avec `d3-geo`).
+
+- Le fond (étoiles jusqu'à la magnitude 5, constellations, Voie lactée) est dans `src/data/ciel.json`, tiré de [d3-celestial](https://github.com/ofrohn/d3-celestial) (licence BSD, copie dans `src/data/ciel-LICENSE-d3-celestial.txt`) par `scripts/preparer-ciel.mjs`. Il n'a pas à être refait.
+- Les champs sont dans `src/data/galerie-champs.json` : centre, quatre coins (haut-gauche, haut-droit, bas-droit, bas-gauche de l'image) et contour, en degrés. Une image sans champ n'apparaît pas sur la carte. Les champs marqués `"provisoire": true` ont été posés d'après le centre approximatif et le champ nominal, sans rotation.
+- Pour les contours exacts : lancer `scripts/pixinsight/champs_galerie.js` dans PixInsight (copié sur Cassini ; il lit les images résolues par `carte_solve.js`), puis `node scripts/importer-champs.mjs`. À refaire pour toute nouvelle image, après sa carte de repérage.
+
 ### Écrire un nouveau carnet
 
 Créer un fichier Markdown dans `src/content/carnets/`, par exemple `premiere-lumiere-texas.md` :

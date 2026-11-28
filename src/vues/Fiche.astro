@@ -2,6 +2,7 @@
 // Fiche d'une image de la galerie.
 import Base from '../layouts/Base.astro';
 import { u, asset, galeriePour, traducteur } from '../lib/site.js';
+import champs from '../data/galerie-champs.json';
 
 const { slug, lang = 'fr' } = Astro.props;
 const t = traducteur(lang);
@@ -118,6 +119,7 @@ const description = `${item.subtitle}. ${[item.constellation, item.integration &
         </section>
       ))}
       <p class="discret" style="margin-top:2.5rem">{t('fiche.auteur', { x: item.author })}</p>
+      {champs[item.slug] && <p><a href={`${u('/galerie/carte/', lang)}#${item.slug}`}>{t('fiche.situer')}</a></p>}
     </div>
 
     <nav class="voisins" data-pagefind-ignore aria-label={t('fiche.voisines')} style="max-width:none">

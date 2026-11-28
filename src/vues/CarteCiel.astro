@@ -1,0 +1,369 @@
+---
+// Carte du ciel entier avec le champ de chaque image de la galerie. Dessinée dans le navigateur
+// (canvas + d3-geo) en projection de Hammer recentrée sur la région regardée : vue d'ensemble du ciel
+// entier, puis, en zoomant, un champ sans déformation où chaque image est posée à sa place.
+// Fond : src/data/ciel.json (scripts/preparer-ciel.mjs). Champs : src/data/galerie-champs.json.
+import Base from '../layouts/Base.astro';
+import { u, asset, galeriePour, traducteur } from '../lib/site.js';
+import champs from '../data/galerie-champs.json';
+
+const { lang = 'fr' } = Astro.props;
+const t = traducteur(lang);
+const items = galeriePour(lang).filter((g) => champs[g.slug]).map((g) => {
+  const c = champs[g.slug];
+  return {
+    slug: g.slug, url: u(g.url, lang), designation: g.designation, nom: g.name,
+    vignette: asset(g.cover.thumb ?? g.cover.web),
+    centre: c.centre, coins: c.coins, contour: c.contour ?? null, provisoire: !!c.provisoire,
+  };
+});
+const provisoire = items.some((i) => i.provisoire);
+const donnees = { lang, champs: items };
+---
+<Base title={t('ciel.titre')} description={t('ciel.meta')} lang={lang}>
+  <div class="page">
+    <header class="fiche-titre">
+      <p class="surtitre"><a href={u('/galerie/', lang)} style="color:inherit;text-decoration:none">{t('nav.galerie')}</a></p>
+      <h1>{t('ciel.titre')}</h1>
+      <p class="sous-titre">{t('ciel.intro', { n: items.length })}</p>
+    </header>
+
+    <div class="ciel" id="ciel" data-carte={JSON.stringify(donnees)}>
+      <canvas aria-label={t('ciel.titre')} role="img"></canvas>
+      <div class="ciel-outils">
+        <button type="button" data-zoom="1.6" aria-label={t('ciel.plus')}>+</button>
+        <button type="button" data-zoom="0.625" aria-label={t('ciel.moins')}>−</button>
+        <button type="button" data-zoom="0">{t('ciel.tout')}</button>
+      </div>
+      <div class="ciel-bulle" hidden></div>
+    </div>
+    <p class="discret ciel-aide">{t('ciel.aide')}</p>
+
+    <ul class="ciel-liste">
+      {items.map((i) => (
+        <li data-slug={i.slug}>
+          <a href={i.url}><img src={i.vignette} alt="" width="90" height="60" loading="lazy" /></a>
+          <div>
+            <a href={i.url}><strong>{i.designation}</strong></a>
+            <span class="discret">{i.nom}</span>
+          </div>
+          <button type="button" data-voir={i.slug}>{t('ciel.voir')}</button>
+        </li>
+      ))}
+    </ul>
+
+    <p class="discret ciel-credit">{t('ciel.credit')}{provisoire && ` ${t('ciel.provisoire')}`}</p>
+  </div>
+
+  <script>
+    import { geoProjection, geoPath, geoGraticule } from 'd3-geo';
+    import ciel from '../data/ciel.json';
+
+    const boite = document.getElementById('ciel');
+    if (boite) {
+      const { lang, champs } = JSON.parse(boite.dataset.carte);
+      const canvas = boite.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+      const bulle = boite.querySelector('.ciel-bulle');
+      const RAD = Math.PI / 180;
+      const ad = (a) => (a > 180 ? a - 360 : a);
+
+      // Projection de Hammer, retournée (est à gauche, comme on voit le ciel).
+      const hammer = (l, p) => {
+        const c = Math.cos(p), k = Math.sqrt(2 / (1 + c * Math.cos(l / 2)));
+        return [2 * k * c * Math.sin(l / 2), k * Math.sin(p)];
+      };
+      hammer.invert = (x, y) => {
+        const z = Math.sqrt(1 - (x / 4) ** 2 - (y / 2) ** 2);
+        return [2 * Math.atan2(z * x, 2 * (2 * z * z - 1)), Math.asin(z * y)];
+      };
+      const proj = geoProjection(hammer).reflectX(true).precision(0.4);
+      const chemin = geoPath(proj, ctx);
+
+      // État de la vue : centre (ascension droite, déclinaison en degrés) et facteur de zoom.
+      let survol = null, choisi = null;
+      const DEPART = { ad: 20, dec: 12, z: 1 };
+      let vue = { ...DEPART };
+      let L = 0, H = 0, dpr = 1, base = 1;
+      const ZMAX = 70;
+      // À faible zoom, on garde l'équateur horizontal ; la vue s'incline peu à peu en zoomant.
+      const inclinaison = (z) => Math.min(1, Math.max(0, (z - 1.15) / 1.6));
+      const borner = (v) => {
+        v.z = Math.min(ZMAX, Math.max(1, v.z));
+        v.dec = Math.min(90, Math.max(-90, v.dec));
+        v.ad = ((v.ad % 360) + 360) % 360;
+        return v;
+      };
+      const regler = () => {
+        const k = inclinaison(vue.z);
+        // Vue d'ensemble : le dessin est remonté pour montrer surtout le ciel du nord.
+        const decalage = (1 - k) * DEPART.dec;
+        proj.rotate([-ad(vue.ad), -vue.dec * k]).scale(base * vue.z)
+          .translate([L / 2, H / 2 + decalage * RAD * base * vue.z * 1.1]);
+      };
+
+      // ── Fond ─────────────────────────────────────────────────────────────
+      const voie = ciel.voieLactee.map((niveau) => ({ type: 'MultiPolygon', coordinates: niveau }));
+      const lignes = { type: 'MultiLineString', coordinates: ciel.lignes.flat() };
+      const grilles = { large: geoGraticule().step([30, 15]).extentMinor([[-180, -80.01], [180, 80.01]])(), fine: geoGraticule().step([15, 5]).extentMinor([[-180, -85.01], [180, 85.01]])() };
+
+      // ── Images ───────────────────────────────────────────────────────────
+      const images = new Map();
+      const image = (c) => {
+        if (!images.has(c.slug)) {
+          const im = new Image();
+          im.onload = () => dessiner();
+          im.src = c.vignette;
+          images.set(c.slug, im);
+        }
+        const im = images.get(c.slug);
+        return im.complete && im.naturalWidth ? im : null;
+      };
+      const P = ([a, d]) => proj([ad(a), d]);
+      let formes = [];
+
+      function dessiner() {
+        if (!L) return;
+        regler();
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, L, H);
+        const z = vue.z, etroit = L * z < 900;
+
+        ctx.beginPath(); chemin({ type: 'Sphere' });
+        ctx.fillStyle = '#0b0e16'; ctx.fill();
+        ctx.save(); ctx.clip();
+
+        ctx.fillStyle = 'rgba(184, 196, 232, 0.05)';
+        for (const v of voie) { ctx.beginPath(); chemin(v); ctx.fill(); }
+
+        ctx.lineWidth = 0.8; ctx.strokeStyle = '#1f2635';
+        ctx.beginPath(); chemin(z > 5 ? grilles.fine : grilles.large); ctx.stroke();
+
+        ctx.lineWidth = 0.9; ctx.strokeStyle = '#34405a';
+        ctx.beginPath(); chemin(lignes); ctx.stroke();
+
+        ctx.fillStyle = '#dfe6f5';
+        const grossit = Math.min(1.8, 1 + (z - 1) * 0.04);
+        for (const [a, d, m] of ciel.etoiles) {
+          const p = proj([a, d]);
+          if (!p || p[0] < -5 || p[0] > L + 5 || p[1] < -5 || p[1] > H + 5) continue;
+          ctx.beginPath(); ctx.arc(p[0], p[1], Math.max(0.55, (5.6 - m) * 0.5) * grossit, 0, 2 * Math.PI); ctx.fill();
+        }
+
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        if (!etroit) {
+          ctx.font = '500 9.5px system-ui, sans-serif'; ctx.fillStyle = '#6f7891';
+          for (const n of ciel.noms) {
+            if (n.rang > 2 && z < 1.8) continue;
+            const p = proj(n.pos);
+            if (p) ctx.fillText((lang === 'en' ? n.en : n.fr).toUpperCase(), p[0], p[1]);
+          }
+          ctx.font = '9px system-ui, sans-serif'; ctx.fillStyle = '#4b5469';
+          for (let h = 0; h < 24; h += z > 5 ? 1 : 2) {
+            const p = proj([ad(h * 15), 0]);
+            if (p) ctx.fillText(`${h} h`, p[0], p[1] + 8);
+          }
+          const pas = z > 5 ? 5 : 15;
+          for (let d = -75; d <= 85; d += pas) {
+            if (!d) continue;
+            const p = proj([ad(vue.ad), d]);
+            if (p) ctx.fillText(`${d > 0 ? '+' : '−'}${Math.abs(d)}°`, p[0] + 16, p[1]);
+          }
+        }
+
+        // Champs : image posée sur son quadrilatère (déformation affine, juste pour de petits champs).
+        formes = [];
+        for (const c of champs) {
+          const contour = (c.contour ?? c.coins).map(P);
+          if (contour.some((p) => !p)) continue;
+          const xs = contour.map((p) => p[0]), ys = contour.map((p) => p[1]);
+          if (Math.max(...xs) < 0 || Math.min(...xs) > L || Math.max(...ys) < 0 || Math.min(...ys) > H) continue;
+          const [p0, p1, , p3] = c.coins.map(P);
+          const taille = Math.hypot(p1[0] - p0[0], p1[1] - p0[1]);
+          const im = taille > 60 ? image(c) : null;
+          if (im) {
+            ctx.save();
+            ctx.setTransform(dpr * (p1[0] - p0[0]) / im.naturalWidth, dpr * (p1[1] - p0[1]) / im.naturalWidth,
+              dpr * (p3[0] - p0[0]) / im.naturalHeight, dpr * (p3[1] - p0[1]) / im.naturalHeight, dpr * p0[0], dpr * p0[1]);
+            ctx.globalAlpha = 0.95;
+            ctx.drawImage(im, 0, 0);
+            ctx.restore();
+          }
+          const actif = c.slug === survol || c.slug === choisi;
+          ctx.beginPath();
+          contour.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)));
+          ctx.closePath();
+          if (!im) { ctx.fillStyle = actif ? 'rgba(220, 180, 106, 0.45)' : 'rgba(220, 180, 106, 0.22)'; ctx.fill(); }
+          ctx.lineWidth = actif ? 1.8 : 1.2; ctx.strokeStyle = actif ? '#ffffff' : '#dcb46a'; ctx.stroke();
+          formes.push({ c, contour, haut: Math.min(...ys), cx: (Math.min(...xs) + Math.max(...xs)) / 2, actif });
+        }
+        ctx.font = `600 ${etroit ? 9.5 : 11}px system-ui, sans-serif`;
+        ctx.textBaseline = 'bottom'; ctx.lineJoin = 'round';
+        for (const f of formes) {
+          ctx.lineWidth = 3; ctx.strokeStyle = '#05070b'; ctx.strokeText(f.c.designation, f.cx, f.haut - 2);
+          ctx.fillStyle = f.actif ? '#ffffff' : '#dcb46a'; ctx.fillText(f.c.designation, f.cx, f.haut - 2);
+        }
+        ctx.restore();
+      }
+
+      // ── Taille ───────────────────────────────────────────────────────────
+      const redimensionner = () => {
+        L = canvas.clientWidth; H = canvas.clientHeight; dpr = window.devicePixelRatio || 1;
+        canvas.width = Math.round(L * dpr); canvas.height = Math.round(H * dpr);
+        // Sur un écran étroit, le ciel entier déborde un peu à gauche et à droite : on le fait glisser.
+        base = Math.min(L / (4 * Math.SQRT2) * (L < 600 ? 1.45 : 0.98), H / (2 * Math.SQRT2) * 1.3);
+        dessiner();
+      };
+      new ResizeObserver(redimensionner).observe(canvas);
+
+      // ── Déplacements ─────────────────────────────────────────────────────
+      let anim = 0;
+      const aller = (cible, duree = 600) => {
+        cancelAnimationFrame(anim);
+        if (duree <= 0) { vue = borner(cible); dessiner(); return; }
+        const de = { ...vue }, t0 = performance.now();
+        let dAd = ((cible.ad - de.ad + 540) % 360) - 180;
+        const lz0 = Math.log(de.z), lz1 = Math.log(cible.z);
+        const pas = (t) => {
+          const k = Math.min(1, (t - t0) / duree), e = k < 0.5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2;
+          vue = borner({ ad: de.ad + dAd * e, dec: de.dec + (cible.dec - de.dec) * e, z: Math.exp(lz0 + (lz1 - lz0) * e) });
+          dessiner();
+          if (k < 1) anim = requestAnimationFrame(pas);
+        };
+        anim = requestAnimationFrame(pas);
+      };
+      // Sous le curseur : coordonnées célestes (ascension droite 0..360).
+      const ciel_ = (x, y) => {
+        regler();
+        const p = proj.invert([x, y]);
+        return p && isFinite(p[0]) ? [((p[0] % 360) + 360) % 360, p[1]] : null;
+      };
+      const zoomer = (f, x = L / 2, y = H / 2) => {
+        const avant = ciel_(x, y);
+        const z = Math.min(ZMAX, Math.max(1, vue.z * f));
+        if (!avant || z === 1) return borner({ ...vue, z, ...(z === 1 ? { ad: DEPART.ad, dec: DEPART.dec } : {}) });
+        // Rapproche le centre du point visé pour que celui-ci reste à peu près sous le curseur.
+        const k = 1 - vue.z / z;
+        const dAd = ((avant[0] - vue.ad + 540) % 360) - 180;
+        return borner({ ad: vue.ad + dAd * k, dec: vue.dec + (avant[1] - vue.dec) * k, z });
+      };
+      const voir = (slug, duree) => {
+        const c = champs.find((x) => x.slug === slug);
+        if (!c) return;
+        choisi = slug;
+        const pts = c.coins;
+        const etendue = Math.max(...pts.map(([a, d]) => Math.hypot((((a - c.centre[0] + 540) % 360) - 180) * Math.cos(c.centre[1] * RAD), d - c.centre[1])));
+        // Le champ occupe environ la moitié de la hauteur de la carte.
+        const z = Math.min(ZMAX, (H * 0.28) / (base * etendue * RAD));
+        aller({ ad: c.centre[0], dec: c.centre[1], z }, duree);
+      };
+
+      canvas.addEventListener('wheel', (e) => {
+        e.preventDefault(); cancelAnimationFrame(anim);
+        const r = canvas.getBoundingClientRect();
+        vue = zoomer(Math.exp(-e.deltaY * 0.0015), e.clientX - r.left, e.clientY - r.top);
+        dessiner();
+      }, { passive: false });
+
+      const doigts = new Map();
+      let glisse = false, depart = null;
+      const dedans = (x, y, poly) => {
+        let o = false;
+        for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+          const [xi, yi] = poly[i], [xj, yj] = poly[j];
+          if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) o = !o;
+        }
+        return o;
+      };
+      const sous = (x, y) => [...formes].reverse().find((f) => dedans(x, y, f.contour))?.c ?? null;
+      canvas.addEventListener('pointerdown', (e) => {
+        doigts.set(e.pointerId, [e.clientX, e.clientY]);
+        glisse = false; depart = [e.clientX, e.clientY];
+      });
+      canvas.addEventListener('pointermove', (e) => {
+        const r = canvas.getBoundingClientRect();
+        if (!doigts.has(e.pointerId)) {
+          const c = sous(e.clientX - r.left, e.clientY - r.top);
+          if ((c?.slug ?? null) !== survol) { survol = c?.slug ?? null; dessiner(); }
+          canvas.style.cursor = c ? 'pointer' : '';
+          bulle.hidden = !c;
+          if (c) {
+            bulle.textContent = `${c.designation} — ${c.nom}`;
+            bulle.style.left = `${e.clientX - r.left + 14}px`; bulle.style.top = `${e.clientY - r.top + 14}px`;
+          }
+          return;
+        }
+        const avant = doigts.get(e.pointerId);
+        if (!glisse && Math.hypot(e.clientX - depart[0], e.clientY - depart[1]) > 4) { glisse = true; canvas.setPointerCapture(e.pointerId); bulle.hidden = true; }
+        if (!glisse) return;
+        cancelAnimationFrame(anim);
+        if (doigts.size === 1) {
+          // Glisser déplace le ciel avec le doigt.
+          const parRad = base * vue.z;
+          const dAd = (e.clientX - avant[0]) / parRad / RAD / Math.max(0.25, Math.cos(vue.dec * RAD * inclinaison(vue.z)));
+          const dDec = (e.clientY - avant[1]) / parRad / RAD;
+          vue = borner({ ...vue, ad: vue.ad + dAd, dec: vue.z > 1.15 ? vue.dec + dDec : vue.dec });
+        } else if (doigts.size === 2) {
+          const autre = [...doigts.entries()].find(([id]) => id !== e.pointerId)[1];
+          const d0 = Math.hypot(avant[0] - autre[0], avant[1] - autre[1]);
+          const d1 = Math.hypot(e.clientX - autre[0], e.clientY - autre[1]);
+          if (d0 > 0) vue = zoomer(d1 / d0, (e.clientX + autre[0]) / 2 - r.left, (e.clientY + autre[1]) / 2 - r.top);
+        }
+        doigts.set(e.pointerId, [e.clientX, e.clientY]);
+        dessiner();
+      });
+      const lacher = (e) => {
+        const r = canvas.getBoundingClientRect();
+        if (doigts.has(e.pointerId) && !glisse && e.type === 'pointerup') {
+          const c = sous(e.clientX - r.left, e.clientY - r.top);
+          if (c) location.href = c.url;
+        }
+        doigts.delete(e.pointerId);
+      };
+      canvas.addEventListener('pointerup', lacher);
+      canvas.addEventListener('pointercancel', lacher);
+      canvas.addEventListener('pointerleave', () => { bulle.hidden = true; if (survol) { survol = null; dessiner(); } });
+
+      boite.querySelectorAll('[data-zoom]').forEach((b) => b.addEventListener('click', () => {
+        const f = Number(b.dataset.zoom);
+        if (!f) choisi = null;
+        aller(f ? zoomer(f) : { ...DEPART });
+      }));
+      document.querySelectorAll('[data-voir]').forEach((b) => b.addEventListener('click', () => {
+        voir(b.dataset.voir);
+        boite.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }));
+      document.querySelectorAll('.ciel-liste li').forEach((li) => {
+        li.addEventListener('mouseenter', () => { survol = li.dataset.slug; dessiner(); });
+        li.addEventListener('mouseleave', () => { survol = null; dessiner(); });
+      });
+      redimensionner();
+      if (location.hash.length > 1) voir(decodeURIComponent(location.hash.slice(1)), 0);
+      addEventListener('hashchange', () => location.hash.length > 1 && voir(decodeURIComponent(location.hash.slice(1))));
+    }
+  </script>
+</Base>
+
+<style is:global>
+  .ciel { position: relative; border: 1px solid var(--trait); border-radius: 8px; overflow: hidden; background: #05070b; margin-top: 1rem; }
+  .ciel canvas { display: block; width: 100%; aspect-ratio: 2 / 1; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+  .ciel canvas:active { cursor: grabbing; }
+  @media (max-width: 40rem) { .ciel canvas { aspect-ratio: 4 / 3; } }
+  .ciel-outils { position: absolute; top: 0.6rem; right: 0.6rem; display: flex; gap: 0.3rem; z-index: 2; }
+  .ciel-outils button, .ciel-liste button {
+    font: inherit; font-size: 0.85rem; color: var(--texte); background: rgba(17, 20, 28, 0.85);
+    border: 1px solid var(--trait); border-radius: 5px; padding: 0.25rem 0.65rem; cursor: pointer; min-width: 2rem;
+  }
+  .ciel-outils button:hover, .ciel-liste button:hover { border-color: var(--accent); }
+  .ciel-bulle { position: absolute; z-index: 3; pointer-events: none; background: rgba(17, 20, 28, 0.95); border: 1px solid var(--trait); border-radius: 5px; padding: 0.3rem 0.6rem; font-size: 0.85rem; max-width: 20rem; }
+  .ciel-aide { font-size: 0.85rem; margin: 0.5rem 0 2rem; }
+  .ciel-liste { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); gap: 0.6rem 1.5rem; }
+  .ciel-liste li { display: flex; align-items: center; gap: 0.8rem; padding: 0.5rem 0; border-bottom: 1px solid var(--trait); }
+  .ciel-liste img { width: 90px; height: 60px; object-fit: cover; border-radius: 4px; display: block; }
+  .ciel-liste li > div { flex: 1; min-width: 0; display: flex; flex-direction: column; font-size: 0.92rem; }
+  .ciel-liste li > div a { color: var(--texte); text-decoration: none; }
+  .ciel-liste li > div a:hover { color: var(--accent); }
+  .ciel-liste .discret { font-size: 0.85rem; }
+  .ciel-credit { font-size: 0.8rem; margin-top: 2rem; }
+  @media (max-width: 40rem) { .ciel-outils button { padding: 0.15rem 0.5rem; font-size: 0.8rem; } .ciel-liste { grid-template-columns: 1fr; } }
+</style>
